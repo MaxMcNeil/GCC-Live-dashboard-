@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>GCC LIVE — Riyadh · Dubai · Muscat · Kuwait</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B1220;
+  --panel:#121B2E;
+  --panel-2:#0E1626;
+  --gold:#C9A24B;
+  --live:#E63946;
+  --teal:#2FBEA5;
+  --sand:#EDE6D6;
+  --sand-dim:#9AA3B5;
+  --line:rgba(201,162,75,0.18);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html,body{
+  width:100%; height:100%; overflow:hidden;
+  background:radial-gradient(ellipse at 20% -10%, #16223a 0%, var(--bg) 55%);
+  color:var(--sand);
+  font-family:'IBM Plex Sans', sans-serif;
+}
+.stage{
+  width:100vw; height:100vh;
+  display:grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* ===== HEADER ===== */
+header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 1.4vh 2.2vw;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(201,162,75,0.06), transparent);
+}
+.brand{ display:flex; align-items:center; gap:1vw; }
+.brand .mark{
+  width:2.4vh; height:2.4vh; border-radius:50%;
+  background:var(--live);
+  box-shadow:0 0 1.2vh var(--live);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{ transform:scale(1); opacity:1;}
+  50%{ transform:scale(1.35); opacity:0.55;}
+}
+.brand h1{
+  font-family:'Big Shoulders Display', sans-serif;
+  font-weight:800;
+  letter-spacing:0.06em;
+  font-size: clamp(18px, 2.6vw, 34px);
+  color:var(--sand);
+  text-transform:uppercase;
+}
+.brand h1 span{ color:var(--gold); }
+.clocks{ display:flex; gap:2.4vw; font-family:'JetBrains Mono', monospace; }
+.clocks div{ text-align:right; }
+.clocks .city{ font-size:0.72em; color:var(--sand-dim); text-transform:uppercase; letter-spacing:0.08em;}
+.clocks .time{ font-size: clamp(14px, 1.6vw, 22px); color:var(--gold); font-weight:600; }
+
+/* ===== MAIN GRID ===== */
+main{
+  display:grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  gap: 1.4vh 1.4vw;
+  padding: 1.4vh 2.2vw;
+  overflow:hidden;
+}
+.panel{
+  background:linear-gradient(180deg, var(--panel), var(--panel-2));
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding: 1.6vh 1.4vw;
+  display:flex; flex-direction:column;
+  min-height:0;
+  animation: rise 0.6s ease both;
+}
+@keyframes rise{
+  from{ opacity:0; transform:translateY(10px);}
+  to{ opacity:1; transform:translateY(0);}
+}
+.panel h2{
+  font-family:'Big Shoulders Display', sans-serif;
+  font-size: clamp(13px, 1.3vw, 18px);
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--gold);
+  border-bottom:1px solid var(--line);
+  padding-bottom:0.8vh; margin-bottom:1vh;
+  display:flex; align-items:center; gap:0.5em;
+}
+.panel h2::before{ content:"◆"; font-size:0.6em; color:var(--teal); }
+.scroll{ overflow-y:auto; flex:1; }
+.scroll::-webkit-scrollbar{ width:4px; }
+.scroll::-webkit-scrollbar-thumb{ background:var(--line); border-radius:4px; }
+
+.news-item{
+  padding:0.9vh 0; border-bottom:1px dashed var(--line);
+  font-size: clamp(11px, 0.95vw, 14px);
+  animation: fadeIn 0.5s ease both;
+  line-height:1.35;
+}
+.news-item b{ color:var(--teal); font-weight:600; display:block; font-size:0.85em; margin-bottom:2px;}
+@keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
+
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:0.8vh 0.8vw; }
+.stat{
+  background:rgba(255,255,255,0.03); border-radius:8px; padding:1vh 0.9vw;
+  border:1px solid var(--line);
+}
+.stat .label{ font-size:0.68em; color:var(--sand-dim); text-transform:uppercase; letter-spacing:0.06em;}
+.stat .value{ font-family:'JetBrains Mono', monospace; font-size:clamp(15px,1.6vw,22px); font-weight:600; color:var(--sand); }
+.stat.up .value{ color:var(--teal); }
+.stat.down .value{ color:var(--live); }
+
+.city-row{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1vh 0; border-bottom:1px dashed var(--line);
+  font-size:clamp(11px,1vw,14px);
+}
+.city-row .temp{ font-family:'JetBrains Mono', monospace; color:var(--gold); font-weight:600; font-size:1.15em; }
+
+/* ===== TICKER ===== */
+.ticker-wrap{
+  border-top:1px solid var(--line);
+  background:linear-gradient(90deg, var(--gold), #8a6d2e);
+  overflow:hidden; white-space:nowrap;
+  height:5.2vh; display:flex; align-items:center;
+}
+.ticker-wrap .tag{
+  background:var(--bg); color:var(--gold); font-family:'Big Shoulders Display';
+  font-weight:800; letter-spacing:0.08em; padding:0 1.4vw; height:100%;
+  display:flex; align-items:center; flex-shrink:0; font-size:clamp(12px,1.1vw,16px);
+}
+.ticker-track{
+  display:inline-block; white-space:nowrap;
+  animation: scroll-left 45s linear infinite;
+  color:#1a1206; font-weight:600; font-size:clamp(12px,1.05vw,15px);
+  padding-left:2vw;
+}
+.ticker-track span{ margin-right:4vw; }
+@keyframes scroll-left{
+  0%{ transform:translateX(0); }
+  100%{ transform:translateX(-50%); }
+}
+
+.updated{
+  position:fixed; bottom:0.6vh; right:1vw; font-size:10px;
+  color:var(--sand-dim); font-family:'JetBrains Mono', monospace; opacity:0.6;
+}
+
+/* ===== ORIENTATION: PORTRAIT (1080x1920) ===== */
+body.portrait main{
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr;
+  overflow-y:auto;
+}
+body.portrait .clocks{ display:none; }
+body.portrait .brand h1{ font-size:clamp(16px,4vw,22px); }
+</style>
+</head>
+<body>
+<div class="stage">
+  <header>
+    <div class="brand">
+      <div class="mark"></div>
+      <h1>GULF <span>LIVE</span> DESK</h1>
+    </div>
+    <div class="clocks" id="clocks"></div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Fil d'actualité — Golfe</h2>
+      <div class="scroll" id="news-feed"><div class="news-item">Chargement des flux…</div></div>
+    </section>
+
+    <section class="panel">
+      <h2>Marchés & Devises</h2>
+      <div class="grid-2" id="markets-grid"></div>
+      <h2 style="margin-top:1.4vh">Trafic aérien</h2>
+      <div class="grid-2" id="flights-grid"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Météo — Capitales</h2>
+      <div class="scroll" id="weather-list"></div>
+    </section>
+  </main>
+
+  <div class="ticker-wrap">
+    <div class="tag">● LIVE</div>
+    <div class="ticker-track" id="ticker"><span>Chargement du bandeau d'informations…</span></div>
+  </div>
+</div>
+<div class="updated" id="updated"></div>
+
+<script>
+const TZ = {
+  "Riyadh": "Asia/Riyadh",
+  "Dubai": "Asia/Dubai",
+  "Muscat": "Asia/Muscat",
+  "Kuwait": "Asia/Kuwait"
+};
+
+function detectOrientation(){
+  const isPortrait = window.innerHeight > window.innerWidth;
+  document.body.classList.toggle('portrait', isPortrait);
+}
+window.addEventListener('resize', detectOrientation);
+detectOrientation();
+
+function renderClocks(){
+  const el = document.getElementById('clocks');
+  el.innerHTML = Object.entries(TZ).map(([city, tz]) => {
+    const t = new Date().toLocaleTimeString('fr-FR', {timeZone: tz, hour:'2-digit', minute:'2-digit'});
+    return `<div><div class="city">${city}</div><div class="time">${t}</div></div>`;
+  }).join('');
+}
+setInterval(renderClocks, 1000);
+renderClocks();
+
+async function loadData(){
+  try{
+    const res = await fetch('data.json?_=' + Date.now());
+    const data = await res.json();
+    renderNews(data.news || {});
+    renderMarkets(data.markets || {});
+    renderWeather(data.weather || {});
+    renderFlights(data.flights || {});
+    renderTicker(data);
+    document.getElementById('updated').textContent =
+      'MAJ: ' + new Date(data.generated_at_utc).toLocaleString('fr-FR');
+  }catch(e){
+    console.error('Erreur chargement data.json', e);
+  }
+}
+
+function renderNews(news){
+  const el = document.getElementById('news-feed');
+  let html = '';
+  for(const [source, items] of Object.entries(news)){
+    (items || []).slice(0,3).forEach(item => {
+      html += `<div class="news-item"><b>${source}</b>${escapeHtml(item.title)}</div>`;
+    });
+  }
+  el.innerHTML = html || '<div class="news-item">Aucune donnée disponible pour le moment.</div>';
+}
+
+function renderMarkets(markets){
+  const el = document.getElementById('markets-grid');
+  let html = '';
+  for(const [label, val] of Object.entries(markets)){
+    if(label === 'crypto'){
+      for(const [coin, prices] of Object.entries(val || {})){
+        html += `<div class="stat"><div class="label">${coin}</div><div class="value">$${(prices.usd||0).toLocaleString()}</div></div>`;
+      }
+    } else {
+      html += `<div class="stat"><div class="label">${label}</div><div class="value">${val}</div></div>`;
+    }
+  }
+  el.innerHTML = html || '<div class="stat"><div class="label">Marchés</div><div class="value">—</div></div>';
+}
+
+function renderWeather(weather){
+  const el = document.getElementById('weather-list');
+  let html = '';
+  for(const [city, w] of Object.entries(weather)){
+    const t = w.temperature_2m !== undefined ? Math.round(w.temperature_2m) + '°C' : '—';
+    html += `<div class="city-row"><span>${city}</span><span class="temp">${t}</span></div>`;
+  }
+  el.innerHTML = html || '<div class="city-row">Chargement…</div>';
+}
+
+function renderFlights(flights){
+  const el = document.getElementById('flights-grid');
+  let html = '';
+  for(const [ap, count] of Object.entries(flights)){
+    html += `<div class="stat"><div class="label">${ap}</div><div class="value">${count} vols</div></div>`;
+  }
+  el.innerHTML = html || '<div class="stat"><div class="label">Trafic aérien</div><div class="value">—</div></div>';
+}
+
+function renderTicker(data){
+  const parts = [];
+  for(const items of Object.values(data.news || {})){
+    (items||[]).slice(0,2).forEach(i => parts.push(i.title));
+  }
+  const track = document.getElementById('ticker');
+  const content = parts.map(p => `<span>${escapeHtml(p)}</span>`).join('');
+  track.innerHTML = content + content; // dupliqué pour boucle continue
+}
+
+function escapeHtml(str){
+  return (str||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+loadData();
+setInterval(loadData, 60000); // refresh toutes les 60s côté client
+</script>
+</body>
+</html>
