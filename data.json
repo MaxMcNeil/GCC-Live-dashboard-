@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-28T13:26:50.469852+00:00",
+  "generated_at_utc": "2026-08-28T13:28:47.041237+00:00",
   "news": {
     "Google News - Saudi Arabia": [
       {
@@ -99,7 +99,7 @@
     ],
     "Google News - Kuwait": [
       {
-        "title": "Kuwait and Qatar Add to Growing Oil Flows Getting Through Hormuz - Bloomberg.com",
+        "title": "Kuwait and Qatar Add to Growing Oil Flows Getting Through Hormuz - Bloomberg",
         "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxONlJzdTZyQ2hNZmpJcGVYVVpYOENkZTZTcDRfMlNyWTdQeWlLWVRhQlNWZHVWNGZERjltS2NhblU1YTRsZGRCZWtqQkgtMG40U2tVR0dTVV9TOTNiVWxpbWNkSDU5VVMzcUx5d3VhMXZnenZkbXB5ZnAyTFBkV0RqYWh0MlZIT2IzWDNYcXZwRHBGZF9tMnNOT0JkdVJWUDhJdVJDSGZ2SVpvUk9KcVVRU1lqb1pCZw?oc=5",
         "published": "Thu, 27 Aug 2026 05:22:00 GMT"
       },
@@ -185,19 +185,19 @@
     "USD/AED": 3.6726,
     "USD/OMR": 0.3848,
     "USD/KWD": 0.3083,
-    "Brent Crude": 87.51,
-    "Gold": 4649.1001,
+    "Brent Crude": 87.53,
+    "Gold": 4649.2998,
     "crypto": {
       "bitcoin": {
-        "usd": 79288
+        "usd": 79287
       },
       "ethereum": {
-        "usd": 2498.08
+        "usd": 2497.74
       }
     }
   },
   "flights": {
-    "DXB (Dubai)": 7,
+    "DXB (Dubai)": 8,
     "RUH (Riyadh)": 0,
     "MCT (Muscat)": 0
   }
