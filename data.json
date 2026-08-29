@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-29T15:50:12.762645+00:00",
+  "generated_at_utc": "2026-08-29T15:51:58.711180+00:00",
   "news": {
     "Google News - Saudi Arabia": [
       {
@@ -213,15 +213,15 @@
     "Gold": 4529.8999,
     "crypto": {
       "bitcoin": {
-        "usd": 77908
+        "usd": 77918
       },
       "ethereum": {
-        "usd": 2445.85
+        "usd": 2446.22
       }
     }
   },
   "flights": {
-    "DXB (Dubai)": 5,
+    "DXB (Dubai)": 8,
     "RUH (Riyadh)": 0,
     "MCT (Muscat)": 0
   },
