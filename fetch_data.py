@@ -149,16 +149,20 @@ def translate_title(text):
     return text
 
 # ---------------------------------------------------------------------------
-# 1. Flux RSS officiels (actualités / communiqués)
+# 1. Flux RSS — priorité absolue aux sources NATIVEMENT arabes
 # ---------------------------------------------------------------------------
+# Stratégie changée : traduire des titres anglais (même avec garde-fous)
+# produit un arabe globalement maladroit dès que la phrase est un peu longue,
+# pas seulement sur des idiomes isolés. La vraie solution est d'aller chercher
+# des articles déjà écrits en arabe par de vrais médias arabes, plutôt que de
+# les faire passer par une machine à traduire gratuite.
 RSS_FEEDS = {
-    "SPA (Arabie Saoudite)": "https://www.spa.gov.sa/rss.php?lang=ar",
-    "WAM (Émirats)": "https://www.wam.ae/en/rss",
-    "Oman Observer": "https://www.omanobserver.om/rss",
-    "Google News - Saudi Arabia": "https://news.google.com/rss/search?q=Saudi+Arabia&hl=en",
-    "Google News - UAE": "https://news.google.com/rss/search?q=UAE&hl=en",
-    "Google News - Oman": "https://news.google.com/rss/search?q=Oman&hl=en",
-    "Google News - Kuwait": "https://news.google.com/rss/search?q=Kuwait&hl=en",
+    "وكالة الأنباء السعودية (SPA) 🇸🇦": "https://www.spa.gov.sa/rss.php?lang=ar",
+    "وكالة أنباء الإمارات (WAM) 🇦🇪": "https://www.wam.ae/ar/rss",
+    "أخبار السعودية 🇸🇦": "https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9&hl=ar&gl=SA&ceid=SA:ar",
+    "أخبار الإمارات 🇦🇪": "https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA&hl=ar&gl=AE&ceid=AE:ar",
+    "أخبار عُمان 🇴🇲": "https://news.google.com/rss/search?q=%D8%B9%D9%8F%D9%85%D8%A7%D9%86&hl=ar&gl=OM&ceid=OM:ar",
+    "أخبار الكويت 🇰🇼": "https://news.google.com/rss/search?q=%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA&hl=ar&gl=KW&ceid=KW:ar",
 }
 
 def fetch_rss(max_items=6):

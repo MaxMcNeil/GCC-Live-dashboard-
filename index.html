@@ -282,12 +282,10 @@ const TZ = {
   "الكويت": { tz:"Asia/Kuwait", flag:"🇰🇼" }
 };
 
-const NEWS_SOURCE_LABELS = {
-  "Google News - Saudi Arabia": "السعودية 🇸🇦",
-  "Google News - UAE":          "الإمارات 🇦🇪",
-  "Google News - Oman":         "عُمان 🇴🇲",
-  "Google News - Kuwait":       "الكويت 🇰🇼"
-};
+// Les clés RSS_FEEDS (fetch_data.py) contiennent déjà un libellé arabe + drapeau
+// (ex: "أخبار عُمان 🇴🇲") — donc NEWS_SOURCE_LABELS[source] || source retombe
+// naturellement sur un affichage propre sans table de correspondance à maintenir.
+const NEWS_SOURCE_LABELS = {};
 
 const WEATHER_CITY_LABELS = {
   "Riyadh":     { name:"الرياض",     flag:"🇸🇦" },
