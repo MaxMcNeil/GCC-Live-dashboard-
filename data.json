@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-29T16:24:13.804277+00:00",
+  "generated_at_utc": "2026-08-29T16:26:27.157452+00:00",
   "news": {
     "Google News - Saudi Arabia": [
       {
@@ -213,10 +213,10 @@
     "Gold": 4529.8999,
     "crypto": {
       "bitcoin": {
-        "usd": 77971
+        "usd": 77939
       },
       "ethereum": {
-        "usd": 2449.78
+        "usd": 2448.46
       }
     }
   },
