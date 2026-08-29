@@ -2,7 +2,7 @@ name: Update GCC Live Data
 
 on:
   schedule:
-    - cron: "*/10 * * * *"   # toutes les 10 minutes
+    - cron: "0 */5 * * *"   # toutes les 5 heures
   workflow_dispatch: {}       # bouton "Run workflow" manuel
   push:
     branches: [main]
@@ -29,16 +29,19 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install feedparser requests yfinance
+        run: pip install -r requirements.txt
 
       - name: Fetch data
         run: python fetch_data.py
+        # Le script lui-même écrit un résumé détaillé dans l'onglet "Summary"
+        # du run (tableau ✅/❌ par source + message d'erreur exact), donc pas
+        # besoin de creuser les logs bruts pour trouver la cause d'un souci.
 
       - name: Commit updated data.json
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data.json
+          git add data.json translation_cache.json
           git diff --quiet && git diff --staged --quiet || git commit -m "auto: refresh data.json [skip ci]"
           git push
         continue-on-error: true
