@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>GCC LIVE — Riyadh · Dubai · Muscat · Kuwait</title>
+<title>الخليج المباشر — الرياض · دبي · مسقط · الكويت</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#0B1220;
@@ -21,18 +22,39 @@
 *{box-sizing:border-box; margin:0; padding:0;}
 html,body{
   width:100%; height:100%; overflow:hidden;
-  background:radial-gradient(ellipse at 20% -10%, #16223a 0%, var(--bg) 55%);
+  background:radial-gradient(ellipse at 80% -10%, #16223a 0%, var(--bg) 55%);
   color:var(--sand);
-  font-family:'IBM Plex Sans', sans-serif;
+  font-family:'IBM Plex Sans Arabic', sans-serif;
 }
 .stage{
   width:100vw; height:100vh;
   display:grid;
   grid-template-rows: auto 1fr auto;
+  position:relative;
+}
+
+/* ===== FLAG WATERMARK (decorative only, sits behind header text, never over data) ===== */
+.flag-band{
+  position:absolute; inset:0 0 auto 0; height:9vh;
+  display:flex; align-items:center; justify-content:space-evenly;
+  font-size:6vh; opacity:0.05; filter:saturate(0.7);
+  pointer-events:none; z-index:0; user-select:none;
+  letter-spacing:2vw;
+}
+.nation-strip{
+  position:absolute; left:0; right:0; top:0; height:3px; z-index:2;
+  background:linear-gradient(90deg,
+    #006C35 0 25%,      /* السعودية */
+    #EF3340 25% 50%,    /* الإمارات (لمسة حمراء) */
+    #DB161B 50% 75%,    /* عمان */
+    #007A3D 75% 100%    /* الكويت */
+  );
+  opacity:0.65;
 }
 
 /* ===== HEADER ===== */
 header{
+  position:relative; z-index:1;
   display:flex; align-items:center; justify-content:space-between;
   padding: 1.4vh 2.2vw;
   border-bottom:1px solid var(--line);
@@ -44,27 +66,44 @@ header{
   background:var(--live);
   box-shadow:0 0 1.2vh var(--live);
   animation: pulse 1.4s ease-in-out infinite;
+  flex-shrink:0;
 }
 @keyframes pulse{
   0%,100%{ transform:scale(1); opacity:1;}
   50%{ transform:scale(1.35); opacity:0.55;}
 }
 .brand h1{
-  font-family:'Big Shoulders Display', sans-serif;
-  font-weight:800;
-  letter-spacing:0.06em;
+  font-family:'Noto Kufi Arabic', sans-serif;
+  font-weight:900;
+  letter-spacing:0;
   font-size: clamp(18px, 2.6vw, 34px);
   color:var(--sand);
-  text-transform:uppercase;
 }
 .brand h1 span{ color:var(--gold); }
-.clocks{ display:flex; gap:2.4vw; font-family:'JetBrains Mono', monospace; }
-.clocks div{ text-align:right; }
-.clocks .city{ font-size:0.72em; color:var(--sand-dim); text-transform:uppercase; letter-spacing:0.08em;}
-.clocks .time{ font-size: clamp(14px, 1.6vw, 22px); color:var(--gold); font-weight:600; }
+.brand .sub{
+  font-size:0.62em; color:var(--sand-dim); font-weight:500;
+  margin-inline-start:0.6vw; border-inline-start:1px solid var(--line); padding-inline-start:0.8vw;
+}
+.clocks{ display:flex; gap:2vw; font-family:'JetBrains Mono', monospace; align-items:center; }
+.clocks div.clockcell{ text-align:center; }
+.clocks .flag{ font-size:1.3em; display:block; margin-bottom:2px; }
+.clocks .city{ font-size:0.68em; color:var(--sand-dim); letter-spacing:0.02em;}
+.clocks .time{ font-size: clamp(14px, 1.6vw, 22px); color:var(--gold); font-weight:600; direction:ltr; }
+
+.sound-toggle{
+  width:3.4vh; height:3.4vh; border-radius:50%;
+  border:1px solid var(--line); background:rgba(255,255,255,0.03);
+  color:var(--gold); font-size:1.5vh; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  margin-inline-start:1.6vw; flex-shrink:0;
+  transition:background 0.2s, transform 0.15s;
+}
+.sound-toggle:hover{ background:rgba(201,162,75,0.12); transform:scale(1.06); }
+.sound-toggle.muted{ color:var(--sand-dim); }
 
 /* ===== MAIN GRID ===== */
 main{
+  position:relative; z-index:1;
   display:grid;
   grid-template-columns: 1.15fr 1fr 1fr;
   gap: 1.4vh 1.4vw;
@@ -85,16 +124,17 @@ main{
   to{ opacity:1; transform:translateY(0);}
 }
 .panel h2{
-  font-family:'Big Shoulders Display', sans-serif;
+  font-family:'Noto Kufi Arabic', sans-serif;
+  font-weight:700;
   font-size: clamp(13px, 1.3vw, 18px);
-  letter-spacing:0.1em;
-  text-transform:uppercase;
+  letter-spacing:0;
   color:var(--gold);
   border-bottom:1px solid var(--line);
   padding-bottom:0.8vh; margin-bottom:1vh;
   display:flex; align-items:center; gap:0.5em;
 }
 .panel h2::before{ content:"◆"; font-size:0.6em; color:var(--teal); }
+.panel h2 .flagmark{ margin-inline-start:auto; font-size:0.85em; opacity:0.8; letter-spacing:0.25em; }
 .scroll{ overflow-y:auto; flex:1; }
 .scroll::-webkit-scrollbar{ width:4px; }
 .scroll::-webkit-scrollbar-thumb{ background:var(--line); border-radius:4px; }
@@ -103,18 +143,18 @@ main{
   padding:0.9vh 0; border-bottom:1px dashed var(--line);
   font-size: clamp(11px, 0.95vw, 14px);
   animation: fadeIn 0.5s ease both;
-  line-height:1.35;
+  line-height:1.5;
 }
-.news-item b{ color:var(--teal); font-weight:600; display:block; font-size:0.85em; margin-bottom:2px;}
-@keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
+.news-item b{ color:var(--teal); font-weight:600; display:flex; align-items:center; gap:0.4em; font-size:0.85em; margin-bottom:2px;}
+@keyframes fadeIn{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
 
 .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:0.8vh 0.8vw; }
 .stat{
   background:rgba(255,255,255,0.03); border-radius:8px; padding:1vh 0.9vw;
   border:1px solid var(--line);
 }
-.stat .label{ font-size:0.68em; color:var(--sand-dim); text-transform:uppercase; letter-spacing:0.06em;}
-.stat .value{ font-family:'JetBrains Mono', monospace; font-size:clamp(15px,1.6vw,22px); font-weight:600; color:var(--sand); }
+.stat .label{ font-size:0.68em; color:var(--sand-dim); letter-spacing:0.02em;}
+.stat .value{ font-family:'JetBrains Mono', monospace; font-size:clamp(15px,1.6vw,22px); font-weight:600; color:var(--sand); direction:ltr; text-align:right; }
 .stat.up .value{ color:var(--teal); }
 .stat.down .value{ color:var(--live); }
 
@@ -123,35 +163,39 @@ main{
   padding:1vh 0; border-bottom:1px dashed var(--line);
   font-size:clamp(11px,1vw,14px);
 }
-.city-row .temp{ font-family:'JetBrains Mono', monospace; color:var(--gold); font-weight:600; font-size:1.15em; }
+.city-row .name{ display:flex; align-items:center; gap:0.5em; }
+.city-row .temp{ font-family:'JetBrains Mono', monospace; color:var(--gold); font-weight:600; font-size:1.15em; direction:ltr; }
 
 /* ===== TICKER ===== */
 .ticker-wrap{
+  position:relative; z-index:1;
   border-top:1px solid var(--line);
   background:linear-gradient(90deg, var(--gold), #8a6d2e);
   overflow:hidden; white-space:nowrap;
   height:5.2vh; display:flex; align-items:center;
 }
 .ticker-wrap .tag{
-  background:var(--bg); color:var(--gold); font-family:'Big Shoulders Display';
-  font-weight:800; letter-spacing:0.08em; padding:0 1.4vw; height:100%;
-  display:flex; align-items:center; flex-shrink:0; font-size:clamp(12px,1.1vw,16px);
+  background:var(--bg); color:var(--gold); font-family:'Noto Kufi Arabic';
+  font-weight:700; letter-spacing:0; padding:0 1.4vw; height:100%;
+  display:flex; align-items:center; gap:0.4em; flex-shrink:0; font-size:clamp(12px,1.1vw,16px);
 }
+.ticker-wrap .tag .flagmark{ font-size:0.95em; letter-spacing:0.15em; }
 .ticker-track{
   display:inline-block; white-space:nowrap;
   animation: scroll-left 45s linear infinite;
   color:#1a1206; font-weight:600; font-size:clamp(12px,1.05vw,15px);
-  padding-left:2vw;
+  padding-inline-start:2vw;
 }
-.ticker-track span{ margin-right:4vw; }
+.ticker-track span{ margin-inline-end:4vw; }
 @keyframes scroll-left{
   0%{ transform:translateX(0); }
   100%{ transform:translateX(-50%); }
 }
 
 .updated{
-  position:fixed; bottom:0.6vh; right:1vw; font-size:10px;
+  position:fixed; bottom:0.6vh; inset-inline-end:1vw; font-size:10px;
   color:var(--sand-dim); font-family:'JetBrains Mono', monospace; opacity:0.6;
+  direction:ltr;
 }
 
 /* ===== ORIENTATION: PORTRAIT (1080x1920) ===== */
@@ -162,51 +206,163 @@ body.portrait main{
 }
 body.portrait .clocks{ display:none; }
 body.portrait .brand h1{ font-size:clamp(16px,4vw,22px); }
+
+@media (prefers-reduced-motion: reduce){
+  .brand .mark, .panel, .news-item{ animation:none !important; }
+  .ticker-track{ animation-duration:120s; }
+}
 </style>
 </head>
 <body>
 <div class="stage">
+  <div class="nation-strip"></div>
+  <div class="flag-band" aria-hidden="true">🇸🇦 🇦🇪 🇴🇲 🇰🇼 🇸🇦 🇦🇪 🇴🇲 🇰🇼</div>
   <header>
     <div class="brand">
       <div class="mark"></div>
-      <h1>GULF <span>LIVE</span> DESK</h1>
+      <h1>الخليج <span>المباشر</span></h1>
+      <span class="sub">غرفة أخبار الخليج</span>
     </div>
-    <div class="clocks" id="clocks"></div>
+    <div style="display:flex; align-items:center;">
+      <div class="clocks" id="clocks"></div>
+      <button class="sound-toggle" id="soundToggle" title="كتم/تفعيل الأصوات">🔊</button>
+    </div>
   </header>
 
   <main>
     <section class="panel">
-      <h2>Fil d'actualité — Golfe</h2>
-      <div class="scroll" id="news-feed"><div class="news-item">Chargement des flux…</div></div>
+      <h2>نشرة الأخبار — الخليج <span class="flagmark">🇸🇦 🇦🇪 🇴🇲 🇰🇼</span></h2>
+      <div class="scroll" id="news-feed"><div class="news-item">جارٍ تحميل الأخبار…</div></div>
     </section>
 
     <section class="panel">
-      <h2>Marchés & Devises</h2>
+      <h2>الأسواق والعملات</h2>
       <div class="grid-2" id="markets-grid"></div>
-      <h2 style="margin-top:1.4vh">Trafic aérien</h2>
+      <h2 style="margin-top:1.4vh">حركة الطيران</h2>
       <div class="grid-2" id="flights-grid"></div>
     </section>
 
     <section class="panel">
-      <h2>Météo — Capitales</h2>
+      <h2>الطقس — العواصم</h2>
       <div class="scroll" id="weather-list"></div>
     </section>
   </main>
 
   <div class="ticker-wrap">
-    <div class="tag">● LIVE</div>
-    <div class="ticker-track" id="ticker"><span>Chargement du bandeau d'informations…</span></div>
+    <div class="tag"><span class="flagmark">●</span> مباشر</div>
+    <div class="ticker-track" id="ticker" dir="rtl"><span>جارٍ تحميل الشريط الإخباري…</span></div>
   </div>
 </div>
 <div class="updated" id="updated"></div>
 
 <script>
+/* ===================== إعداد المدن والأعلام ===================== */
 const TZ = {
-  "Riyadh": "Asia/Riyadh",
-  "Dubai": "Asia/Dubai",
-  "Muscat": "Asia/Muscat",
-  "Kuwait": "Asia/Kuwait"
+  "الرياض": { tz:"Asia/Riyadh", flag:"🇸🇦" },
+  "دبي":    { tz:"Asia/Dubai",  flag:"🇦🇪" },
+  "مسقط":   { tz:"Asia/Muscat", flag:"🇴🇲" },
+  "الكويت": { tz:"Asia/Kuwait", flag:"🇰🇼" }
 };
+
+const NEWS_SOURCE_LABELS = {
+  "Google News - Saudi Arabia": "السعودية 🇸🇦",
+  "Google News - UAE":          "الإمارات 🇦🇪",
+  "Google News - Oman":         "عُمان 🇴🇲",
+  "Google News - Kuwait":       "الكويت 🇰🇼"
+};
+
+const WEATHER_CITY_LABELS = {
+  "Riyadh":     { name:"الرياض",     flag:"🇸🇦" },
+  "Jeddah":     { name:"جدة",        flag:"🇸🇦" },
+  "Dubai":      { name:"دبي",        flag:"🇦🇪" },
+  "Abu Dhabi":  { name:"أبوظبي",     flag:"🇦🇪" },
+  "Muscat":     { name:"مسقط",       flag:"🇴🇲" },
+  "Kuwait City":{ name:"مدينة الكويت", flag:"🇰🇼" }
+};
+
+const MARKET_LABELS = {
+  "USD/SAR": "دولار/ريال سعودي",
+  "USD/AED": "دولار/درهم إماراتي",
+  "USD/OMR": "دولار/ريال عُماني",
+  "USD/KWD": "دولار/دينار كويتي",
+  "Brent Crude": "خام برنت",
+  "Gold": "الذهب (أونصة)"
+};
+const CRYPTO_LABELS = { "bitcoin":"بيتكوين", "ethereum":"إيثيريوم" };
+
+const FLIGHT_LABELS = {
+  "DXB (Dubai)":  "مطار دبي — DXB",
+  "RUH (Riyadh)": "مطار الرياض — RUH",
+  "MCT (Muscat)": "مطار مسقط — MCT"
+};
+
+/* ===================== نظام الأصوات (بيبات ناعمة للأخبار والحركة) ===================== */
+let audioCtx = null;
+let soundEnabled = true;
+try{ soundEnabled = localStorage.getItem('gcc_sound') !== 'off'; }catch(e){}
+
+function ensureAudio(){
+  if(!audioCtx){
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if(!Ctx) return null;
+    audioCtx = new Ctx();
+  }
+  if(audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+function beep({freq=880, duration=0.09, volume=0.045, type='sine', delay=0}={}){
+  if(!soundEnabled) return;
+  const ctx = ensureAudio();
+  if(!ctx) return;
+  try{
+    const t0 = ctx.currentTime + delay;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = type;
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.0001, t0);
+    gain.gain.exponentialRampToValueAtTime(volume, t0 + 0.012);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(t0);
+    osc.stop(t0 + duration + 0.02);
+  }catch(e){}
+}
+
+// أول تفاعل من المستخدم يفعّل الصوت (سياسات المتصفح تمنع الصوت التلقائي)
+['click','touchstart','keydown'].forEach(evt => {
+  window.addEventListener(evt, () => ensureAudio(), { once:true, passive:true });
+});
+
+function updateSoundIcon(){
+  const btn = document.getElementById('soundToggle');
+  btn.textContent = soundEnabled ? '🔊' : '🔇';
+  btn.classList.toggle('muted', !soundEnabled);
+}
+document.getElementById('soundToggle').addEventListener('click', () => {
+  soundEnabled = !soundEnabled;
+  try{ localStorage.setItem('gcc_sound', soundEnabled ? 'on' : 'off'); }catch(e){}
+  updateSoundIcon();
+  if(soundEnabled) beep({freq:990, duration:0.08, volume:0.05});
+});
+updateSoundIcon();
+
+/* بيب خفيف مرافق لكل ظهور حركة/دوران للشريط الإخباري */
+document.getElementById('ticker').addEventListener('animationiteration', () => {
+  beep({freq:1046, duration:0.07, volume:0.03, type:'triangle'});
+});
+
+/* ===================== الساعات ===================== */
+function renderClocks(){
+  const el = document.getElementById('clocks');
+  el.innerHTML = Object.entries(TZ).map(([city, info]) => {
+    const t = new Date().toLocaleTimeString('ar', {timeZone: info.tz, hour:'2-digit', minute:'2-digit', numberingSystem:'latn'});
+    return `<div class="clockcell"><span class="flag">${info.flag}</span><div class="city">${city}</div><div class="time">${t}</div></div>`;
+  }).join('');
+}
+setInterval(renderClocks, 1000);
+renderClocks();
 
 function detectOrientation(){
   const isPortrait = window.innerHeight > window.innerWidth;
@@ -215,15 +371,9 @@ function detectOrientation(){
 window.addEventListener('resize', detectOrientation);
 detectOrientation();
 
-function renderClocks(){
-  const el = document.getElementById('clocks');
-  el.innerHTML = Object.entries(TZ).map(([city, tz]) => {
-    const t = new Date().toLocaleTimeString('fr-FR', {timeZone: tz, hour:'2-digit', minute:'2-digit'});
-    return `<div><div class="city">${city}</div><div class="time">${t}</div></div>`;
-  }).join('');
-}
-setInterval(renderClocks, 1000);
-renderClocks();
+/* ===================== تحميل البيانات ===================== */
+let lastNewsHash = '';
+let lastTickerHash = '';
 
 async function loadData(){
   try{
@@ -235,21 +385,34 @@ async function loadData(){
     renderFlights(data.flights || {});
     renderTicker(data);
     document.getElementById('updated').textContent =
-      'MAJ: ' + new Date(data.generated_at_utc).toLocaleString('fr-FR');
+      'آخر تحديث: ' + new Intl.DateTimeFormat('ar', {numberingSystem:'latn', dateStyle:'short', timeStyle:'medium'}).format(new Date(data.generated_at_utc));
   }catch(e){
-    console.error('Erreur chargement data.json', e);
+    console.error('تعذّر تحميل data.json', e);
   }
 }
 
 function renderNews(news){
   const el = document.getElementById('news-feed');
-  let html = '';
-  for(const [source, items] of Object.entries(news)){
-    (items || []).slice(0,3).forEach(item => {
-      html += `<div class="news-item"><b>${source}</b>${escapeHtml(item.title)}</div>`;
+  const items = [];
+  for(const [source, arr] of Object.entries(news)){
+    const label = NEWS_SOURCE_LABELS[source] || source;
+    (arr || []).slice(0,3).forEach(item => items.push({ label, title:item.title }));
+  }
+  const hash = JSON.stringify(items.map(i => i.title));
+  const isNew = hash !== lastNewsHash;
+  lastNewsHash = hash;
+
+  el.innerHTML = items.length
+    ? items.map(i => `<div class="news-item"><b>${i.label}</b>${escapeHtml(i.title)}</div>`).join('')
+    : '<div class="news-item">لا توجد بيانات متاحة حالياً.</div>';
+
+  // بيب متتابع وناعم مع ظهور كل خبر — كأنه نقر برقية أخبار
+  if(isNew){
+    document.querySelectorAll('#news-feed .news-item').forEach((node, i) => {
+      node.style.animationDelay = (i * 0.06) + 's';
+      beep({ freq: 620 + (i % 5) * 30, duration:0.05, volume:0.03, delay: i * 0.08 });
     });
   }
-  el.innerHTML = html || '<div class="news-item">Aucune donnée disponible pour le moment.</div>';
 }
 
 function renderMarkets(markets){
@@ -258,42 +421,55 @@ function renderMarkets(markets){
   for(const [label, val] of Object.entries(markets)){
     if(label === 'crypto'){
       for(const [coin, prices] of Object.entries(val || {})){
-        html += `<div class="stat"><div class="label">${coin}</div><div class="value">$${(prices.usd||0).toLocaleString()}</div></div>`;
+        const name = CRYPTO_LABELS[coin] || coin;
+        html += `<div class="stat"><div class="label">${name}</div><div class="value">$${(prices.usd||0).toLocaleString('en-US')}</div></div>`;
       }
     } else {
-      html += `<div class="stat"><div class="label">${label}</div><div class="value">${val}</div></div>`;
+      const name = MARKET_LABELS[label] || label;
+      html += `<div class="stat"><div class="label">${name}</div><div class="value">${val}</div></div>`;
     }
   }
-  el.innerHTML = html || '<div class="stat"><div class="label">Marchés</div><div class="value">—</div></div>';
+  el.innerHTML = html || '<div class="stat"><div class="label">الأسواق</div><div class="value">—</div></div>';
 }
 
 function renderWeather(weather){
   const el = document.getElementById('weather-list');
   let html = '';
   for(const [city, w] of Object.entries(weather)){
+    const info = WEATHER_CITY_LABELS[city] || { name: city, flag:'' };
     const t = w.temperature_2m !== undefined ? Math.round(w.temperature_2m) + '°C' : '—';
-    html += `<div class="city-row"><span>${city}</span><span class="temp">${t}</span></div>`;
+    html += `<div class="city-row"><span class="name">${info.flag} ${info.name}</span><span class="temp">${t}</span></div>`;
   }
-  el.innerHTML = html || '<div class="city-row">Chargement…</div>';
+  el.innerHTML = html || '<div class="city-row">جارٍ التحميل…</div>';
 }
 
 function renderFlights(flights){
   const el = document.getElementById('flights-grid');
   let html = '';
   for(const [ap, count] of Object.entries(flights)){
-    html += `<div class="stat"><div class="label">${ap}</div><div class="value">${count} vols</div></div>`;
+    const name = FLIGHT_LABELS[ap] || ap;
+    html += `<div class="stat"><div class="label">${name}</div><div class="value">${count} رحلة</div></div>`;
   }
-  el.innerHTML = html || '<div class="stat"><div class="label">Trafic aérien</div><div class="value">—</div></div>';
+  el.innerHTML = html || '<div class="stat"><div class="label">حركة الطيران</div><div class="value">—</div></div>';
 }
 
 function renderTicker(data){
   const parts = [];
-  for(const items of Object.values(data.news || {})){
-    (items||[]).slice(0,2).forEach(i => parts.push(i.title));
+  for(const [source, arr] of Object.entries(data.news || {})){
+    (arr||[]).slice(0,2).forEach(i => parts.push(i.title));
   }
   const track = document.getElementById('ticker');
+  const hash = JSON.stringify(parts);
+  const isNew = hash !== lastTickerHash;
+  lastTickerHash = hash;
+
   const content = parts.map(p => `<span>${escapeHtml(p)}</span>`).join('');
-  track.innerHTML = content + content; // dupliqué pour boucle continue
+  track.innerHTML = content + content; // مكرر لضمان استمرارية الحركة
+
+  if(isNew){
+    beep({freq:880, duration:0.09, volume:0.035});
+    beep({freq:1175, duration:0.09, volume:0.03, delay:0.09});
+  }
 }
 
 function escapeHtml(str){
@@ -301,7 +477,7 @@ function escapeHtml(str){
 }
 
 loadData();
-setInterval(loadData, 60000); // refresh toutes les 60s côté client
+setInterval(loadData, 60000); // تحديث كل 60 ثانية من جهة المتصفح
 </script>
 </body>
 </html>
