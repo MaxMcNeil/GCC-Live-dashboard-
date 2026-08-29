@@ -32,15 +32,6 @@ html,body{
   grid-template-rows: auto 1fr auto;
   position:relative;
 }
-
-/* ===== FLAG WATERMARK (decorative only, sits behind header text, never over data) ===== */
-.flag-band{
-  position:absolute; inset:0 0 auto 0; height:9vh;
-  display:flex; align-items:center; justify-content:space-evenly;
-  font-size:6vh; opacity:0.05; filter:saturate(0.7);
-  pointer-events:none; z-index:0; user-select:none;
-  letter-spacing:2vw;
-}
 .nation-strip{
   position:absolute; left:0; right:0; top:0; height:3px; z-index:2;
   background:linear-gradient(90deg,
@@ -52,17 +43,17 @@ html,body{
   opacity:0.65;
 }
 
-/* ===== HEADER ===== */
+/* ===== HEADER (مضغوط عمدًا — كل الوضوح مطلوب في المنطقة الرئيسية أسفله) ===== */
 header{
   position:relative; z-index:1;
   display:flex; align-items:center; justify-content:space-between;
-  padding: 1.4vh 2.2vw;
+  padding: 1.2vh 2.2vw;
   border-bottom:1px solid var(--line);
   background:linear-gradient(180deg, rgba(201,162,75,0.06), transparent);
 }
 .brand{ display:flex; align-items:center; gap:1vw; }
 .brand .mark{
-  width:2.4vh; height:2.4vh; border-radius:50%;
+  width:2.2vh; height:2.2vh; border-radius:50%;
   background:var(--live);
   box-shadow:0 0 1.2vh var(--live);
   animation: pulse 1.4s ease-in-out infinite;
@@ -75,25 +66,20 @@ header{
 .brand h1{
   font-family:'Noto Kufi Arabic', sans-serif;
   font-weight:900;
-  letter-spacing:0;
-  font-size: clamp(18px, 2.6vw, 34px);
+  font-size: clamp(16px, 2.2vw, 28px);
   color:var(--sand);
 }
 .brand h1 span{ color:var(--gold); }
-.brand .sub{
-  font-size:0.62em; color:var(--sand-dim); font-weight:500;
-  margin-inline-start:0.6vw; border-inline-start:1px solid var(--line); padding-inline-start:0.8vw;
-}
 .clocks{ display:flex; gap:2vw; font-family:'JetBrains Mono', monospace; align-items:center; }
 .clocks div.clockcell{ text-align:center; }
 .clocks .flag{ font-size:1.3em; display:block; margin-bottom:2px; }
 .clocks .city{ font-size:0.68em; color:var(--sand-dim); letter-spacing:0.02em;}
-.clocks .time{ font-size: clamp(14px, 1.6vw, 22px); color:var(--gold); font-weight:600; direction:ltr; }
+.clocks .time{ font-size: clamp(13px, 1.4vw, 19px); color:var(--gold); font-weight:600; direction:ltr; }
 
 .sound-toggle{
-  width:3.4vh; height:3.4vh; border-radius:50%;
+  width:3.2vh; height:3.2vh; border-radius:50%;
   border:1px solid var(--line); background:rgba(255,255,255,0.03);
-  color:var(--gold); font-size:1.5vh; cursor:pointer;
+  color:var(--gold); font-size:1.4vh; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   margin-inline-start:1.6vw; flex-shrink:0;
   transition:background 0.2s, transform 0.15s;
@@ -101,105 +87,110 @@ header{
 .sound-toggle:hover{ background:rgba(201,162,75,0.12); transform:scale(1.06); }
 .sound-toggle.muted{ color:var(--sand-dim); }
 
-/* ===== MAIN GRID ===== */
+/* ===== ZONE PRINCIPALE : un seul contenu géant à la fois =====
+   L'ancienne grille à 3 colonnes (listes + chiffres minuscules) est
+   remplacée par une seule zone plein écran, avec deux "scènes" empilées
+   (actu vedette / statistiques) qui se fondent l'une dans l'autre. */
 main{
   position:relative; z-index:1;
-  display:grid;
-  grid-template-columns: 1.15fr 1fr 1fr;
-  gap: 1.4vh 1.4vw;
-  padding: 1.4vh 2.2vw;
-  overflow:hidden;
+  padding: 2vh 3vw;
+  min-height:0;
 }
-.panel{
+#mainStage{ position:relative; width:100%; height:100%; }
+
+.scene{
+  position:absolute; inset:0;
   background:linear-gradient(180deg, var(--panel), var(--panel-2));
   border:1px solid var(--line);
-  border-radius:10px;
-  padding: 1.6vh 1.4vw;
+  border-radius:16px;
   display:flex; flex-direction:column;
-  min-height:0;
-  animation: rise 0.6s ease both;
+  padding: clamp(16px,3.4vh,40px) clamp(18px,4.4vw,56px);
+  transition: opacity 0.5s ease;
 }
-@keyframes rise{
-  from{ opacity:0; transform:translateY(10px);}
-  to{ opacity:1; transform:translateY(0);}
-}
-.panel h2{
+.scene.hidden{ opacity:0; pointer-events:none; }
+
+/* ---- Scène 1 : actu vedette (une seule à la fois, très grande) ---- */
+.hero-tag{
+  display:inline-flex; align-self:flex-start;
+  background:rgba(201,162,75,0.14); color:var(--gold);
+  border:1px solid var(--line); border-radius:999px;
+  padding:0.9vh 1.8vw; font-size:clamp(13px,1.5vw,19px); font-weight:700;
   font-family:'Noto Kufi Arabic', sans-serif;
-  font-weight:700;
-  font-size: clamp(13px, 1.3vw, 18px);
-  letter-spacing:0;
-  color:var(--gold);
-  border-bottom:1px solid var(--line);
-  padding-bottom:0.8vh; margin-bottom:1vh;
-  display:flex; align-items:center; gap:0.5em;
+  margin-bottom:clamp(14px,3vh,32px);
 }
-.panel h2::before{ content:"◆"; font-size:0.6em; color:var(--teal); }
-.panel h2 .flagmark{ margin-inline-start:auto; font-size:0.85em; opacity:0.8; letter-spacing:0.25em; }
-.scroll{ overflow-y:auto; flex:1; }
-.scroll::-webkit-scrollbar{ width:4px; }
-.scroll::-webkit-scrollbar-thumb{ background:var(--line); border-radius:4px; }
+.hero-body{ flex:1; display:flex; align-items:center; min-height:0; }
+.hero-title{
+  font-family:'Noto Kufi Arabic', sans-serif;
+  font-weight:900;
+  font-size: clamp(30px, 6vw, 84px);
+  line-height:1.32;
+  color:var(--sand);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:5; overflow:hidden;
+}
+.hero-title.long{ font-size:clamp(24px,4.6vw,58px); }
+.hero-title.xlong{ font-size:clamp(20px,3.6vw,44px); }
+.hero-title.swap{ opacity:0; transform:translateY(12px) scale(0.98); }
+.hero-progress{
+  margin-top:clamp(14px,3vh,30px);
+  height:7px; border-radius:5px; background:rgba(255,255,255,0.07); overflow:hidden;
+  flex-shrink:0;
+}
+.hero-progress-bar{
+  height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--gold));
+  border-radius:5px;
+}
 
-#news-feed{ scroll-behavior:smooth; }
-.news-item{
-  padding:0.9vh 0.6vw; border-bottom:1px dashed var(--line);
-  font-size: clamp(11px, 0.95vw, 14px);
-  animation: fadeIn 0.5s ease both;
-  line-height:1.5;
-  transition: transform 0.45s ease, background 0.45s ease, border-inline-start-color 0.45s ease, padding 0.45s ease;
-  border-inline-start:3px solid transparent;
+/* ---- Scène 2 : statistiques (marchés + météo + vols), affichée
+   périodiquement en plein écran avec de très grands chiffres, puis
+   effacée pour rendre l'espace à l'actualité ---- */
+.stats-header{
+  font-family:'Noto Kufi Arabic'; font-weight:800; color:var(--gold);
+  font-size:clamp(15px,1.9vw,24px); margin-bottom:clamp(12px,2.4vh,26px);
+  display:flex; align-items:center; gap:0.6em;
 }
-.news-item b{ color:var(--teal); font-weight:600; display:flex; align-items:center; gap:0.4em; font-size:0.85em; margin-bottom:2px;}
-@keyframes fadeIn{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
-/* عنصر الخبر "في الواجهة" أثناء الدوران التلقائي — تكبير خفيف غير مبالغ فيه */
-.news-item.featured{
-  transform: scale(1.035);
-  background: rgba(201,162,75,0.07);
-  border-inline-start-color: var(--teal);
-  padding-inline-start: 0.9vw;
+.stats-grid{
+  flex:1; min-height:0; overflow:hidden;
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr));
+  gap:clamp(10px,1.8vh,20px) clamp(10px,1.6vw,20px);
+  align-content:center;
 }
-.news-item.featured b{ color:var(--gold); }
+.stat-big{
+  background:rgba(255,255,255,0.04); border:1px solid var(--line); border-radius:14px;
+  padding:clamp(10px,2.2vh,22px) clamp(8px,1.4vw,18px); text-align:center;
+}
+.stat-big .label{ font-size:clamp(11px,1.1vw,15px); color:var(--sand-dim); margin-bottom:0.8vh; }
+.stat-big .value{
+  font-family:'JetBrains Mono', monospace; font-weight:700;
+  font-size:clamp(20px,3.1vw,42px); color:var(--sand); direction:ltr;
+}
+.stat-big.up .value{ color:var(--teal); }
+.stat-big.down .value{ color:var(--live); }
 
-.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:0.8vh 0.8vw; }
-.stat{
-  background:rgba(255,255,255,0.03); border-radius:8px; padding:1vh 0.9vw;
-  border:1px solid var(--line);
-}
-.stat .label{ font-size:0.68em; color:var(--sand-dim); letter-spacing:0.02em;}
-.stat .value{ font-family:'JetBrains Mono', monospace; font-size:clamp(15px,1.6vw,22px); font-weight:600; color:var(--sand); direction:ltr; text-align:right; }
-.stat.up .value{ color:var(--teal); }
-.stat.down .value{ color:var(--live); }
-
-.city-row{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:1vh 0; border-bottom:1px dashed var(--line);
-  font-size:clamp(11px,1vw,14px);
-}
-.city-row .name{ display:flex; align-items:center; gap:0.5em; }
-.city-row .temp{ font-family:'JetBrains Mono', monospace; color:var(--gold); font-weight:600; font-size:1.15em; direction:ltr; }
-
-/* ===== TICKER ===== */
+/* ===== BANDEAU DÉFILANT (agrandi, ralenti, contenu enrichi) ===== */
 .ticker-wrap{
   position:relative; z-index:1;
   border-top:1px solid var(--line);
   background:linear-gradient(90deg, var(--gold), #8a6d2e);
   overflow:hidden; white-space:nowrap;
-  height:5.2vh; display:flex; align-items:center;
+  height:7.6vh; display:flex; align-items:center;
 }
 .ticker-wrap .tag{
   background:var(--bg); color:var(--gold); font-family:'Noto Kufi Arabic';
-  font-weight:700; letter-spacing:0; padding:0 1.4vw; height:100%;
-  display:flex; align-items:center; gap:0.4em; flex-shrink:0; font-size:clamp(12px,1.1vw,16px);
+  font-weight:700; padding:0 1.6vw; height:100%;
+  display:flex; align-items:center; gap:0.4em; flex-shrink:0;
+  font-size:clamp(14px,1.4vw,19px);
 }
-.ticker-wrap .tag .flagmark{ font-size:0.95em; letter-spacing:0.15em; }
 .ticker-track{
-  display:inline-block; white-space:nowrap;
-  flex-shrink:0; width:max-content; /* jamais compressé par le flex du parent -> largeur de calcul fiable */
-  animation: scroll-left 45s linear infinite;
-  color:#1a1206; font-weight:600; font-size:clamp(12px,1.05vw,15px);
+  display:flex; flex-shrink:0; width:max-content;
+  animation: scroll-left 90s linear infinite;
+  color:#1a1206; font-weight:700; font-size:clamp(17px,1.75vw,25px);
   padding-inline-start:2vw;
-  will-change: transform;
 }
-.ticker-track span{ margin-inline-end:4vw; }
+.ticker-track span{ margin-inline-end:4.5vw; display:flex; align-items:center; }
+.ticker-track span::before{
+  content:"●"; font-size:0.4em; margin-inline-end:0.9vw; opacity:0.4; vertical-align:middle;
+}
 @keyframes scroll-left{
   0%{ transform:translateX(0); }
   100%{ transform:translateX(-50%); }
@@ -218,32 +209,28 @@ main{
 .health-dot.warn{ background:var(--gold); color:var(--gold); }
 .health-dot.err{ background:var(--live); color:var(--live); }
 
-/* ===== ORIENTATION: PORTRAIT (1080x1920) ===== */
-body.portrait main{
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto 1fr;
-  overflow-y:auto;
-}
+/* ===== ORIENTATION (détection auto : portrait 1080x1920 / paysage 1920x1080) =====
+   La mise en page à scène unique est déjà "responsive" par nature (clamp() + vw/vh),
+   donc peu d'ajustements spécifiques sont nécessaires ici — juste gagner un peu
+   de place dans l'en-tête en portrait. */
 body.portrait .clocks{ display:none; }
-body.portrait .brand h1{ font-size:clamp(16px,4vw,22px); }
+body.portrait header{ padding: 1vh 3vw; }
 
 @media (prefers-reduced-motion: reduce){
-  /* على بعض إصدارات متصفح OBS المدمج (CEF)، هذا الإعداد يُبلَّغ "reduce" افتراضيًا
-     حتى لو لم يطلبه المستخدم فعليًا. لذلك نُبقي على حركة الشريط ودوران الأخبار
-     (وظيفة أساسية لعرض المحتوى وليست مجرد زخرفة) ونكتفي بتخفيف اللمسات الزخرفية فقط. */
-  .brand .mark, .panel{ animation:none !important; }
+  /* بعض إصدارات متصفح OBS المدمج (CEF) تُبلِّغ "reduce" افتراضيًا حتى لو لم
+     يطلبه المستخدم فعليًا. لذلك نُبقي على الحركات الوظيفية (الشريط، تبديل
+     الأخبار، شريط التقدّم) ونكتفي بإيقاف النبض الزخرفي فقط. */
+  .brand .mark{ animation:none !important; }
 }
 </style>
 </head>
 <body>
 <div class="stage">
   <div class="nation-strip"></div>
-  <div class="flag-band" aria-hidden="true">🇸🇦 🇦🇪 🇴🇲 🇰🇼 🇸🇦 🇦🇪 🇴🇲 🇰🇼</div>
   <header>
     <div class="brand">
       <div class="mark"></div>
       <h1>الخليج <span>المباشر</span></h1>
-      <span class="sub">غرفة أخبار الخليج</span>
     </div>
     <div style="display:flex; align-items:center;">
       <div class="clocks" id="clocks"></div>
@@ -252,26 +239,24 @@ body.portrait .brand h1{ font-size:clamp(16px,4vw,22px); }
   </header>
 
   <main>
-    <section class="panel">
-      <h2>نشرة الأخبار — الخليج <span class="flagmark">🇸🇦 🇦🇪 🇴🇲 🇰🇼</span></h2>
-      <div class="scroll" id="news-feed"><div class="news-item">جارٍ تحميل الأخبار…</div></div>
-    </section>
+    <div id="mainStage">
+      <section class="scene" id="heroNews">
+        <div class="hero-tag" id="heroTag">الخليج المباشر</div>
+        <div class="hero-body">
+          <div class="hero-title" id="heroTitle">جارٍ تحميل الأخبار…</div>
+        </div>
+        <div class="hero-progress"><div class="hero-progress-bar" id="heroProgressBar"></div></div>
+      </section>
 
-    <section class="panel">
-      <h2>الأسواق والعملات</h2>
-      <div class="grid-2" id="markets-grid"></div>
-      <h2 style="margin-top:1.4vh">حركة الطيران</h2>
-      <div class="grid-2" id="flights-grid"></div>
-    </section>
-
-    <section class="panel">
-      <h2>الطقس — العواصم</h2>
-      <div class="scroll" id="weather-list"></div>
-    </section>
+      <section class="scene hidden" id="statsOverlay">
+        <div class="stats-header">📊 تحديث الأسواق والطقس والطيران</div>
+        <div class="stats-grid" id="statsGrid"></div>
+      </section>
+    </div>
   </main>
 
   <div class="ticker-wrap">
-    <div class="tag"><span class="flagmark">●</span> مباشر</div>
+    <div class="tag"><span>●</span> مباشر</div>
     <div class="ticker-track" id="ticker" dir="rtl"><span>جارٍ تحميل الشريط الإخباري…</span></div>
   </div>
 </div>
@@ -316,7 +301,7 @@ const FLIGHT_LABELS = {
   "MCT (Muscat)": "مطار مسقط — MCT"
 };
 
-/* ===================== نظام الأصوات (بيبات ناعمة للأخبار والحركة) ===================== */
+/* ===================== نظام الأصوات (بيبات ناعمة) ===================== */
 let audioCtx = null;
 let soundEnabled = true;
 try{ soundEnabled = localStorage.getItem('gcc_sound') !== 'off'; }catch(e){}
@@ -350,7 +335,6 @@ function beep({freq=880, duration=0.09, volume=0.045, type='sine', delay=0}={}){
   }catch(e){}
 }
 
-// أول تفاعل من المستخدم يفعّل الصوت (سياسات المتصفح تمنع الصوت التلقائي)
 ['click','touchstart','keydown'].forEach(evt => {
   window.addEventListener(evt, () => ensureAudio(), { once:true, passive:true });
 });
@@ -367,11 +351,6 @@ document.getElementById('soundToggle').addEventListener('click', () => {
   if(soundEnabled) beep({freq:990, duration:0.08, volume:0.05});
 });
 updateSoundIcon();
-
-/* بيب خفيف مرافق لكل ظهور حركة/دوران للشريط الإخباري */
-document.getElementById('ticker').addEventListener('animationiteration', () => {
-  beep({freq:1046, duration:0.07, volume:0.03, type:'triangle'});
-});
 
 /* ===================== الساعات ===================== */
 function renderClocks(){
@@ -398,170 +377,146 @@ if(window.ResizeObserver){
   new ResizeObserver(detectOrientation).observe(document.documentElement);
 }
 
-/* ===================== تحميل البيانات ===================== */
+function escapeHtml(str){
+  return (str||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+/* ===================== الخبر الرئيسي (خبر واحد ضخم في كل مرة) =====================
+   بدل قائمة صغيرة مزدحمة، نعرض خبرًا واحدًا كبيرًا جدًا، مع بطاقة/شارة المصدر
+   وشريط تقدّم يُظهر للمشاهد الوقت المتبقي قبل الانتقال للخبر التالي — ثم
+   تلاشٍ ناعم (fade + zoom خفيف) مصحوب ببيب عند كل تبديل. */
 let lastNewsHash = '';
-let lastTickerHash = '';
-
-async function loadData(){
-  try{
-    const res = await fetch('data.json?_=' + Date.now());
-    const data = await res.json();
-    renderNews(data.news || {});
-    renderMarkets(data.markets || {});
-    renderWeather(data.weather || {});
-    renderFlights(data.flights || {});
-    renderTicker(data);
-    document.getElementById('updatedText').textContent =
-      'آخر تحديث: ' + new Intl.DateTimeFormat('ar', {numberingSystem:'latn', dateStyle:'short', timeStyle:'medium'}).format(new Date(data.generated_at_utc));
-    renderHealth(data._meta);
-  }catch(e){
-    console.error('تعذّر تحميل data.json', e);
-    const dot = document.getElementById('healthDot');
-    dot.className = 'health-dot err';
-    dot.title = 'تعذّر تحميل data.json في المتصفح: ' + e.message;
-  }
-}
-
-function renderHealth(meta){
-  const dot = document.getElementById('healthDot');
-  if(!meta){ dot.className = 'health-dot'; dot.title = 'لا توجد معلومات تشخيصية'; return; }
-  const errors = meta.errors || [];
-  if(errors.length === 0){
-    dot.className = 'health-dot';
-    dot.title = 'كل المصادر تعمل بشكل طبيعي ✅';
-  } else {
-    const failedSources = Object.entries(meta.status || {}).filter(([,ok]) => !ok).map(([s]) => s);
-    const allDown = failedSources.length > 0 && Object.values(meta.status || {}).every(v => !v);
-    dot.className = 'health-dot ' + (allDown ? 'err' : 'warn');
-    dot.title = 'مصادر متعطلة: ' + errors.map(e => `${e.source} (${e.stage}): ${e.error}`).join(' | ');
-  }
-}
-
-/* ===================== دوران الأخبار الأبدي (يقرأ ثم ينتقل، بدون توقف نهائي) ===================== */
-let newsCarouselTimer = null;
-let newsPos = 0;          // الموضع الحالي داخل القائمة المضاعفة
-let newsCount = 0;        // عدد الأخبار الفعلي (غير مضاعف)
-let newsTitlesList = [];  // للاستخدام في حساب وقت القراءة لكل خبر
+let heroItems = [];
+let heroIndex = 0;
+let heroTimer = null;
 
 function renderNews(news){
-  const el = document.getElementById('news-feed');
   const items = [];
   for(const [source, arr] of Object.entries(news)){
     const label = NEWS_SOURCE_LABELS[source] || source;
-    (arr || []).slice(0,4).forEach(item => items.push({ label, title: item.title_ar || item.title }));
+    (arr || []).slice(0,6).forEach(item => items.push({ label, title: item.title_ar || item.title }));
   }
   const hash = JSON.stringify(items.map(i => i.title));
   const isNew = hash !== lastNewsHash;
   lastNewsHash = hash;
-  if(!isNew) return; // لا نعيد بناء القائمة أثناء الدوران الجاري لتفادي أي قفزة مرئية
+  if(!isNew) return; // لا نُعيد بناء الدوران أثناء تشغيله لتفادي أي قفزة مرئية
 
-  clearTimeout(newsCarouselTimer);
+  clearTimeout(heroTimer);
+  heroItems = items;
+  heroIndex = 0;
 
-  if(items.length === 0){
-    el.innerHTML = '<div class="news-item">لا توجد بيانات متاحة حالياً.</div>';
-    newsCount = 0;
+  if(!items.length){
+    document.getElementById('heroTag').textContent = 'الخليج المباشر';
+    document.getElementById('heroTitle').textContent = 'لا توجد بيانات متاحة حالياً.';
     return;
   }
-
-  newsCount = items.length;
-  newsTitlesList = items.map(i => i.title);
-  // القائمة تُضاعف مرة واحدة: عندما نصل لبداية النسخة الثانية (مطابقة تمامًا للأولى)
-  // نقفز فورًا لأعلى القائمة دون أي انقطاع مرئي — هذا ما يمنح إحساس "الدوران الأبدي"
-  el.innerHTML = items.concat(items).map((i, idx) =>
-    `<div class="news-item" style="animation-delay:${Math.min(idx,items.length-1) * 0.06}s"><b>${i.label}</b>${escapeHtml(i.title)}</div>`
-  ).join('');
-
-  document.querySelectorAll('#news-feed .news-item').forEach((node, i) => {
-    if(i < items.length) beep({ freq: 620 + (i % 5) * 30, duration:0.05, volume:0.03, delay: i * 0.08 });
-  });
-
-  newsPos = 0;
-  el.scrollTop = 0;
-  setFeaturedNews(0); // العنصر الأول معروف يقينًا أنه في الواجهة عند البداية — لا حاجة للتخمين
-  scheduleNextNewsTick(items[0].title);
+  showHeroItem(0, false);
 }
 
-function scheduleNextNewsTick(currentTitle){
-  clearTimeout(newsCarouselTimer);
-  if(newsCount <= 1) return;
-  // وقت قراءة يتكيّف مع طول العنوان — عنوان أطول = وقت أطول قبل الانتقال
-  const len = (currentTitle || '').length;
-  const dwell = Math.min(9000, Math.max(4200, 3000 + len * 38));
-  newsCarouselTimer = setTimeout(advanceNews, dwell);
-}
+function showHeroItem(idx, animate){
+  heroIndex = idx;
+  const item = heroItems[idx % heroItems.length];
+  const tagEl = document.getElementById('heroTag');
+  const titleEl = document.getElementById('heroTitle');
+  const barEl = document.getElementById('heroProgressBar');
 
-function advanceNews(){
-  const el = document.getElementById('news-feed');
-  const nodes = el.querySelectorAll('.news-item');
-  if(!nodes.length || newsCount === 0) return;
+  const apply = () => {
+    tagEl.textContent = item.label;
+    titleEl.textContent = item.title;
+    titleEl.classList.remove('swap');
+    titleEl.classList.toggle('long', item.title.length > 80);
+    titleEl.classList.toggle('xlong', item.title.length > 150);
+    beep({freq:660, duration:0.07, volume:0.035, type:'sine'});
 
-  newsPos++;
-  const target = nodes[newsPos];
-  if(!target) return;
+    // إعادة تشغيل شريط التقدّم من الصفر بالضبط عبر إجبار إعادة الحساب (reflow)
+    barEl.style.transition = 'none';
+    barEl.style.width = '0%';
+    void barEl.offsetWidth;
+    const dwell = Math.min(11000, Math.max(5200, 3200 + item.title.length * 42));
+    barEl.style.transition = `width ${dwell}ms linear`;
+    barEl.style.width = '100%';
 
-  target.scrollIntoView({ behavior:'smooth', block:'start' });
-  // نُعلِّم العنصر الوجهة كـ"مميز" فورًا وبشكل مؤكد (بدل تخمين لاحق حسب موضع التمرير):
-  // انتقال CSS الخاص بـ .featured يتكفل بجعل التكبير يظهر بسلاسة أثناء وصول التمرير
-  setFeaturedNews(newsPos);
-  beep({ freq:740, duration:0.06, volume:0.028, type:'triangle' }); // بيب خفيف مرافق لكل حركة
+    clearTimeout(heroTimer);
+    heroTimer = setTimeout(() => {
+      showHeroItem((heroIndex + 1) % heroItems.length, true);
+    }, dwell);
+  };
 
-  const nextTitle = newsTitlesList[newsPos % newsCount] || '';
-
-  if(newsPos >= newsCount){
-    // وصلنا لبداية النسخة المكرّرة (مطابقة للبداية الحقيقية) — نقفز فورًا بلا حركة مرئية
-    setTimeout(() => {
-      el.scrollTo({ top:0, behavior:'auto' });
-      newsPos = 0;
-      setFeaturedNews(0);
-    }, 480);
+  if(animate){
+    titleEl.classList.add('swap');
+    setTimeout(apply, 300);
+  } else {
+    apply();
   }
-  scheduleNextNewsTick(nextTitle);
 }
 
-function setFeaturedNews(pos){
-  const el = document.getElementById('news-feed');
-  const nodes = el.querySelectorAll('.news-item');
-  nodes.forEach(n => n.classList.remove('featured'));
-  if(nodes[pos]) nodes[pos].classList.add('featured');
+/* ===================== شاشة الإحصاءات الدورية =====================
+   بدل عرض الطقس وأسعار الصرف بشكل دائم (وهو ما كان يُصغّر كل شيء)،
+   نُظهرها كل 5 دقائق لمدة 30 ثانية فقط بأرقام كبيرة جدًا، ثم نمحوها
+   لإعادة كل المساحة للخبر الرئيسي. */
+const STATS_INTERVAL_MS = 5 * 60 * 1000;
+const STATS_DURATION_MS = 30 * 1000;
+const STATS_FIRST_DELAY_MS = 40 * 1000;
+let lastStatsData = null;
+
+function statBig(label, value, cls){
+  return `<div class="stat-big ${cls||''}"><div class="label">${escapeHtml(label)}</div><div class="value">${escapeHtml(String(value))}</div></div>`;
 }
 
-function renderMarkets(markets){
-  const el = document.getElementById('markets-grid');
+function renderStats(data){
+  lastStatsData = data;
+  const el = document.getElementById('statsGrid');
   let html = '';
+  const markets = data.markets || {};
   for(const [label, val] of Object.entries(markets)){
     if(label === 'crypto'){
       for(const [coin, prices] of Object.entries(val || {})){
-        const name = CRYPTO_LABELS[coin] || coin;
-        html += `<div class="stat"><div class="label">${name}</div><div class="value">$${(prices.usd||0).toLocaleString('en-US')}</div></div>`;
+        html += statBig(CRYPTO_LABELS[coin] || coin, '$' + (prices.usd||0).toLocaleString('en-US'));
       }
     } else {
-      const name = MARKET_LABELS[label] || label;
-      html += `<div class="stat"><div class="label">${name}</div><div class="value">${val}</div></div>`;
+      html += statBig(MARKET_LABELS[label] || label, val);
     }
   }
-  el.innerHTML = html || '<div class="stat"><div class="label">الأسواق</div><div class="value">—</div></div>';
+  for(const [city, w] of Object.entries(data.weather || {})){
+    if(w.temperature_2m === undefined) continue;
+    const info = WEATHER_CITY_LABELS[city] || { name:city, flag:'' };
+    html += statBig(`${info.flag} ${info.name}`, Math.round(w.temperature_2m) + '°C');
+  }
+  for(const [ap, count] of Object.entries(data.flights || {})){
+    html += statBig(FLIGHT_LABELS[ap] || ap, count + ' رحلة');
+  }
+  el.innerHTML = html || statBig('لا توجد بيانات', '—');
 }
 
-function renderWeather(weather){
-  const el = document.getElementById('weather-list');
-  let html = '';
-  for(const [city, w] of Object.entries(weather)){
-    const info = WEATHER_CITY_LABELS[city] || { name: city, flag:'' };
-    const t = w.temperature_2m !== undefined ? Math.round(w.temperature_2m) + '°C' : '—';
-    html += `<div class="city-row"><span class="name">${info.flag} ${info.name}</span><span class="temp">${t}</span></div>`;
-  }
-  el.innerHTML = html || '<div class="city-row">جارٍ التحميل…</div>';
+function showStatsOverlay(){
+  clearTimeout(heroTimer);
+  document.getElementById('heroNews').classList.add('hidden');
+  document.getElementById('statsOverlay').classList.remove('hidden');
+  beep({freq:988, duration:0.1, volume:0.04});
+  beep({freq:1318, duration:0.1, volume:0.035, delay:0.1});
 }
+function hideStatsOverlay(){
+  document.getElementById('statsOverlay').classList.add('hidden');
+  document.getElementById('heroNews').classList.remove('hidden');
+  if(heroItems.length) showHeroItem((heroIndex + 1) % heroItems.length, true);
+}
+setTimeout(() => {
+  showStatsOverlay();
+  setTimeout(hideStatsOverlay, STATS_DURATION_MS);
+  setInterval(() => {
+    showStatsOverlay();
+    setTimeout(hideStatsOverlay, STATS_DURATION_MS);
+  }, STATS_INTERVAL_MS);
+}, STATS_FIRST_DELAY_MS);
 
-function renderFlights(flights){
-  const el = document.getElementById('flights-grid');
-  let html = '';
-  for(const [ap, count] of Object.entries(flights)){
-    const name = FLIGHT_LABELS[ap] || ap;
-    html += `<div class="stat"><div class="label">${name}</div><div class="value">${count} رحلة</div></div>`;
-  }
-  el.innerHTML = html || '<div class="stat"><div class="label">حركة الطيران</div><div class="value">—</div></div>';
-}
+/* ===================== البانر السفلي (دوران أبدي حقيقي، بلا اعتماد على قياس عرض الخط) =====================
+   الإصدار السابق كان يحسب مدة الحركة من scrollWidth الفعلي للعنصر مباشرة
+   بعد تغيير innerHTML — وهذا القياس قد يقع قبل اكتمال تحميل خط عربي مخصص
+   (Noto Kufi / IBM Plex Sans Arabic)، فيُنتج مدة خاطئة تمامًا (شبه صفرية
+   أو ضخمة جدًا) وتُعطي إحساسًا بأن الشريط "يمر مرة واحدة ثم يتجمّد فارغًا".
+   الحل: نحسب المدة من عدد الأحرف مباشرة (رقم ثابت لا يعتمد على الخط أو
+   إعادة التخطيط)، فتبقى دائمًا صحيحة ومضمونة الاستمرارية. */
+let lastTickerHash = '';
 
 function buildTickerSegments(data){
   const segs = [];
@@ -602,27 +557,52 @@ function renderTicker(data){
 
   const content = parts.map(p => `<span>${escapeHtml(p)}</span>`).join('');
 
-  // ريستارت نظيف للحركة عند تغيّر المحتوى: نوقف الحركة، نغيّر النص والمدة،
-  // ثم نُعيد تفعيلها من الصفر — هذا يمنع أي "قفزة" أو تجمّد بصري قد يحدث
-  // عند تعديل مدة حركة CSS أثناء تشغيلها فعليًا
+  // عدد الأحرف الإجمالي هو أساس حساب مدة الحركة (وتيرة هادئة وثابتة،
+  // لا تتسارع أبدًا مهما زاد عدد الأخبار — هذا ما يحقّق "غير سريع جدًا")
+  const totalChars = parts.join('').length;
+  const duration = Math.min(260, Math.max(65, totalChars * 0.32));
+
   track.style.animation = 'none';
   track.innerHTML = content + content; // مكرر لضمان استمرارية الدوران الأبدي
+  void track.offsetWidth; // إجبار إعادة الرسم قبل إعادة تفعيل الحركة (تقنية إعادة التشغيل القياسية)
+  track.style.animation = `scroll-left ${duration.toFixed(1)}s linear infinite`;
 
-  requestAnimationFrame(() => {
-    const halfWidth = track.scrollWidth / 2;
-    const PIXELS_PER_SECOND = 42; // وتيرة هادئة، غير متسرعة
-    const duration = Math.min(220, Math.max(40, halfWidth / PIXELS_PER_SECOND));
-    track.style.animation = `scroll-left ${duration.toFixed(1)}s linear infinite`;
-  });
+  beep({freq:880, duration:0.09, volume:0.035});
+  beep({freq:1175, duration:0.09, volume:0.03, delay:0.09});
+}
 
-  if(isNew){
-    beep({freq:880, duration:0.09, volume:0.035});
-    beep({freq:1175, duration:0.09, volume:0.03, delay:0.09});
+/* ===================== تحميل البيانات ===================== */
+async function loadData(){
+  try{
+    const res = await fetch('data.json?_=' + Date.now());
+    const data = await res.json();
+    renderNews(data.news || {});
+    renderStats(data);
+    renderTicker(data);
+    document.getElementById('updatedText').textContent =
+      'آخر تحديث: ' + new Intl.DateTimeFormat('ar', {numberingSystem:'latn', dateStyle:'short', timeStyle:'medium'}).format(new Date(data.generated_at_utc));
+    renderHealth(data._meta);
+  }catch(e){
+    console.error('تعذّر تحميل data.json', e);
+    const dot = document.getElementById('healthDot');
+    dot.className = 'health-dot err';
+    dot.title = 'تعذّر تحميل data.json في المتصفح: ' + e.message;
   }
 }
 
-function escapeHtml(str){
-  return (str||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function renderHealth(meta){
+  const dot = document.getElementById('healthDot');
+  if(!meta){ dot.className = 'health-dot'; dot.title = 'لا توجد معلومات تشخيصية'; return; }
+  const errors = meta.errors || [];
+  if(errors.length === 0){
+    dot.className = 'health-dot';
+    dot.title = 'كل المصادر تعمل بشكل طبيعي ✅';
+  } else {
+    const failedSources = Object.entries(meta.status || {}).filter(([,ok]) => !ok).map(([s]) => s);
+    const allDown = failedSources.length > 0 && Object.values(meta.status || {}).every(v => !v);
+    dot.className = 'health-dot ' + (allDown ? 'err' : 'warn');
+    dot.title = 'مصادر متعطلة: ' + errors.map(e => `${e.source} (${e.stage}): ${e.error}`).join(' | ');
+  }
 }
 
 loadData();
