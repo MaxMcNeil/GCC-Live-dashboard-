@@ -43,13 +43,14 @@ html,body{
   opacity:0.65;
 }
 
-/* ===== HEADER (مضغوط عمدًا — كل الوضوح مطلوب في المنطقة الرئيسية أسفله) ===== */
+/* ===== HEADER ===== */
 header{
   position:relative; z-index:1;
   display:flex; align-items:center; justify-content:space-between;
   padding: 1.2vh 2.2vw;
   border-bottom:1px solid var(--line);
   background:linear-gradient(180deg, rgba(201,162,75,0.06), transparent);
+  flex-wrap:wrap; row-gap:0.8vh;
 }
 .brand{ display:flex; align-items:center; gap:1vw; }
 .brand .mark{
@@ -70,11 +71,13 @@ header{
   color:var(--sand);
 }
 .brand h1 span{ color:var(--gold); }
+
+/* ساعات المدن — مكبّرة بشكل واضح كي تبقى مقروءة من بعيد على الشاشة الحية */
 .clocks{ display:flex; gap:2vw; font-family:'JetBrains Mono', monospace; align-items:center; }
 .clocks div.clockcell{ text-align:center; }
-.clocks .flag{ font-size:1.3em; display:block; margin-bottom:2px; }
-.clocks .city{ font-size:0.68em; color:var(--sand-dim); letter-spacing:0.02em;}
-.clocks .time{ font-size: clamp(13px, 1.4vw, 19px); color:var(--gold); font-weight:600; direction:ltr; }
+.clocks .flag{ font-size:clamp(18px, 2vw, 30px); display:block; margin-bottom:2px; }
+.clocks .city{ font-size:clamp(11px, 1.15vw, 16px); color:var(--sand-dim); letter-spacing:0.02em; font-weight:500;}
+.clocks .time{ font-size: clamp(24px, 3.1vw, 44px); color:var(--gold); font-weight:700; direction:ltr; letter-spacing:0.01em;}
 
 .sound-toggle{
   width:3.2vh; height:3.2vh; border-radius:50%;
@@ -87,10 +90,11 @@ header{
 .sound-toggle:hover{ background:rgba(201,162,75,0.12); transform:scale(1.06); }
 .sound-toggle.muted{ color:var(--sand-dim); }
 
-/* ===== ZONE PRINCIPALE : un seul contenu géant à la fois =====
-   L'ancienne grille à 3 colonnes (listes + chiffres minuscules) est
-   remplacée par une seule zone plein écran, avec deux "scènes" empilées
-   (actu vedette / statistiques) qui se fondent l'une dans l'autre. */
+/* ===== ZONE PRINCIPALE : une seule grande scène (l'actu vedette) =====
+   L'ancienne "scène statistiques" plein écran a été retirée : elle
+   masquait l'actualité et rendait les chiffres illisibles. Les données
+   marchés/météo/vols vivent désormais dans une petite pastille flottante
+   (voir .stat-popup) qui ne recouvre jamais le texte. */
 main{
   position:relative; z-index:1;
   padding: 2vh 3vw;
@@ -99,25 +103,47 @@ main{
 #mainStage{ position:relative; width:100%; height:100%; }
 
 .scene{
-  position:absolute; inset:0;
+  position:relative; width:100%; height:100%;
   background:linear-gradient(180deg, var(--panel), var(--panel-2));
   border:1px solid var(--line);
   border-radius:16px;
   display:flex; flex-direction:column;
   padding: clamp(16px,3.4vh,40px) clamp(18px,4.4vw,56px);
-  transition: opacity 0.5s ease;
 }
-.scene.hidden{ opacity:0; pointer-events:none; }
 
-/* ---- Scène 1 : actu vedette (une seule à la fois, très grande) ---- */
+.hero-top{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1em; flex-shrink:0;
+  margin-bottom:clamp(14px,3vh,32px);
+}
 .hero-tag{
   display:inline-flex; align-self:flex-start;
   background:rgba(201,162,75,0.14); color:var(--gold);
   border:1px solid var(--line); border-radius:999px;
   padding:0.9vh 1.8vw; font-size:clamp(13px,1.5vw,19px); font-weight:700;
   font-family:'Noto Kufi Arabic', sans-serif;
-  margin-bottom:clamp(14px,3vh,32px);
 }
+/* شارة الأعلام — تعرض علم/أعلام الدول الخليجية المعنيّة بالخبر الظاهر حاليًا،
+   بشكل فني (تكديس خفيف + توهّج) دون أي تأثير على مساحة العنوان الكبير */
+.hero-flags{
+  display:flex; align-items:center;
+  font-size:clamp(22px,3vw,40px);
+  filter:drop-shadow(0 3px 8px rgba(0,0,0,0.5));
+}
+.hero-flags span{
+  display:inline-block;
+  margin-inline-start:-0.22em;
+  animation: flag-pop 0.45s ease backwards;
+}
+.hero-flags span:first-child{ margin-inline-start:0; }
+.hero-flags span:nth-child(1){ animation-delay:0s; }
+.hero-flags span:nth-child(2){ animation-delay:0.08s; }
+.hero-flags span:nth-child(3){ animation-delay:0.16s; }
+@keyframes flag-pop{
+  from{ opacity:0; transform:translateY(-6px) scale(0.7); }
+  to{ opacity:1; transform:translateY(0) scale(1); }
+}
+
 .hero-body{ flex:1; display:flex; align-items:center; min-height:0; }
 .hero-title{
   font-family:'Noto Kufi Arabic', sans-serif;
@@ -131,43 +157,75 @@ main{
 .hero-title.long{ font-size:clamp(24px,4.6vw,58px); }
 .hero-title.xlong{ font-size:clamp(20px,3.6vw,44px); }
 .hero-title.swap{ opacity:0; transform:translateY(12px) scale(0.98); }
+
+.hero-footer{ flex-shrink:0; margin-top:clamp(14px,3vh,30px); }
+/* مصدر الخبر — يُستخرج من نهاية العنوان الأصلي ويُعرض هنا بشكل منفصل
+   ومقروء لكن بتنسيق مختلف تمامًا عن العنوان الضخم، أسفل البطاقة */
+.hero-source{
+  display:inline-flex; align-items:center; gap:0.6em;
+  font-family:'IBM Plex Sans Arabic', sans-serif; font-weight:600;
+  font-size:clamp(12px,1.25vw,17px); color:var(--sand-dim);
+  background:rgba(255,255,255,0.05); border:1px solid var(--line);
+  border-radius:999px; padding:0.45em 1.2em;
+  margin-bottom:clamp(10px,1.8vh,18px);
+}
+.hero-source::before{ content:"🖋"; opacity:0.7; }
+.hero-source:empty{ display:none; }
 .hero-progress{
-  margin-top:clamp(14px,3vh,30px);
   height:7px; border-radius:5px; background:rgba(255,255,255,0.07); overflow:hidden;
-  flex-shrink:0;
 }
 .hero-progress-bar{
   height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--gold));
   border-radius:5px;
 }
 
-/* ---- Scène 2 : statistiques (marchés + météo + vols), affichée
-   périodiquement en plein écran avec de très grands chiffres, puis
-   effacée pour rendre l'espace à l'actualité ---- */
-.stats-header{
-  font-family:'Noto Kufi Arabic'; font-weight:800; color:var(--gold);
-  font-size:clamp(15px,1.9vw,24px); margin-bottom:clamp(12px,2.4vh,26px);
-  display:flex; align-items:center; gap:0.6em;
+/* ===== PASTILLE FLOTTANTE : marchés / météo / vols =====
+   Remplace l'ancienne scène plein écran illisible. Une seule donnée à la
+   fois, très soignée, qui boucle indéfiniment avec un petit bip à chaque
+   changement — sans jamais recouvrir le texte de l'actualité. Fonctionne
+   à l'identique en horizontal et en vertical (voir règles .portrait ci-dessous). */
+.stat-popup{
+  position:fixed;
+  bottom: calc(7.6vh + 1.3vh);
+  inset-inline-start: 2.4vw;
+  z-index:5;
+  display:flex; align-items:center; gap:0.85em;
+  background:linear-gradient(135deg, rgba(18,27,46,0.93), rgba(14,22,38,0.93));
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:0.85em 1.3em;
+  box-shadow:0 10px 30px rgba(0,0,0,0.45), 0 0 0 1px rgba(201,162,75,0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  max-width: clamp(220px, 27vw, 380px);
+  transition: opacity 0.32s ease, transform 0.32s ease;
 }
-.stats-grid{
-  flex:1; min-height:0; overflow:hidden;
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr));
-  gap:clamp(10px,1.8vh,20px) clamp(10px,1.6vw,20px);
-  align-content:center;
+.stat-popup.swap{ opacity:0; transform:translateY(10px) scale(0.95); }
+.stat-popup.empty{ display:none; }
+.popup-live-dot{
+  position:absolute; top:-4px; inset-inline-end:-4px;
+  width:8px; height:8px; border-radius:50%;
+  background:var(--teal); box-shadow:0 0 6px var(--teal);
+  animation:pulse 1.8s ease-in-out infinite;
 }
-.stat-big{
-  background:rgba(255,255,255,0.04); border:1px solid var(--line); border-radius:14px;
-  padding:clamp(10px,2.2vh,22px) clamp(8px,1.4vw,18px); text-align:center;
+.popup-icon{ font-size:clamp(22px,2.6vw,34px); flex-shrink:0; filter:drop-shadow(0 2px 4px rgba(0,0,0,.4)); }
+.popup-text{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+.popup-label{
+  font-size:clamp(11px,1.1vw,14px); color:var(--sand-dim);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
-.stat-big .label{ font-size:clamp(11px,1.1vw,15px); color:var(--sand-dim); margin-bottom:0.8vh; }
-.stat-big .value{
+.popup-value{
   font-family:'JetBrains Mono', monospace; font-weight:700;
-  font-size:clamp(20px,3.1vw,42px); color:var(--sand); direction:ltr;
+  font-size:clamp(16px,1.9vw,25px); color:var(--gold); direction:ltr;
 }
-.stat-big.up .value{ color:var(--teal); }
-.stat-big.down .value{ color:var(--live); }
 
-/* ===== BANDEAU DÉFILANT (agrandi, ralenti, contenu enrichi) ===== */
+/* ===== BANDEAU DÉFILANT (défilement JS pixel-parfait, réellement sans fin) =====
+   L'ancienne animation CSS % pouvait laisser un "trou" vide après un tour
+   lorsque le contenu était plus court que la largeur visible. On mesure
+   désormais la largeur réelle d'une copie du contenu, on en répète
+   suffisamment de copies pour ne jamais tomber à court, et on fait défiler
+   via requestAnimationFrame en rebouclant en pixels — donc toujours fluide,
+   toujours continu, quelle que soit la quantité de texte. ===== */
 .ticker-wrap{
   position:relative; z-index:1;
   border-top:1px solid var(--line);
@@ -183,23 +241,32 @@ main{
 }
 .ticker-track{
   display:flex; flex-shrink:0; width:max-content;
-  animation: scroll-left 90s linear infinite;
+  will-change:transform;
   color:#1a1206; font-weight:700; font-size:clamp(17px,1.75vw,25px);
   padding-inline-start:2vw;
 }
-.ticker-track span{ margin-inline-end:4.5vw; display:flex; align-items:center; }
-.ticker-track span::before{
+.ticker-track > span{
+  margin-inline-end:4.5vw; display:flex; align-items:center; gap:0.7em; flex-shrink:0;
+}
+.ticker-track > span::before{
   content:"●"; font-size:0.4em; margin-inline-end:0.9vw; opacity:0.4; vertical-align:middle;
 }
-@keyframes scroll-left{
-  0%{ transform:translateX(0); }
-  100%{ transform:translateX(-50%); }
+.ticker-flags{ font-size:1.25em; display:inline-flex; filter:drop-shadow(0 1px 2px rgba(0,0,0,.35)); }
+.ticker-flags span{ margin-inline-start:-0.2em; }
+.ticker-flags span:first-child{ margin-inline-start:0; }
+.ticker-col{ display:flex; flex-direction:column; align-items:flex-start; line-height:1.18; gap:2px; }
+.ticker-title{ display:block; }
+.ticker-source{
+  font-size:0.46em; font-weight:600; opacity:0.75;
+  background:rgba(0,0,0,0.14); padding:1px 9px; border-radius:6px;
+  font-family:'IBM Plex Sans Arabic', sans-serif;
 }
 
 .updated{
   position:fixed; bottom:0.6vh; inset-inline-end:1vw; font-size:10px;
   color:var(--sand-dim); font-family:'JetBrains Mono', monospace; opacity:0.75;
   direction:ltr; display:flex; align-items:center; gap:4px; cursor:default;
+  z-index:6;
 }
 .health-dot{
   display:inline-block; width:7px; height:7px; border-radius:50%;
@@ -209,12 +276,18 @@ main{
 .health-dot.warn{ background:var(--gold); color:var(--gold); }
 .health-dot.err{ background:var(--live); color:var(--live); }
 
-/* ===== ORIENTATION (détection auto : portrait 1080x1920 / paysage 1920x1080) =====
-   La mise en page à scène unique est déjà "responsive" par nature (clamp() + vw/vh),
-   donc peu d'ajustements spécifiques sont nécessaires ici — juste gagner un peu
-   de place dans l'en-tête en portrait. */
-body.portrait .clocks{ display:none; }
+/* ===== ORIENTATION (détection auto : portrait 1080x1920 / paysage 1920x1080) ===== */
 body.portrait header{ padding: 1vh 3vw; }
+body.portrait .clocks{ gap:3vw; }
+body.portrait .clocks .time{ font-size:clamp(17px, 3.6vw, 26px); }
+body.portrait .clocks .city{ font-size:clamp(9px, 2vw, 13px); }
+body.portrait .clocks .flag{ font-size:clamp(14px, 3vw, 20px); }
+
+body.portrait .stat-popup{
+  inset-inline-start:3vw; inset-inline-end:3vw; max-width:none;
+  justify-content:center; bottom: calc(7.6vh + 1vh);
+}
+body.portrait .hero-flags{ font-size:clamp(20px,4.4vw,32px); }
 
 @media (prefers-reduced-motion: reduce){
   /* بعض إصدارات متصفح OBS المدمج (CEF) تُبلِّغ "reduce" افتراضيًا حتى لو لم
@@ -241,16 +314,17 @@ body.portrait header{ padding: 1vh 3vw; }
   <main>
     <div id="mainStage">
       <section class="scene" id="heroNews">
-        <div class="hero-tag" id="heroTag">الخليج المباشر</div>
+        <div class="hero-top">
+          <div class="hero-tag" id="heroTag">الخليج المباشر</div>
+          <div class="hero-flags" id="heroFlags"></div>
+        </div>
         <div class="hero-body">
           <div class="hero-title" id="heroTitle">جارٍ تحميل الأخبار…</div>
         </div>
-        <div class="hero-progress"><div class="hero-progress-bar" id="heroProgressBar"></div></div>
-      </section>
-
-      <section class="scene hidden" id="statsOverlay">
-        <div class="stats-header">📊 تحديث الأسواق والطقس والطيران</div>
-        <div class="stats-grid" id="statsGrid"></div>
+        <div class="hero-footer">
+          <div class="hero-source" id="heroSource"></div>
+          <div class="hero-progress"><div class="hero-progress-bar" id="heroProgressBar"></div></div>
+        </div>
       </section>
     </div>
   </main>
@@ -260,6 +334,16 @@ body.portrait header{ padding: 1vh 3vw; }
     <div class="ticker-track" id="ticker" dir="rtl"><span>جارٍ تحميل الشريط الإخباري…</span></div>
   </div>
 </div>
+
+<div class="stat-popup empty" id="statPopup">
+  <span class="popup-live-dot"></span>
+  <span class="popup-icon" id="popupIcon">📊</span>
+  <div class="popup-text">
+    <div class="popup-label" id="popupLabel">—</div>
+    <div class="popup-value" id="popupValue">—</div>
+  </div>
+</div>
+
 <div class="updated" id="updated"><span class="health-dot" id="healthDot" title="الحالة"></span> <span id="updatedText"></span></div>
 
 <script>
@@ -271,9 +355,6 @@ const TZ = {
   "الكويت": { tz:"Asia/Kuwait", flag:"🇰🇼" }
 };
 
-// Les clés RSS_FEEDS (fetch_data.py) contiennent déjà un libellé arabe + drapeau
-// (ex: "أخبار عُمان 🇴🇲") — donc NEWS_SOURCE_LABELS[source] || source retombe
-// naturellement sur un affichage propre sans table de correspondance à maintenir.
 const NEWS_SOURCE_LABELS = {};
 
 const WEATHER_CITY_LABELS = {
@@ -300,6 +381,54 @@ const FLIGHT_LABELS = {
   "RUH (Riyadh)": "مطار الرياض — RUH",
   "MCT (Muscat)": "مطار مسقط — MCT"
 };
+
+/* ===================== الدول الخليجية: كشف الأعلام من نص الخبر =====================
+   لكل خبر نبدأ بعلم مصدره (مستخرَج تلقائيًا من اسم الخلاصة نفسها، مثل
+   "أخبار عُمان 🇴🇲")، ثم نفحص نص العنوان بحثًا عن أي دولة خليجية أخرى
+   مذكورة صراحة؛ إن وُجدت، تُضاف كل الأعلام المعنية معًا (مثال: خبر عن
+   "الكويت وعُمان" يعرض العلمين). "عمان" بلا تشكيل مستبعدة عمدًا لتفادي
+   الخلط مع العاصمة الأردنية "عمّان" — نعتمد على "عُمان" المُشكَّلة كما
+   ترد فعليًا في خلاصات المصدر، أو على ذكر "مسقط"/"سلطنة عمان". */
+const GULF_KEYWORDS = [
+  { flag:"🇸🇦", words:["السعودية","سعودي","الرياض","جدة"] },
+  { flag:"🇦🇪", words:["الإمارات","إماراتي","دبي","أبوظبي","أبو ظبي"] },
+  { flag:"🇴🇲", words:["عُمان","سلطنة عمان","مسقط"] },
+  { flag:"🇰🇼", words:["الكويت","كويتي"] },
+  { flag:"🇶🇦", words:["قطر","قطري","الدوحة"] },
+  { flag:"🇧🇭", words:["البحرين","بحريني","المنامة"] }
+];
+function extractFeedFlag(feedLabel){
+  const m = (feedLabel||'').match(/\p{Regional_Indicator}{2}/gu);
+  return m ? m[0] : null;
+}
+function detectGulfFlags(feedLabel, title){
+  const flags = new Set();
+  const base = extractFeedFlag(feedLabel);
+  if(base) flags.add(base);
+  const t = title || '';
+  for(const {flag, words} of GULF_KEYWORDS){
+    if(words.some(w => t.includes(w))) flags.add(flag);
+  }
+  return Array.from(flags);
+}
+
+/* ===================== فصل مصدر الخبر عن العنوان =====================
+   خلاصات Google News تُلحق اسم الموقع الناشر في نهاية العنوان
+   ("... - العربية"). نستخرجه هنا كي يُعرض بشكل منفصل وأنيق أسفل
+   البطاقة/الشريط بدل أن يبقى ملتصقًا بنهاية العنوان الضخم. */
+function splitTitleSource(rawTitle){
+  const t = (rawTitle || '').trim();
+  const sepRegex = /\s[-–—]\s/g;
+  let lastIdx = -1, lastSepLen = 0, m;
+  while((m = sepRegex.exec(t))){ lastIdx = m.index; lastSepLen = m[0].length; }
+  if(lastIdx > 0){
+    const source = t.slice(lastIdx + lastSepLen).trim();
+    if(source.length >= 2 && source.length <= 40){
+      return { title: t.slice(0, lastIdx).trim(), source };
+    }
+  }
+  return { title: t, source: '' };
+}
 
 /* ===================== نظام الأصوات (بيبات ناعمة) ===================== */
 let audioCtx = null;
@@ -352,7 +481,7 @@ document.getElementById('soundToggle').addEventListener('click', () => {
 });
 updateSoundIcon();
 
-/* ===================== الساعات ===================== */
+/* ===================== الساعات (مكبّرة) ===================== */
 function renderClocks(){
   const el = document.getElementById('clocks');
   el.innerHTML = Object.entries(TZ).map(([city, info]) => {
@@ -363,28 +492,38 @@ function renderClocks(){
 setInterval(renderClocks, 1000);
 renderClocks();
 
+let lastData = null;
+
 function detectOrientation(){
   const w = document.documentElement.clientWidth || window.innerWidth;
   const h = document.documentElement.clientHeight || window.innerHeight;
+  const wasPortrait = document.body.classList.contains('portrait');
   document.body.classList.toggle('portrait', h > w);
+  const isPortrait = document.body.classList.contains('portrait');
+  if(isPortrait !== wasPortrait && lastData){
+    lastTickerHash = '';
+    renderTicker(lastData);
+  }
 }
-window.addEventListener('resize', detectOrientation);
+let resizeDebounce;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeDebounce);
+  resizeDebounce = setTimeout(() => {
+    detectOrientation();
+    if(lastData){ lastTickerHash = ''; renderTicker(lastData); }
+  }, 220);
+});
 detectOrientation();
-// بعض إصدارات مصدر المتصفح في OBS لا ترسل حدث resize عند الإنشاء،
-// لذا نتحقق عدة مرات بعد التحميل لضمان اكتشاف صحيح للأبعاد (أفقي 1920x1080 أو عمودي 1080x1920)
 [0, 150, 500, 1500, 3000].forEach(t => setTimeout(detectOrientation, t));
 if(window.ResizeObserver){
-  new ResizeObserver(detectOrientation).observe(document.documentElement);
+  new ResizeObserver(() => { detectOrientation(); }).observe(document.documentElement);
 }
 
 function escapeHtml(str){
   return (str||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
 
-/* ===================== الخبر الرئيسي (خبر واحد ضخم في كل مرة) =====================
-   بدل قائمة صغيرة مزدحمة، نعرض خبرًا واحدًا كبيرًا جدًا، مع بطاقة/شارة المصدر
-   وشريط تقدّم يُظهر للمشاهد الوقت المتبقي قبل الانتقال للخبر التالي — ثم
-   تلاشٍ ناعم (fade + zoom خفيف) مصحوب ببيب عند كل تبديل. */
+/* ===================== الخبر الرئيسي (خبر واحد ضخم في كل مرة) ===================== */
 let lastNewsHash = '';
 let heroItems = [];
 let heroIndex = 0;
@@ -394,12 +533,17 @@ function renderNews(news){
   const items = [];
   for(const [source, arr] of Object.entries(news)){
     const label = NEWS_SOURCE_LABELS[source] || source;
-    (arr || []).slice(0,6).forEach(item => items.push({ label, title: item.title_ar || item.title }));
+    (arr || []).slice(0,6).forEach(item => {
+      const raw = item.title_ar || item.title;
+      const { title, source: outlet } = splitTitleSource(raw);
+      const flags = detectGulfFlags(source, raw);
+      items.push({ label, title, outlet, flags });
+    });
   }
   const hash = JSON.stringify(items.map(i => i.title));
   const isNew = hash !== lastNewsHash;
   lastNewsHash = hash;
-  if(!isNew) return; // لا نُعيد بناء الدوران أثناء تشغيله لتفادي أي قفزة مرئية
+  if(!isNew) return;
 
   clearTimeout(heroTimer);
   heroItems = items;
@@ -408,6 +552,8 @@ function renderNews(news){
   if(!items.length){
     document.getElementById('heroTag').textContent = 'الخليج المباشر';
     document.getElementById('heroTitle').textContent = 'لا توجد بيانات متاحة حالياً.';
+    document.getElementById('heroSource').textContent = '';
+    document.getElementById('heroFlags').innerHTML = '';
     return;
   }
   showHeroItem(0, false);
@@ -418,6 +564,8 @@ function showHeroItem(idx, animate){
   const item = heroItems[idx % heroItems.length];
   const tagEl = document.getElementById('heroTag');
   const titleEl = document.getElementById('heroTitle');
+  const sourceEl = document.getElementById('heroSource');
+  const flagsEl = document.getElementById('heroFlags');
   const barEl = document.getElementById('heroProgressBar');
 
   const apply = () => {
@@ -426,9 +574,10 @@ function showHeroItem(idx, animate){
     titleEl.classList.remove('swap');
     titleEl.classList.toggle('long', item.title.length > 80);
     titleEl.classList.toggle('xlong', item.title.length > 150);
+    sourceEl.textContent = item.outlet ? ('المصدر · ' + item.outlet) : '';
+    flagsEl.innerHTML = item.flags.map(f => `<span>${f}</span>`).join('');
     beep({freq:660, duration:0.07, volume:0.035, type:'sine'});
 
-    // إعادة تشغيل شريط التقدّم من الصفر بالضبط عبر إجبار إعادة الحساب (reflow)
     barEl.style.transition = 'none';
     barEl.style.width = '0%';
     void barEl.offsetWidth;
@@ -450,122 +599,170 @@ function showHeroItem(idx, animate){
   }
 }
 
-/* ===================== شاشة الإحصاءات الدورية =====================
-   بدل عرض الطقس وأسعار الصرف بشكل دائم (وهو ما كان يُصغّر كل شيء)،
-   نُظهرها كل 5 دقائق لمدة 30 ثانية فقط بأرقام كبيرة جدًا، ثم نمحوها
-   لإعادة كل المساحة للخبر الرئيسي. */
-const STATS_INTERVAL_MS = 5 * 60 * 1000;
-const STATS_DURATION_MS = 30 * 1000;
-const STATS_FIRST_DELAY_MS = 40 * 1000;
-let lastStatsData = null;
+/* ===================== الپاستيّة العائمة: أسواق + طقس + طيران =====================
+   بدل الشاشة الكاملة القديمة (كانت تُخفي الخبر وتبدو رديئة)، نعرض بندًا
+   واحدًا صغيرًا وأنيقًا في كل مرة، في ركن ثابت لا يزعج القراءة، ويدور
+   إلى ما لا نهاية مع بيب لطيف عند كل تبديل — أفقيًا وعموديًا على حدّ سواء. */
+const POPUP_DWELL_MS = 6000;
+let popupItems = [];
+let popupIndex = 0;
+let popupTimer = null;
+let lastPopupHash = '';
 
-function statBig(label, value, cls){
-  return `<div class="stat-big ${cls||''}"><div class="label">${escapeHtml(label)}</div><div class="value">${escapeHtml(String(value))}</div></div>`;
-}
-
-function renderStats(data){
-  lastStatsData = data;
-  const el = document.getElementById('statsGrid');
-  let html = '';
+function buildPopupItems(data){
+  const items = [];
   const markets = data.markets || {};
   for(const [label, val] of Object.entries(markets)){
     if(label === 'crypto'){
       for(const [coin, prices] of Object.entries(val || {})){
-        html += statBig(CRYPTO_LABELS[coin] || coin, '$' + (prices.usd||0).toLocaleString('en-US'));
+        items.push({ icon:'💰', label: CRYPTO_LABELS[coin] || coin, value: '$' + (prices.usd||0).toLocaleString('en-US') });
       }
     } else {
-      html += statBig(MARKET_LABELS[label] || label, val);
+      items.push({ icon:'💹', label: MARKET_LABELS[label] || label, value: String(val) });
     }
   }
   for(const [city, w] of Object.entries(data.weather || {})){
     if(w.temperature_2m === undefined) continue;
-    const info = WEATHER_CITY_LABELS[city] || { name:city, flag:'' };
-    html += statBig(`${info.flag} ${info.name}`, Math.round(w.temperature_2m) + '°C');
+    const info = WEATHER_CITY_LABELS[city] || { name:city, flag:'🌡️' };
+    items.push({ icon: info.flag || '🌡️', label: info.name, value: Math.round(w.temperature_2m) + '°م' });
   }
   for(const [ap, count] of Object.entries(data.flights || {})){
-    html += statBig(FLIGHT_LABELS[ap] || ap, count + ' رحلة');
+    items.push({ icon:'✈️', label: FLIGHT_LABELS[ap] || ap, value: count + ' رحلة' });
   }
-  el.innerHTML = html || statBig('لا توجد بيانات', '—');
+  return items;
 }
 
-function showStatsOverlay(){
-  clearTimeout(heroTimer);
-  document.getElementById('heroNews').classList.add('hidden');
-  document.getElementById('statsOverlay').classList.remove('hidden');
-  beep({freq:988, duration:0.1, volume:0.04});
-  beep({freq:1318, duration:0.1, volume:0.035, delay:0.1});
-}
-function hideStatsOverlay(){
-  document.getElementById('statsOverlay').classList.add('hidden');
-  document.getElementById('heroNews').classList.remove('hidden');
-  if(heroItems.length) showHeroItem((heroIndex + 1) % heroItems.length, true);
-}
-setTimeout(() => {
-  showStatsOverlay();
-  setTimeout(hideStatsOverlay, STATS_DURATION_MS);
-  setInterval(() => {
-    showStatsOverlay();
-    setTimeout(hideStatsOverlay, STATS_DURATION_MS);
-  }, STATS_INTERVAL_MS);
-}, STATS_FIRST_DELAY_MS);
+function renderPopupItem(idx, animate){
+  const el = document.getElementById('statPopup');
+  if(!popupItems.length){ el.classList.add('empty'); return; }
+  el.classList.remove('empty');
+  const item = popupItems[idx % popupItems.length];
+  const iconEl = document.getElementById('popupIcon');
+  const labelEl = document.getElementById('popupLabel');
+  const valueEl = document.getElementById('popupValue');
 
-/* ===================== البانر السفلي (دوران أبدي حقيقي، بلا اعتماد على قياس عرض الخط) =====================
-   الإصدار السابق كان يحسب مدة الحركة من scrollWidth الفعلي للعنصر مباشرة
-   بعد تغيير innerHTML — وهذا القياس قد يقع قبل اكتمال تحميل خط عربي مخصص
-   (Noto Kufi / IBM Plex Sans Arabic)، فيُنتج مدة خاطئة تمامًا (شبه صفرية
-   أو ضخمة جدًا) وتُعطي إحساسًا بأن الشريط "يمر مرة واحدة ثم يتجمّد فارغًا".
-   الحل: نحسب المدة من عدد الأحرف مباشرة (رقم ثابت لا يعتمد على الخط أو
-   إعادة التخطيط)، فتبقى دائمًا صحيحة ومضمونة الاستمرارية. */
+  const apply = () => {
+    iconEl.textContent = item.icon;
+    labelEl.textContent = item.label;
+    valueEl.textContent = item.value;
+    el.classList.remove('swap');
+    beep({freq:720, duration:0.08, volume:0.03});
+    beep({freq:980, duration:0.08, volume:0.025, delay:0.09});
+  };
+  if(animate){
+    el.classList.add('swap');
+    setTimeout(apply, 260);
+  } else {
+    apply();
+  }
+}
+
+function refreshPopup(data){
+  const items = buildPopupItems(data);
+  const hash = JSON.stringify(items);
+  if(hash === lastPopupHash){ popupItems = items; return; }
+  lastPopupHash = hash;
+  popupItems = items;
+  if(!items.length){
+    clearInterval(popupTimer);
+    document.getElementById('statPopup').classList.add('empty');
+    return;
+  }
+  popupIndex = 0;
+  renderPopupItem(0, false);
+  clearInterval(popupTimer);
+  popupTimer = setInterval(() => {
+    popupIndex = (popupIndex + 1) % popupItems.length;
+    renderPopupItem(popupIndex, true);
+  }, POPUP_DWELL_MS);
+}
+
+/* ===================== البانر السفلي (دوران أبدي حقيقي بالبكسل عبر JS) =====================
+   نقيس عرض نسخة واحدة من المحتوى فعليًا، نكرّرها حتى تغطي ضعف عرض
+   الشاشة على الأقل، ثم نُحرّك الشريط بواسطة requestAnimationFrame مع
+   إعادة تدوير الموضع بالبكسل (لا بالنسبة المئوية) — فلا يظهر أي "فراغ"
+   بعد الدورة الأولى مهما كانت كمية النصوص قصيرة أو طويلة، وتبقى السرعة
+   ثابتة ومريحة للعين دومًا. */
 let lastTickerHash = '';
+let tickerRAF = null;
+let tickerPos = 0;
+let tickerUnitWidth = 0;
+let tickerLastTs = null;
+const TICKER_SPEED_PX_S = 70;
 
 function buildTickerSegments(data){
   const segs = [];
   let n = 0;
   for(const [source, arr] of Object.entries(data.news || {})){
     (arr||[]).slice(0,3).forEach(i => {
-      segs.push((n < 2 ? '🔴 عاجل — ' : '📰 ') + (i.title_ar || i.title));
+      const raw = i.title_ar || i.title;
+      const { title, source: outlet } = splitTitleSource(raw);
+      const flags = detectGulfFlags(source, raw);
+      const flagHtml = flags.length ? `<span class="ticker-flags">${flags.map(f=>`<span>${f}</span>`).join('')}</span>` : '';
+      const prefix = n < 2 ? '🔴 عاجل — ' : '📰 ';
+      const sourceHtml = outlet ? `<span class="ticker-source">${escapeHtml(outlet)}</span>` : '';
+      segs.push(`${flagHtml}<span class="ticker-col"><span class="ticker-title">${prefix}${escapeHtml(title)}</span>${sourceHtml}</span>`);
       n++;
     });
   }
   for(const [label, val] of Object.entries(data.markets || {})){
     if(label === 'crypto'){
       for(const [coin, p] of Object.entries(val || {})){
-        segs.push(`💰 ${CRYPTO_LABELS[coin] || coin}: $${(p.usd||0).toLocaleString('en-US')}`);
+        segs.push(`<span class="ticker-title">💰 ${escapeHtml(CRYPTO_LABELS[coin] || coin)}: $${(p.usd||0).toLocaleString('en-US')}</span>`);
       }
     } else {
-      segs.push(`💹 ${MARKET_LABELS[label] || label}: ${val}`);
+      segs.push(`<span class="ticker-title">💹 ${escapeHtml(MARKET_LABELS[label] || label)}: ${escapeHtml(String(val))}</span>`);
     }
   }
   for(const [city, w] of Object.entries(data.weather || {})){
     if(w.temperature_2m === undefined) continue;
     const info = WEATHER_CITY_LABELS[city] || { name:city, flag:'' };
-    segs.push(`${info.flag} ${info.name}: ${Math.round(w.temperature_2m)}°م`);
+    segs.push(`<span class="ticker-title">${info.flag} ${escapeHtml(info.name)}: ${Math.round(w.temperature_2m)}°م</span>`);
   }
   for(const [ap, count] of Object.entries(data.flights || {})){
-    segs.push(`✈️ ${FLIGHT_LABELS[ap] || ap}: ${count} رحلة نشطة`);
+    segs.push(`<span class="ticker-title">✈️ ${escapeHtml(FLIGHT_LABELS[ap] || ap)}: ${count} رحلة نشطة</span>`);
   }
   return segs;
 }
 
+function stepTicker(ts){
+  const track = document.getElementById('ticker');
+  if(tickerLastTs === null) tickerLastTs = ts;
+  const dt = (ts - tickerLastTs) / 1000;
+  tickerLastTs = ts;
+  tickerPos -= TICKER_SPEED_PX_S * dt;
+  if(tickerUnitWidth > 0 && tickerPos <= -tickerUnitWidth){
+    tickerPos += tickerUnitWidth;
+  }
+  track.style.transform = `translateX(${tickerPos}px)`;
+  tickerRAF = requestAnimationFrame(stepTicker);
+}
+
 function renderTicker(data){
   const parts = buildTickerSegments(data);
-  const track = document.getElementById('ticker');
   const hash = JSON.stringify(parts);
   const isNew = hash !== lastTickerHash;
   lastTickerHash = hash;
   if(!isNew) return;
 
-  const content = parts.map(p => `<span>${escapeHtml(p)}</span>`).join('');
+  const wrap = document.querySelector('.ticker-wrap');
+  const track = document.getElementById('ticker');
+  const unitHTML = parts.length
+    ? parts.map(p => `<span>${p}</span>`).join('')
+    : '<span><span class="ticker-title">لا توجد بيانات بعد…</span></span>';
 
-  // عدد الأحرف الإجمالي هو أساس حساب مدة الحركة (وتيرة هادئة وثابتة،
-  // لا تتسارع أبدًا مهما زاد عدد الأخبار — هذا ما يحقّق "غير سريع جدًا")
-  const totalChars = parts.join('').length;
-  const duration = Math.min(260, Math.max(65, totalChars * 0.32));
+  cancelAnimationFrame(tickerRAF);
+  track.style.transform = 'translateX(0)';
+  track.innerHTML = unitHTML;
+  tickerUnitWidth = track.scrollWidth || 1;
 
-  track.style.animation = 'none';
-  track.innerHTML = content + content; // مكرر لضمان استمرارية الدوران الأبدي
-  void track.offsetWidth; // إجبار إعادة الرسم قبل إعادة تفعيل الحركة (تقنية إعادة التشغيل القياسية)
-  track.style.animation = `scroll-left ${duration.toFixed(1)}s linear infinite`;
+  const containerWidth = wrap.clientWidth || window.innerWidth;
+  const repeats = Math.max(2, Math.ceil((containerWidth * 2) / tickerUnitWidth) + 1);
+  track.innerHTML = unitHTML.repeat(repeats);
+
+  tickerPos = 0;
+  tickerLastTs = null;
+  tickerRAF = requestAnimationFrame(stepTicker);
 
   beep({freq:880, duration:0.09, volume:0.035});
   beep({freq:1175, duration:0.09, volume:0.03, delay:0.09});
@@ -576,8 +773,9 @@ async function loadData(){
   try{
     const res = await fetch('data.json?_=' + Date.now());
     const data = await res.json();
+    lastData = data;
     renderNews(data.news || {});
-    renderStats(data);
+    refreshPopup(data);
     renderTicker(data);
     document.getElementById('updatedText').textContent =
       'آخر تحديث: ' + new Intl.DateTimeFormat('ar', {numberingSystem:'latn', dateStyle:'short', timeStyle:'medium'}).format(new Date(data.generated_at_utc));
@@ -606,8 +804,6 @@ function renderHealth(meta){
 }
 
 loadData();
-// المصدر (fetch_data.py) لا يتحدّث إلا كل 5 ساعات عبر GitHub Actions،
-// فحص كل 5 دقائق من جهة المتصفح يكفي لالتقاط أي تحديث بسرعة دون طلبات زائدة
 setInterval(loadData, 5 * 60 * 1000);
 </script>
 </body>
