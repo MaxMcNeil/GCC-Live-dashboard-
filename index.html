@@ -139,14 +139,25 @@ main{
 .scroll::-webkit-scrollbar{ width:4px; }
 .scroll::-webkit-scrollbar-thumb{ background:var(--line); border-radius:4px; }
 
+#news-feed{ scroll-behavior:smooth; }
 .news-item{
-  padding:0.9vh 0; border-bottom:1px dashed var(--line);
+  padding:0.9vh 0.6vw; border-bottom:1px dashed var(--line);
   font-size: clamp(11px, 0.95vw, 14px);
   animation: fadeIn 0.5s ease both;
   line-height:1.5;
+  transition: transform 0.45s ease, background 0.45s ease, border-inline-start-color 0.45s ease, padding 0.45s ease;
+  border-inline-start:3px solid transparent;
 }
 .news-item b{ color:var(--teal); font-weight:600; display:flex; align-items:center; gap:0.4em; font-size:0.85em; margin-bottom:2px;}
 @keyframes fadeIn{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+/* عنصر الخبر "في الواجهة" أثناء الدوران التلقائي — تكبير خفيف غير مبالغ فيه */
+.news-item.featured{
+  transform: scale(1.035);
+  background: rgba(201,162,75,0.07);
+  border-inline-start-color: var(--teal);
+  padding-inline-start: 0.9vw;
+}
+.news-item.featured b{ color:var(--gold); }
 
 .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:0.8vh 0.8vw; }
 .stat{
@@ -372,11 +383,18 @@ setInterval(renderClocks, 1000);
 renderClocks();
 
 function detectOrientation(){
-  const isPortrait = window.innerHeight > window.innerWidth;
-  document.body.classList.toggle('portrait', isPortrait);
+  const w = document.documentElement.clientWidth || window.innerWidth;
+  const h = document.documentElement.clientHeight || window.innerHeight;
+  document.body.classList.toggle('portrait', h > w);
 }
 window.addEventListener('resize', detectOrientation);
 detectOrientation();
+// بعض إصدارات مصدر المتصفح في OBS لا ترسل حدث resize عند الإنشاء،
+// لذا نتحقق عدة مرات بعد التحميل لضمان اكتشاف صحيح للأبعاد (أفقي 1920x1080 أو عمودي 1080x1920)
+[0, 150, 500, 1500, 3000].forEach(t => setTimeout(detectOrientation, t));
+if(window.ResizeObserver){
+  new ResizeObserver(detectOrientation).observe(document.documentElement);
+}
 
 /* ===================== تحميل البيانات ===================== */
 let lastNewsHash = '';
@@ -417,28 +435,96 @@ function renderHealth(meta){
   }
 }
 
+/* ===================== دوران الأخبار الأبدي (يقرأ ثم ينتقل، بدون توقف نهائي) ===================== */
+let newsCarouselTimer = null;
+let newsPos = 0;          // الموضع الحالي داخل القائمة المضاعفة
+let newsCount = 0;        // عدد الأخبار الفعلي (غير مضاعف)
+let newsTitlesList = [];  // للاستخدام في حساب وقت القراءة لكل خبر
+
 function renderNews(news){
   const el = document.getElementById('news-feed');
   const items = [];
   for(const [source, arr] of Object.entries(news)){
     const label = NEWS_SOURCE_LABELS[source] || source;
-    (arr || []).slice(0,3).forEach(item => items.push({ label, title: item.title_ar || item.title }));
+    (arr || []).slice(0,4).forEach(item => items.push({ label, title: item.title_ar || item.title }));
   }
   const hash = JSON.stringify(items.map(i => i.title));
   const isNew = hash !== lastNewsHash;
   lastNewsHash = hash;
+  if(!isNew) return; // لا نعيد بناء القائمة أثناء الدوران الجاري لتفادي أي قفزة مرئية
 
-  el.innerHTML = items.length
-    ? items.map(i => `<div class="news-item"><b>${i.label}</b>${escapeHtml(i.title)}</div>`).join('')
-    : '<div class="news-item">لا توجد بيانات متاحة حالياً.</div>';
+  clearTimeout(newsCarouselTimer);
 
-  // بيب متتابع وناعم مع ظهور كل خبر — كأنه نقر برقية أخبار
-  if(isNew){
-    document.querySelectorAll('#news-feed .news-item').forEach((node, i) => {
-      node.style.animationDelay = (i * 0.06) + 's';
-      beep({ freq: 620 + (i % 5) * 30, duration:0.05, volume:0.03, delay: i * 0.08 });
-    });
+  if(items.length === 0){
+    el.innerHTML = '<div class="news-item">لا توجد بيانات متاحة حالياً.</div>';
+    newsCount = 0;
+    return;
   }
+
+  newsCount = items.length;
+  newsTitlesList = items.map(i => i.title);
+  // القائمة تُضاعف مرة واحدة: عندما نصل لبداية النسخة الثانية (مطابقة تمامًا للأولى)
+  // نقفز فورًا لأعلى القائمة دون أي انقطاع مرئي — هذا ما يمنح إحساس "الدوران الأبدي"
+  el.innerHTML = items.concat(items).map((i, idx) =>
+    `<div class="news-item" style="animation-delay:${Math.min(idx,items.length-1) * 0.06}s"><b>${i.label}</b>${escapeHtml(i.title)}</div>`
+  ).join('');
+
+  document.querySelectorAll('#news-feed .news-item').forEach((node, i) => {
+    if(i < items.length) beep({ freq: 620 + (i % 5) * 30, duration:0.05, volume:0.03, delay: i * 0.08 });
+  });
+
+  newsPos = 0;
+  el.scrollTop = 0;
+  highlightFeaturedNews();
+  scheduleNextNewsTick(items[0].title);
+}
+
+function scheduleNextNewsTick(currentTitle){
+  clearTimeout(newsCarouselTimer);
+  if(newsCount <= 1) return;
+  // وقت قراءة يتكيّف مع طول العنوان — عنوان أطول = وقت أطول قبل الانتقال
+  const len = (currentTitle || '').length;
+  const dwell = Math.min(9000, Math.max(4200, 3000 + len * 38));
+  newsCarouselTimer = setTimeout(advanceNews, dwell);
+}
+
+function advanceNews(){
+  const el = document.getElementById('news-feed');
+  const nodes = el.querySelectorAll('.news-item');
+  if(!nodes.length || newsCount === 0) return;
+
+  newsPos++;
+  const target = nodes[newsPos];
+  if(!target) return;
+  target.scrollIntoView({ behavior:'smooth', block:'start' });
+  beep({ freq:740, duration:0.06, volume:0.028, type:'triangle' }); // بيب خفيف مرافق لكل حركة
+
+  setTimeout(highlightFeaturedNews, 420);
+
+  const nextTitle = newsTitlesList[newsPos % newsCount] || '';
+
+  if(newsPos >= newsCount){
+    // وصلنا لبداية النسخة المكرّرة (مطابقة للبداية الحقيقية) — نقفز فورًا بلا حركة مرئية
+    setTimeout(() => {
+      el.scrollTo({ top:0, behavior:'auto' });
+      newsPos = 0;
+      highlightFeaturedNews();
+    }, 480);
+  }
+  scheduleNextNewsTick(nextTitle);
+}
+
+function highlightFeaturedNews(){
+  const el = document.getElementById('news-feed');
+  const nodes = Array.from(el.querySelectorAll('.news-item'));
+  nodes.forEach(n => n.classList.remove('featured'));
+  const containerTop = el.scrollTop;
+  let closest = nodes[0], min = Infinity;
+  nodes.forEach(n => {
+    const diff = Math.abs(n.offsetTop - containerTop);
+    if(diff < min){ min = diff; closest = n; }
+  });
+  if(closest) closest.classList.add('featured');
 }
 
 function renderMarkets(markets){
@@ -479,18 +565,53 @@ function renderFlights(flights){
   el.innerHTML = html || '<div class="stat"><div class="label">حركة الطيران</div><div class="value">—</div></div>';
 }
 
-function renderTicker(data){
-  const parts = [];
+function buildTickerSegments(data){
+  const segs = [];
+  let n = 0;
   for(const [source, arr] of Object.entries(data.news || {})){
-    (arr||[]).slice(0,2).forEach(i => parts.push(i.title_ar || i.title));
+    (arr||[]).slice(0,3).forEach(i => {
+      segs.push((n < 2 ? '🔴 عاجل — ' : '📰 ') + (i.title_ar || i.title));
+      n++;
+    });
   }
+  for(const [label, val] of Object.entries(data.markets || {})){
+    if(label === 'crypto'){
+      for(const [coin, p] of Object.entries(val || {})){
+        segs.push(`💰 ${CRYPTO_LABELS[coin] || coin}: $${(p.usd||0).toLocaleString('en-US')}`);
+      }
+    } else {
+      segs.push(`💹 ${MARKET_LABELS[label] || label}: ${val}`);
+    }
+  }
+  for(const [city, w] of Object.entries(data.weather || {})){
+    if(w.temperature_2m === undefined) continue;
+    const info = WEATHER_CITY_LABELS[city] || { name:city, flag:'' };
+    segs.push(`${info.flag} ${info.name}: ${Math.round(w.temperature_2m)}°م`);
+  }
+  for(const [ap, count] of Object.entries(data.flights || {})){
+    segs.push(`✈️ ${FLIGHT_LABELS[ap] || ap}: ${count} رحلة نشطة`);
+  }
+  return segs;
+}
+
+function renderTicker(data){
+  const parts = buildTickerSegments(data);
   const track = document.getElementById('ticker');
   const hash = JSON.stringify(parts);
   const isNew = hash !== lastTickerHash;
   lastTickerHash = hash;
+  if(!isNew) return;
 
   const content = parts.map(p => `<span>${escapeHtml(p)}</span>`).join('');
-  track.innerHTML = content + content; // مكرر لضمان استمرارية الحركة
+  track.innerHTML = content + content; // مكرر لضمان استمرارية الدوران الأبدي
+
+  // سرعة ثابتة ومريحة للقراءة مهما كانت كمية المحتوى (بالبكسل/ثانية، وليس مدة زمنية ثابتة)
+  requestAnimationFrame(() => {
+    const halfWidth = track.scrollWidth / 2;
+    const PIXELS_PER_SECOND = 42; // وتيرة هادئة، غير متسرعة
+    const duration = Math.min(220, Math.max(40, halfWidth / PIXELS_PER_SECOND));
+    track.style.animationDuration = duration.toFixed(1) + 's';
+  });
 
   if(isNew){
     beep({freq:880, duration:0.09, volume:0.035});
