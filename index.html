@@ -194,9 +194,16 @@ main{
 
 .updated{
   position:fixed; bottom:0.6vh; inset-inline-end:1vw; font-size:10px;
-  color:var(--sand-dim); font-family:'JetBrains Mono', monospace; opacity:0.6;
-  direction:ltr;
+  color:var(--sand-dim); font-family:'JetBrains Mono', monospace; opacity:0.75;
+  direction:ltr; display:flex; align-items:center; gap:4px; cursor:default;
 }
+.health-dot{
+  display:inline-block; width:7px; height:7px; border-radius:50%;
+  background:var(--teal); color:var(--teal); box-shadow:0 0 4px currentColor;
+  flex-shrink:0;
+}
+.health-dot.warn{ background:var(--gold); color:var(--gold); }
+.health-dot.err{ background:var(--live); color:var(--live); }
 
 /* ===== ORIENTATION: PORTRAIT (1080x1920) ===== */
 body.portrait main{
@@ -253,7 +260,7 @@ body.portrait .brand h1{ font-size:clamp(16px,4vw,22px); }
     <div class="ticker-track" id="ticker" dir="rtl"><span>جارٍ تحميل الشريط الإخباري…</span></div>
   </div>
 </div>
-<div class="updated" id="updated"></div>
+<div class="updated" id="updated"><span class="health-dot" id="healthDot" title="الحالة"></span> <span id="updatedText"></span></div>
 
 <script>
 /* ===================== إعداد المدن والأعلام ===================== */
@@ -384,10 +391,29 @@ async function loadData(){
     renderWeather(data.weather || {});
     renderFlights(data.flights || {});
     renderTicker(data);
-    document.getElementById('updated').textContent =
+    document.getElementById('updatedText').textContent =
       'آخر تحديث: ' + new Intl.DateTimeFormat('ar', {numberingSystem:'latn', dateStyle:'short', timeStyle:'medium'}).format(new Date(data.generated_at_utc));
+    renderHealth(data._meta);
   }catch(e){
     console.error('تعذّر تحميل data.json', e);
+    const dot = document.getElementById('healthDot');
+    dot.className = 'health-dot err';
+    dot.title = 'تعذّر تحميل data.json في المتصفح: ' + e.message;
+  }
+}
+
+function renderHealth(meta){
+  const dot = document.getElementById('healthDot');
+  if(!meta){ dot.className = 'health-dot'; dot.title = 'لا توجد معلومات تشخيصية'; return; }
+  const errors = meta.errors || [];
+  if(errors.length === 0){
+    dot.className = 'health-dot';
+    dot.title = 'كل المصادر تعمل بشكل طبيعي ✅';
+  } else {
+    const failedSources = Object.entries(meta.status || {}).filter(([,ok]) => !ok).map(([s]) => s);
+    const allDown = failedSources.length > 0 && Object.values(meta.status || {}).every(v => !v);
+    dot.className = 'health-dot ' + (allDown ? 'err' : 'warn');
+    dot.title = 'مصادر متعطلة: ' + errors.map(e => `${e.source} (${e.stage}): ${e.error}`).join(' | ');
   }
 }
 
@@ -396,7 +422,7 @@ function renderNews(news){
   const items = [];
   for(const [source, arr] of Object.entries(news)){
     const label = NEWS_SOURCE_LABELS[source] || source;
-    (arr || []).slice(0,3).forEach(item => items.push({ label, title:item.title }));
+    (arr || []).slice(0,3).forEach(item => items.push({ label, title: item.title_ar || item.title }));
   }
   const hash = JSON.stringify(items.map(i => i.title));
   const isNew = hash !== lastNewsHash;
@@ -456,7 +482,7 @@ function renderFlights(flights){
 function renderTicker(data){
   const parts = [];
   for(const [source, arr] of Object.entries(data.news || {})){
-    (arr||[]).slice(0,2).forEach(i => parts.push(i.title));
+    (arr||[]).slice(0,2).forEach(i => parts.push(i.title_ar || i.title));
   }
   const track = document.getElementById('ticker');
   const hash = JSON.stringify(parts);
@@ -477,7 +503,9 @@ function escapeHtml(str){
 }
 
 loadData();
-setInterval(loadData, 60000); // تحديث كل 60 ثانية من جهة المتصفح
+// المصدر (fetch_data.py) لا يتحدّث إلا كل 5 ساعات عبر GitHub Actions،
+// فحص كل 5 دقائق من جهة المتصفح يكفي لالتقاط أي تحديث بسرعة دون طلبات زائدة
+setInterval(loadData, 5 * 60 * 1000);
 </script>
 </body>
 </html>

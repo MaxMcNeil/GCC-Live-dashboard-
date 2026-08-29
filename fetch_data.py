@@ -5,16 +5,90 @@ Agrège des sources 100% gratuites et publiques (RSS + APIs sans clé)
 pour KSA, UAE, Oman, Kuwait. Génère data.json consommé par index.html.
 
 Toutes les sources sont officielles ou publiques. Aucune donnée n'est
-inventée : si une source échoue, elle est simplement omise (pas de fallback fictif).
+inventée : si une source échoue, elle est simplement omise (pas de
+fallback fictif) -- mais l'échec est enregistré dans data["_meta"]["errors"]
+et affiché comme annotation GitHub Actions + dans le résumé du run, pour
+qu'une panne soit visible en un coup d'œil sans fouiller les logs bruts.
 """
 import json
+import os
+import sys
 import time
 import datetime
 import feedparser
 import requests
 
 OUT_FILE = "data.json"
+CACHE_FILE = "translation_cache.json"
 TIMEOUT = 10
+
+# ---------------------------------------------------------------------------
+# Suivi des erreurs / statut par source (pour diagnostic facile)
+# ---------------------------------------------------------------------------
+ERRORS = []      # [{"source": "...", "stage": "...", "error": "..."}]
+STATUS = {}      # {"nom_de_la_source": True/False}
+
+def log_error(stage, source, exc):
+    msg = f"{exc.__class__.__name__}: {exc}"
+    ERRORS.append({"stage": stage, "source": source, "error": msg})
+    STATUS[source] = False
+    # Annotation GitHub Actions : apparaît en rouge/orange en haut du run,
+    # pas besoin d'ouvrir les logs pour voir quoi a échoué et pourquoi.
+    print(f"::warning title=Échec {stage}::{source} -> {msg}")
+
+def log_ok(source):
+    STATUS[source] = True
+
+# ---------------------------------------------------------------------------
+# 0. Traduction anglais -> arabe (MyMemory, gratuit, sans clé, avec cache)
+# ---------------------------------------------------------------------------
+try:
+    from deep_translator import MyMemoryTranslator
+    TRANSLATOR_AVAILABLE = True
+except ImportError:
+    TRANSLATOR_AVAILABLE = False
+    print("::warning title=Traduction indisponible::le paquet deep-translator n'est pas installé")
+
+def load_cache():
+    if os.path.exists(CACHE_FILE):
+        try:
+            with open(CACHE_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            log_error("cache", "translation_cache.json", e)
+    return {}
+
+def save_cache(cache):
+    try:
+        # on garde le cache à taille raisonnable (les titres tournent vite)
+        if len(cache) > 2000:
+            cache = dict(list(cache.items())[-1500:])
+        with open(CACHE_FILE, "w", encoding="utf-8") as f:
+            json.dump(cache, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        log_error("cache", "translation_cache.json", e)
+
+_translation_cache = load_cache()
+_translator = MyMemoryTranslator(source="en-GB", target="ar-SA") if TRANSLATOR_AVAILABLE else None
+
+def translate_title(text):
+    """Traduit un titre EN -> AR. Ne bloque jamais le pipeline :
+    en cas d'échec, retourne le texte original (l'UI l'affichera tel quel)."""
+    if not text:
+        return text
+    if text in _translation_cache:
+        return _translation_cache[text]
+    if not TRANSLATOR_AVAILABLE:
+        return text
+    try:
+        result = _translator.translate(text[:500])
+        if result:
+            _translation_cache[text] = result
+            time.sleep(0.3)  # rythme doux, respectueux du service gratuit
+            return result
+    except Exception as e:
+        log_error("traduction", text[:60], e)
+    return text
 
 # ---------------------------------------------------------------------------
 # 1. Flux RSS officiels (actualités / communiqués)
@@ -34,17 +108,24 @@ def fetch_rss(max_items=6):
     for name, url in RSS_FEEDS.items():
         try:
             feed = feedparser.parse(url)
+            if getattr(feed, "bozo", 0) and not feed.entries:
+                raise RuntimeError(getattr(feed, "bozo_exception", "flux RSS illisible / vide"))
             items = []
             for entry in feed.entries[:max_items]:
+                title_en = entry.get("title", "").strip()
                 items.append({
-                    "title": entry.get("title", "").strip(),
+                    "title": title_en,
+                    "title_ar": translate_title(title_en) if title_en.isascii() else title_en,
                     "link": entry.get("link", ""),
                     "published": entry.get("published", ""),
                 })
             if items:
                 results[name] = items
+                log_ok(name)
+            else:
+                raise RuntimeError("aucun article retourné")
         except Exception as e:
-            print(f"[RSS] échec {name}: {e}")
+            log_error("RSS", name, e)
     return results
 
 # ---------------------------------------------------------------------------
@@ -73,10 +154,14 @@ def fetch_weather():
                 },
                 timeout=TIMEOUT,
             )
+            r.raise_for_status()
             data = r.json().get("current", {})
+            if not data:
+                raise RuntimeError("réponse sans champ 'current'")
             out[city] = data
+            log_ok(f"Météo {city}")
         except Exception as e:
-            print(f"[Weather] échec {city}: {e}")
+            log_error("Météo", city, e)
     return out
 
 # ---------------------------------------------------------------------------
@@ -100,10 +185,13 @@ def fetch_markets():
                 hist = t.history(period="1d")
                 if not hist.empty:
                     markets[label] = round(float(hist["Close"].iloc[-1]), 4)
+                    log_ok(f"Marché {label}")
+                else:
+                    raise RuntimeError("historique vide")
             except Exception as e:
-                print(f"[Markets] échec {label}: {e}")
-    except ImportError:
-        print("[Markets] yfinance non installé")
+                log_error("Marchés", label, e)
+    except ImportError as e:
+        log_error("Marchés", "yfinance", e)
 
     try:
         r = requests.get(
@@ -111,9 +199,14 @@ def fetch_markets():
             params={"ids": "bitcoin,ethereum", "vs_currencies": "usd"},
             timeout=TIMEOUT,
         )
-        markets["crypto"] = r.json()
+        r.raise_for_status()
+        crypto = r.json()
+        if not crypto:
+            raise RuntimeError("réponse vide")
+        markets["crypto"] = crypto
+        log_ok("Crypto (CoinGecko)")
     except Exception as e:
-        print(f"[Crypto] échec: {e}")
+        log_error("Crypto", "CoinGecko", e)
 
     return markets
 
@@ -135,26 +228,74 @@ def fetch_flights():
                 params={"lamin": lamin, "lomin": lomin, "lamax": lamax, "lomax": lomax},
                 timeout=TIMEOUT,
             )
+            r.raise_for_status()
             states = r.json().get("states") or []
             out[name] = len(states)
+            log_ok(f"Vols {name}")
         except Exception as e:
-            print(f"[Flights] échec {name}: {e}")
+            log_error("Vols", name, e)
     return out
+
+# ---------------------------------------------------------------------------
+# Résumé lisible pour GitHub Actions (Job Summary)
+# ---------------------------------------------------------------------------
+def write_job_summary():
+    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+    lines = ["## 🛰️ Résultat de la mise à jour GCC Live\n"]
+    lines.append(f"Généré : `{datetime.datetime.now(datetime.UTC).isoformat()}`\n")
+    lines.append("| Source | Statut |")
+    lines.append("|---|---|")
+    for src, ok in sorted(STATUS.items()):
+        lines.append(f"| {src} | {'✅' if ok else '❌'} |")
+    if ERRORS:
+        lines.append("\n### Détail des erreurs\n")
+        lines.append("| Étape | Source | Erreur |")
+        lines.append("|---|---|---|")
+        for e in ERRORS:
+            err = e["error"].replace("|", "\\|")
+            lines.append(f"| {e['stage']} | {e['source']} | {err} |")
+    else:
+        lines.append("\nAucune erreur — toutes les sources ont répondu. ✅\n")
+    text = "\n".join(lines)
+    print(text)
+    if summary_path:
+        with open(summary_path, "a", encoding="utf-8") as f:
+            f.write(text + "\n")
 
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def main():
+    news = fetch_rss()
+    weather = fetch_weather()
+    markets = fetch_markets()
+    flights = fetch_flights()
+
     payload = {
         "generated_at_utc": datetime.datetime.now(datetime.UTC).isoformat(),
-        "news": fetch_rss(),
-        "weather": fetch_weather(),
-        "markets": fetch_markets(),
-        "flights": fetch_flights(),
+        "news": news,
+        "weather": weather,
+        "markets": markets,
+        "flights": flights,
+        "_meta": {
+            "status": STATUS,
+            "errors": ERRORS,
+            "ok": len(ERRORS) == 0,
+        },
     }
     with open(OUT_FILE, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
-    print(f"OK - data.json généré ({len(json.dumps(payload))} octets)")
+    save_cache(_translation_cache)
+
+    write_job_summary()
+    print(f"OK - data.json généré ({len(json.dumps(payload))} octets), {len(ERRORS)} erreur(s)")
+
+    # Le job ne doit PAS échouer bruyamment pour une source en panne isolée
+    # (le dashboard doit rester en ligne avec des données partielles) —
+    # mais si TOUT a échoué, on fait échouer le run pour être alerté.
+    if news == {} and weather == {} and markets == {} and flights == {}:
+        print("::error title=Panne totale::Toutes les sources ont échoué, voir le tableau ci-dessus.")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
