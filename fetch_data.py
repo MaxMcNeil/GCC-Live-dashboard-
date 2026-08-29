@@ -71,9 +71,61 @@ def save_cache(cache):
 _translation_cache = load_cache()
 _translator = MyMemoryTranslator(source="en-GB", target="ar-SA") if TRANSLATOR_AVAILABLE else None
 
+# ---------------------------------------------------------------------------
+# 0bis. Garde-fous anti-mistraduction dangereuse
+# ---------------------------------------------------------------------------
+# Le jargon sportif/tabloïd anglais utilise des métaphores violentes de façon
+# hyperbolique et inoffensive ("hit squad" = équipe de choc, "killer instinct"
+# = instinct de gagnant, "demolished" = a largement battu...). Traduites mot à
+# mot en arabe, ces expressions prennent un sens littéral alarmant qui n'existe
+# pas dans le texte original. On neutralise ces idiomes AVANT traduction.
+IDIOM_NORMALIZE = {
+    "hit squad": "elite squad",
+    "killer instinct": "winning instinct",
+    "gunning for": "aiming for",
+    "assassinate the record": "smash the record",
+    "slaughtered": "defeated heavily",
+    "annihilated": "defeated decisively",
+    "demolished": "defeated decisively",
+    "blew away": "clearly outperformed",
+    "wiped out": "defeated",
+    "executed the plan": "carried out the plan",
+    "shot down": "rejected",
+}
+
+def normalize_idioms(text):
+    lowered = text
+    for phrase, safe in IDIOM_NORMALIZE.items():
+        # remplacement insensible à la casse, en conservant le reste du texte
+        idx = lowered.lower().find(phrase)
+        if idx != -1:
+            lowered = lowered[:idx] + safe + lowered[idx+len(phrase):]
+    return lowered
+
+# Mots arabes à forte charge (violence réelle) : si la traduction en contient
+# un mais que l'anglais original ne porte aucun signal correspondant, on
+# considère la traduction comme suspecte et on ne l'utilise pas.
+ALARM_SIGNALS_AR_TO_EN = {
+    "اغتيال": ["assassin"],
+    "إرهاب": ["terror"],
+    "قتل": ["kill", "murder", "slay"],
+    "تفجير": ["explod", "bomb", "blast"],
+    "انفجار": ["explod", "bomb", "blast"],
+    "مجزرة": ["massacre"],
+}
+
+def is_translation_suspicious(original_en, translated_ar):
+    orig_lower = original_en.lower()
+    for ar_word, en_signals in ALARM_SIGNALS_AR_TO_EN.items():
+        if ar_word in translated_ar and not any(sig in orig_lower for sig in en_signals):
+            return True
+    return False
+
 def translate_title(text):
     """Traduit un titre EN -> AR. Ne bloque jamais le pipeline :
-    en cas d'échec, retourne le texte original (l'UI l'affichera tel quel)."""
+    en cas d'échec OU de traduction jugée dangereuse/suspecte, retourne le
+    texte original (l'UI l'affichera tel quel plutôt que d'afficher une
+    fausse information alarmante)."""
     if not text:
         return text
     if text in _translation_cache:
@@ -81,8 +133,14 @@ def translate_title(text):
     if not TRANSLATOR_AVAILABLE:
         return text
     try:
-        result = _translator.translate(text[:500])
+        safe_source = normalize_idioms(text)
+        result = _translator.translate(safe_source[:500])
         if result:
+            if is_translation_suspicious(text, result):
+                log_error("traduction-suspecte", text[:60],
+                          Exception(f"traduction rejetée (contenu alarmant non justifié): {result[:80]}"))
+                _translation_cache[text] = text  # on met en cache l'original pour ne pas retraduire à chaque run
+                return text
             _translation_cache[text] = result
             time.sleep(0.3)  # rythme doux, respectueux du service gratuit
             return result
