@@ -193,9 +193,11 @@ main{
 .ticker-wrap .tag .flagmark{ font-size:0.95em; letter-spacing:0.15em; }
 .ticker-track{
   display:inline-block; white-space:nowrap;
+  flex-shrink:0; width:max-content; /* jamais compressé par le flex du parent -> largeur de calcul fiable */
   animation: scroll-left 45s linear infinite;
   color:#1a1206; font-weight:600; font-size:clamp(12px,1.05vw,15px);
   padding-inline-start:2vw;
+  will-change: transform;
 }
 .ticker-track span{ margin-inline-end:4vw; }
 @keyframes scroll-left{
@@ -226,8 +228,10 @@ body.portrait .clocks{ display:none; }
 body.portrait .brand h1{ font-size:clamp(16px,4vw,22px); }
 
 @media (prefers-reduced-motion: reduce){
-  .brand .mark, .panel, .news-item{ animation:none !important; }
-  .ticker-track{ animation-duration:120s; }
+  /* على بعض إصدارات متصفح OBS المدمج (CEF)، هذا الإعداد يُبلَّغ "reduce" افتراضيًا
+     حتى لو لم يطلبه المستخدم فعليًا. لذلك نُبقي على حركة الشريط ودوران الأخبار
+     (وظيفة أساسية لعرض المحتوى وليست مجرد زخرفة) ونكتفي بتخفيف اللمسات الزخرفية فقط. */
+  .brand .mark, .panel{ animation:none !important; }
 }
 </style>
 </head>
@@ -473,7 +477,7 @@ function renderNews(news){
 
   newsPos = 0;
   el.scrollTop = 0;
-  highlightFeaturedNews();
+  setFeaturedNews(0); // العنصر الأول معروف يقينًا أنه في الواجهة عند البداية — لا حاجة للتخمين
   scheduleNextNewsTick(items[0].title);
 }
 
@@ -494,10 +498,12 @@ function advanceNews(){
   newsPos++;
   const target = nodes[newsPos];
   if(!target) return;
-  target.scrollIntoView({ behavior:'smooth', block:'start' });
-  beep({ freq:740, duration:0.06, volume:0.028, type:'triangle' }); // بيب خفيف مرافق لكل حركة
 
-  setTimeout(highlightFeaturedNews, 420);
+  target.scrollIntoView({ behavior:'smooth', block:'start' });
+  // نُعلِّم العنصر الوجهة كـ"مميز" فورًا وبشكل مؤكد (بدل تخمين لاحق حسب موضع التمرير):
+  // انتقال CSS الخاص بـ .featured يتكفل بجعل التكبير يظهر بسلاسة أثناء وصول التمرير
+  setFeaturedNews(newsPos);
+  beep({ freq:740, duration:0.06, volume:0.028, type:'triangle' }); // بيب خفيف مرافق لكل حركة
 
   const nextTitle = newsTitlesList[newsPos % newsCount] || '';
 
@@ -506,23 +512,17 @@ function advanceNews(){
     setTimeout(() => {
       el.scrollTo({ top:0, behavior:'auto' });
       newsPos = 0;
-      highlightFeaturedNews();
+      setFeaturedNews(0);
     }, 480);
   }
   scheduleNextNewsTick(nextTitle);
 }
 
-function highlightFeaturedNews(){
+function setFeaturedNews(pos){
   const el = document.getElementById('news-feed');
-  const nodes = Array.from(el.querySelectorAll('.news-item'));
+  const nodes = el.querySelectorAll('.news-item');
   nodes.forEach(n => n.classList.remove('featured'));
-  const containerTop = el.scrollTop;
-  let closest = nodes[0], min = Infinity;
-  nodes.forEach(n => {
-    const diff = Math.abs(n.offsetTop - containerTop);
-    if(diff < min){ min = diff; closest = n; }
-  });
-  if(closest) closest.classList.add('featured');
+  if(nodes[pos]) nodes[pos].classList.add('featured');
 }
 
 function renderMarkets(markets){
@@ -601,14 +601,18 @@ function renderTicker(data){
   if(!isNew) return;
 
   const content = parts.map(p => `<span>${escapeHtml(p)}</span>`).join('');
+
+  // ريستارت نظيف للحركة عند تغيّر المحتوى: نوقف الحركة، نغيّر النص والمدة،
+  // ثم نُعيد تفعيلها من الصفر — هذا يمنع أي "قفزة" أو تجمّد بصري قد يحدث
+  // عند تعديل مدة حركة CSS أثناء تشغيلها فعليًا
+  track.style.animation = 'none';
   track.innerHTML = content + content; // مكرر لضمان استمرارية الدوران الأبدي
 
-  // سرعة ثابتة ومريحة للقراءة مهما كانت كمية المحتوى (بالبكسل/ثانية، وليس مدة زمنية ثابتة)
   requestAnimationFrame(() => {
     const halfWidth = track.scrollWidth / 2;
     const PIXELS_PER_SECOND = 42; // وتيرة هادئة، غير متسرعة
     const duration = Math.min(220, Math.max(40, halfWidth / PIXELS_PER_SECOND));
-    track.style.animationDuration = duration.toFixed(1) + 's';
+    track.style.animation = `scroll-left ${duration.toFixed(1)}s linear infinite`;
   });
 
   if(isNew){

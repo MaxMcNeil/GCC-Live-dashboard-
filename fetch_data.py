@@ -167,6 +167,12 @@ RSS_FEEDS = {
 
 def fetch_rss(max_items=6):
     results = {}
+    seen_links = set()   # dédup inter-sources : le même article ne doit apparaître qu'une fois
+    seen_titles = set()  # repli si le lien est absent/vide : titre normalisé
+
+    def normalize_title(t):
+        return " ".join(t.split()).strip().lower()
+
     for name, url in RSS_FEEDS.items():
         try:
             feed = feedparser.parse(url)
@@ -175,17 +181,32 @@ def fetch_rss(max_items=6):
             items = []
             for entry in feed.entries[:max_items]:
                 title_en = entry.get("title", "").strip()
+                link = entry.get("link", "").strip()
+                norm = normalize_title(title_en)
+
+                # Plusieurs de nos flux (Google News par pays + agences officielles)
+                # remontent souvent LA MÊME actualité régionale (ex: un communiqué de
+                # solidarité repris partout). On ne garde que la première occurrence.
+                if link:
+                    if link in seen_links:
+                        continue
+                    seen_links.add(link)
+                elif norm:
+                    if norm in seen_titles:
+                        continue
+                    seen_titles.add(norm)
+
                 items.append({
                     "title": title_en,
                     "title_ar": translate_title(title_en) if title_en.isascii() else title_en,
-                    "link": entry.get("link", ""),
+                    "link": link,
                     "published": entry.get("published", ""),
                 })
             if items:
                 results[name] = items
                 log_ok(name)
             else:
-                raise RuntimeError("aucun article retourné")
+                raise RuntimeError("aucun article retourné (ou tout était en doublon d'une autre source)")
         except Exception as e:
             log_error("RSS", name, e)
     return results
