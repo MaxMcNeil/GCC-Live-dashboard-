@@ -35,11 +35,7 @@ html,body{
 .nation-strip{
   position:absolute; left:0; right:0; top:0; height:3px; z-index:2;
   background:linear-gradient(90deg,
-    #006C35 0 25%,      /* السعودية */
-    #EF3340 25% 50%,    /* الإمارات (لمسة حمراء) */
-    #DB161B 50% 75%,    /* عمان */
-    #007A3D 75% 100%    /* الكويت */
-  );
+    #006C35 0 25%, #EF3340 25% 50%, #DB161B 50% 75%, #007A3D 75% 100%);
   opacity:0.65;
 }
 
@@ -47,37 +43,29 @@ html,body{
 header{
   position:relative; z-index:1;
   display:flex; align-items:center; justify-content:space-between;
-  padding: 1.2vh 2.2vw;
+  padding: 1.6vh 2.2vw;
   border-bottom:1px solid var(--line);
   background:linear-gradient(180deg, rgba(201,162,75,0.06), transparent);
-  flex-wrap:wrap; row-gap:0.8vh;
 }
 .brand{ display:flex; align-items:center; gap:1vw; }
 .brand .mark{
   width:2.2vh; height:2.2vh; border-radius:50%;
-  background:var(--live);
-  box-shadow:0 0 1.2vh var(--live);
-  animation: pulse 1.4s ease-in-out infinite;
-  flex-shrink:0;
+  background:var(--live); box-shadow:0 0 1.2vh var(--live);
+  animation: pulse 1.4s ease-in-out infinite; flex-shrink:0;
 }
-@keyframes pulse{
-  0%,100%{ transform:scale(1); opacity:1;}
-  50%{ transform:scale(1.35); opacity:0.55;}
-}
+@keyframes pulse{ 0%,100%{transform:scale(1); opacity:1;} 50%{transform:scale(1.35); opacity:0.55;} }
 .brand h1{
-  font-family:'Noto Kufi Arabic', sans-serif;
-  font-weight:900;
-  font-size: clamp(16px, 2.2vw, 28px);
-  color:var(--sand);
+  font-family:'Noto Kufi Arabic', sans-serif; font-weight:900;
+  font-size: clamp(16px, 2.2vw, 28px); color:var(--sand);
 }
 .brand h1 span{ color:var(--gold); }
 
-/* ساعات المدن — مكبّرة بشكل واضح كي تبقى مقروءة من بعيد على الشاشة الحية */
-.clocks{ display:flex; gap:2vw; font-family:'JetBrains Mono', monospace; align-items:center; }
+/* الساعات: مكبَّرة بوضوح — كانت غير مقروءة سابقًا */
+.clocks{ display:flex; gap:1.8vw; font-family:'JetBrains Mono', monospace; align-items:center; }
 .clocks div.clockcell{ text-align:center; }
-.clocks .flag{ font-size:clamp(18px, 2vw, 30px); display:block; margin-bottom:2px; }
-.clocks .city{ font-size:clamp(11px, 1.15vw, 16px); color:var(--sand-dim); letter-spacing:0.02em; font-weight:500;}
-.clocks .time{ font-size: clamp(24px, 3.1vw, 44px); color:var(--gold); font-weight:700; direction:ltr; letter-spacing:0.01em;}
+.clocks .flag{ font-size:1.5em; display:block; margin-bottom:2px; }
+.clocks .city{ font-size:clamp(11px,1.15vw,15px); color:var(--sand-dim); letter-spacing:0.02em; font-weight:600; }
+.clocks .time{ font-size: clamp(20px, 2.6vw, 34px); color:var(--gold); font-weight:700; direction:ltr; }
 
 .sound-toggle{
   width:3.2vh; height:3.2vh; border-radius:50%;
@@ -90,67 +78,21 @@ header{
 .sound-toggle:hover{ background:rgba(201,162,75,0.12); transform:scale(1.06); }
 .sound-toggle.muted{ color:var(--sand-dim); }
 
-/* ===== ZONE PRINCIPALE : une seule grande scène (l'actu vedette) =====
-   L'ancienne "scène statistiques" plein écran a été retirée : elle
-   masquait l'actualité et rendait les chiffres illisibles. Les données
-   marchés/météo/vols vivent désormais dans une petite pastille flottante
-   (voir .stat-popup) qui ne recouvre jamais le texte. */
-main{
-  position:relative; z-index:1;
-  padding: 2vh 3vw;
-  min-height:0;
-}
-#mainStage{ position:relative; width:100%; height:100%; }
+/* ===== ZONE PRINCIPALE : une seule actu géante ===== */
+main{ position:relative; z-index:1; padding: 2vh 3vw; min-height:0; display:flex; }
+#mainStage{ position:relative; flex:1; min-height:0; display:flex; }
 
-.scene{
-  position:relative; width:100%; height:100%;
+.hero-card{
+  flex:1; min-height:0; position:relative;
   background:linear-gradient(180deg, var(--panel), var(--panel-2));
-  border:1px solid var(--line);
-  border-radius:16px;
+  border:1px solid var(--line); border-radius:16px;
   display:flex; flex-direction:column;
   padding: clamp(16px,3.4vh,40px) clamp(18px,4.4vw,56px);
 }
-
-.hero-top{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:1em; flex-shrink:0;
-  margin-bottom:clamp(14px,3vh,32px);
-}
-.hero-tag{
-  display:inline-flex; align-self:flex-start;
-  background:rgba(201,162,75,0.14); color:var(--gold);
-  border:1px solid var(--line); border-radius:999px;
-  padding:0.9vh 1.8vw; font-size:clamp(13px,1.5vw,19px); font-weight:700;
-  font-family:'Noto Kufi Arabic', sans-serif;
-}
-/* شارة الأعلام — تعرض علم/أعلام الدول الخليجية المعنيّة بالخبر الظاهر حاليًا،
-   بشكل فني (تكديس خفيف + توهّج) دون أي تأثير على مساحة العنوان الكبير */
-.hero-flags{
-  display:flex; align-items:center;
-  font-size:clamp(22px,3vw,40px);
-  filter:drop-shadow(0 3px 8px rgba(0,0,0,0.5));
-}
-.hero-flags span{
-  display:inline-block;
-  margin-inline-start:-0.22em;
-  animation: flag-pop 0.45s ease backwards;
-}
-.hero-flags span:first-child{ margin-inline-start:0; }
-.hero-flags span:nth-child(1){ animation-delay:0s; }
-.hero-flags span:nth-child(2){ animation-delay:0.08s; }
-.hero-flags span:nth-child(3){ animation-delay:0.16s; }
-@keyframes flag-pop{
-  from{ opacity:0; transform:translateY(-6px) scale(0.7); }
-  to{ opacity:1; transform:translateY(0) scale(1); }
-}
-
 .hero-body{ flex:1; display:flex; align-items:center; min-height:0; }
 .hero-title{
-  font-family:'Noto Kufi Arabic', sans-serif;
-  font-weight:900;
-  font-size: clamp(30px, 6vw, 84px);
-  line-height:1.32;
-  color:var(--sand);
+  font-family:'Noto Kufi Arabic', sans-serif; font-weight:900;
+  font-size: clamp(30px, 6vw, 84px); line-height:1.32; color:var(--sand);
   transition: opacity 0.3s ease, transform 0.3s ease;
   display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:5; overflow:hidden;
 }
@@ -158,74 +100,62 @@ main{
 .hero-title.xlong{ font-size:clamp(20px,3.6vw,44px); }
 .hero-title.swap{ opacity:0; transform:translateY(12px) scale(0.98); }
 
-.hero-footer{ flex-shrink:0; margin-top:clamp(14px,3vh,30px); }
-/* مصدر الخبر — يُستخرج من نهاية العنوان الأصلي ويُعرض هنا بشكل منفصل
-   ومقروء لكن بتنسيق مختلف تمامًا عن العنوان الضخم، أسفل البطاقة */
-.hero-source{
-  display:inline-flex; align-items:center; gap:0.6em;
-  font-family:'IBM Plex Sans Arabic', sans-serif; font-weight:600;
-  font-size:clamp(12px,1.25vw,17px); color:var(--sand-dim);
-  background:rgba(255,255,255,0.05); border:1px solid var(--line);
-  border-radius:999px; padding:0.45em 1.2em;
-  margin-bottom:clamp(10px,1.8vh,18px);
+/* المصدر أصبح أسفل الخبر (وليس ملتصقًا بنهاية النص)، بخط مختلف وأصغر عمدًا
+   عن العنوان الرئيسي حتى لا يُنافسه، مع الأعلام بشكل فني بارز بجانبه */
+.hero-footer{
+  display:flex; align-items:center; gap:1.1vw; flex-wrap:wrap;
+  margin-top:clamp(10px,2vh,20px); padding-top:clamp(8px,1.6vh,16px);
+  border-top:1px dashed var(--line); flex-shrink:0;
 }
-.hero-source::before{ content:"🖋"; opacity:0.7; }
-.hero-source:empty{ display:none; }
+.hero-flags{ display:flex; gap:0.5vw; flex-shrink:0; }
+.flag-chip{
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:clamp(20px,2.8vw,36px);
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--line); border-radius:10px;
+  padding:0.25em 0.45em;
+  filter:drop-shadow(0 0 6px rgba(201,162,75,0.35));
+  animation: flagPop 0.45s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes flagPop{ from{ transform:scale(0.55); opacity:0;} to{ transform:scale(1); opacity:1;} }
+.hero-source{
+  font-family:'IBM Plex Sans Arabic', sans-serif; font-weight:600;
+  color:var(--teal); font-size:clamp(13px,1.5vw,20px); letter-spacing:0.01em;
+}
+
 .hero-progress{
-  height:7px; border-radius:5px; background:rgba(255,255,255,0.07); overflow:hidden;
+  margin-top:clamp(12px,2.4vh,24px); height:7px; border-radius:5px;
+  background:rgba(255,255,255,0.07); overflow:hidden; flex-shrink:0;
 }
 .hero-progress-bar{
-  height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--gold));
-  border-radius:5px;
+  height:100%; width:0%;
+  background:linear-gradient(90deg, var(--teal), var(--gold)); border-radius:5px;
 }
 
-/* ===== PASTILLE FLOTTANTE : marchés / météo / vols =====
-   Remplace l'ancienne scène plein écran illisible. Une seule donnée à la
-   fois, très soignée, qui boucle indéfiniment avec un petit bip à chaque
-   changement — sans jamais recouvrir le texte de l'actualité. Fonctionne
-   à l'identique en horizontal et en vertical (voir règles .portrait ci-dessous). */
-.stat-popup{
-  position:fixed;
-  bottom: calc(7.6vh + 1.3vh);
-  inset-inline-start: 2.4vw;
-  z-index:5;
-  display:flex; align-items:center; gap:0.85em;
-  background:linear-gradient(135deg, rgba(18,27,46,0.93), rgba(14,22,38,0.93));
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:0.85em 1.3em;
-  box-shadow:0 10px 30px rgba(0,0,0,0.45), 0 0 0 1px rgba(201,162,75,0.06);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  max-width: clamp(220px, 27vw, 380px);
-  transition: opacity 0.32s ease, transform 0.32s ease;
+/* ===== PASTILLE FLOTTANTE : marchés / météo / vols en boucle perpétuelle =====
+   Remplace l'ancien plein-écran périodique (jugé "moche"/envahissant) par un
+   petit encart artistique en coin, toujours discret, qui balaie les données
+   une par une, à l'infini, sans jamais gêner la lecture de l'actu géante. */
+.stat-pop{
+  position:absolute; top:clamp(10px,2vh,22px); inset-inline-end:clamp(10px,2vw,26px);
+  z-index:5; max-width:46vw;
+  display:flex; align-items:center; gap:0.7em;
+  background:rgba(18,27,46,0.74); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  border:1px solid var(--line); border-radius:14px;
+  padding:0.9vh 1.3vw;
+  box-shadow:0 6px 20px rgba(0,0,0,0.35), 0 0 0 1px rgba(201,162,75,0.08);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.stat-popup.swap{ opacity:0; transform:translateY(10px) scale(0.95); }
-.stat-popup.empty{ display:none; }
-.popup-live-dot{
-  position:absolute; top:-4px; inset-inline-end:-4px;
-  width:8px; height:8px; border-radius:50%;
-  background:var(--teal); box-shadow:0 0 6px var(--teal);
-  animation:pulse 1.8s ease-in-out infinite;
-}
-.popup-icon{ font-size:clamp(22px,2.6vw,34px); flex-shrink:0; filter:drop-shadow(0 2px 4px rgba(0,0,0,.4)); }
-.popup-text{ display:flex; flex-direction:column; gap:2px; min-width:0; }
-.popup-label{
-  font-size:clamp(11px,1.1vw,14px); color:var(--sand-dim);
-  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-}
-.popup-value{
+.stat-pop.swap{ opacity:0; transform:translateY(-8px) scale(0.95); }
+.stat-pop-icon{ font-size:clamp(18px,2.1vw,30px); flex-shrink:0; filter:drop-shadow(0 0 4px rgba(201,162,75,0.4)); }
+.stat-pop-body{ min-width:0; }
+.stat-pop-label{ font-size:clamp(10px,1.05vw,14px); color:var(--sand-dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.stat-pop-value{
   font-family:'JetBrains Mono', monospace; font-weight:700;
-  font-size:clamp(16px,1.9vw,25px); color:var(--gold); direction:ltr;
+  font-size:clamp(16px,1.9vw,26px); color:var(--gold); direction:ltr;
 }
 
-/* ===== BANDEAU DÉFILANT (défilement JS pixel-parfait, réellement sans fin) =====
-   L'ancienne animation CSS % pouvait laisser un "trou" vide après un tour
-   lorsque le contenu était plus court que la largeur visible. On mesure
-   désormais la largeur réelle d'une copie du contenu, on en répète
-   suffisamment de copies pour ne jamais tomber à court, et on fait défiler
-   via requestAnimationFrame en rebouclant en pixels — donc toujours fluide,
-   toujours continu, quelle que soit la quantité de texte. ===== */
+/* ===== BANDEAU DÉFILANT (boucle pilotée en JS — voir plus bas) ===== */
 .ticker-wrap{
   position:relative; z-index:1;
   border-top:1px solid var(--line);
@@ -240,59 +170,34 @@ main{
   font-size:clamp(14px,1.4vw,19px);
 }
 .ticker-track{
-  display:flex; flex-shrink:0; width:max-content;
-  will-change:transform;
+  display:flex; flex-shrink:0; width:max-content; will-change:transform;
   color:#1a1206; font-weight:700; font-size:clamp(17px,1.75vw,25px);
   padding-inline-start:2vw;
 }
-.ticker-track > span{
-  margin-inline-end:4.5vw; display:flex; align-items:center; gap:0.7em; flex-shrink:0;
-}
-.ticker-track > span::before{
+.ticker-track span{ margin-inline-end:4.5vw; display:flex; align-items:center; }
+.ticker-track span::before{
   content:"●"; font-size:0.4em; margin-inline-end:0.9vw; opacity:0.4; vertical-align:middle;
-}
-.ticker-flags{ font-size:1.25em; display:inline-flex; filter:drop-shadow(0 1px 2px rgba(0,0,0,.35)); }
-.ticker-flags span{ margin-inline-start:-0.2em; }
-.ticker-flags span:first-child{ margin-inline-start:0; }
-.ticker-col{ display:flex; flex-direction:column; align-items:flex-start; line-height:1.18; gap:2px; }
-.ticker-title{ display:block; }
-.ticker-source{
-  font-size:0.46em; font-weight:600; opacity:0.75;
-  background:rgba(0,0,0,0.14); padding:1px 9px; border-radius:6px;
-  font-family:'IBM Plex Sans Arabic', sans-serif;
 }
 
 .updated{
   position:fixed; bottom:0.6vh; inset-inline-end:1vw; font-size:10px;
   color:var(--sand-dim); font-family:'JetBrains Mono', monospace; opacity:0.75;
   direction:ltr; display:flex; align-items:center; gap:4px; cursor:default;
-  z-index:6;
 }
 .health-dot{
   display:inline-block; width:7px; height:7px; border-radius:50%;
-  background:var(--teal); color:var(--teal); box-shadow:0 0 4px currentColor;
-  flex-shrink:0;
+  background:var(--teal); color:var(--teal); box-shadow:0 0 4px currentColor; flex-shrink:0;
 }
 .health-dot.warn{ background:var(--gold); color:var(--gold); }
 .health-dot.err{ background:var(--live); color:var(--live); }
 
-/* ===== ORIENTATION (détection auto : portrait 1080x1920 / paysage 1920x1080) ===== */
-body.portrait header{ padding: 1vh 3vw; }
-body.portrait .clocks{ gap:3vw; }
-body.portrait .clocks .time{ font-size:clamp(17px, 3.6vw, 26px); }
-body.portrait .clocks .city{ font-size:clamp(9px, 2vw, 13px); }
-body.portrait .clocks .flag{ font-size:clamp(14px, 3vw, 20px); }
-
-body.portrait .stat-popup{
-  inset-inline-start:3vw; inset-inline-end:3vw; max-width:none;
-  justify-content:center; bottom: calc(7.6vh + 1vh);
-}
-body.portrait .hero-flags{ font-size:clamp(20px,4.4vw,32px); }
+body.portrait .clocks{ display:none; }
+body.portrait header{ padding: 1.2vh 3vw; }
+body.portrait .stat-pop{ max-width:70vw; }
 
 @media (prefers-reduced-motion: reduce){
   /* بعض إصدارات متصفح OBS المدمج (CEF) تُبلِّغ "reduce" افتراضيًا حتى لو لم
-     يطلبه المستخدم فعليًا. لذلك نُبقي على الحركات الوظيفية (الشريط، تبديل
-     الأخبار، شريط التقدّم) ونكتفي بإيقاف النبض الزخرفي فقط. */
+     يطلبه المستخدم فعليًا، لذا نُبقي كل الحركات الوظيفية ونعطّل فقط النبض الزخرفي. */
   .brand .mark{ animation:none !important; }
 }
 </style>
@@ -313,19 +218,24 @@ body.portrait .hero-flags{ font-size:clamp(20px,4.4vw,32px); }
 
   <main>
     <div id="mainStage">
-      <section class="scene" id="heroNews">
-        <div class="hero-top">
-          <div class="hero-tag" id="heroTag">الخليج المباشر</div>
-          <div class="hero-flags" id="heroFlags"></div>
-        </div>
+      <section class="hero-card">
         <div class="hero-body">
           <div class="hero-title" id="heroTitle">جارٍ تحميل الأخبار…</div>
         </div>
         <div class="hero-footer">
+          <div class="hero-flags" id="heroFlags"></div>
           <div class="hero-source" id="heroSource"></div>
-          <div class="hero-progress"><div class="hero-progress-bar" id="heroProgressBar"></div></div>
         </div>
+        <div class="hero-progress"><div class="hero-progress-bar" id="heroProgressBar"></div></div>
       </section>
+
+      <div class="stat-pop" id="statPop">
+        <div class="stat-pop-icon" id="statPopIcon">💹</div>
+        <div class="stat-pop-body">
+          <div class="stat-pop-label" id="statPopLabel">—</div>
+          <div class="stat-pop-value" id="statPopValue">—</div>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -334,16 +244,6 @@ body.portrait .hero-flags{ font-size:clamp(20px,4.4vw,32px); }
     <div class="ticker-track" id="ticker" dir="rtl"><span>جارٍ تحميل الشريط الإخباري…</span></div>
   </div>
 </div>
-
-<div class="stat-popup empty" id="statPopup">
-  <span class="popup-live-dot"></span>
-  <span class="popup-icon" id="popupIcon">📊</span>
-  <div class="popup-text">
-    <div class="popup-label" id="popupLabel">—</div>
-    <div class="popup-value" id="popupValue">—</div>
-  </div>
-</div>
-
 <div class="updated" id="updated"><span class="health-dot" id="healthDot" title="الحالة"></span> <span id="updatedText"></span></div>
 
 <script>
@@ -355,7 +255,28 @@ const TZ = {
   "الكويت": { tz:"Asia/Kuwait", flag:"🇰🇼" }
 };
 
+// Les clés RSS_FEEDS (fetch_data.py) contiennent déjà un libellé arabe + drapeau
+// (ex: "أخبار عُمان 🇴🇲") — on extrait ce drapeau par regex, et on complète en
+// scannant le titre pour d'autres pays du Golfe explicitement mentionnés.
 const NEWS_SOURCE_LABELS = {};
+const GULF_KEYWORDS = [
+  { flag:'🇸🇦', words:['السعودية','سعودي','الرياض','جدة','مكة','المدينة المنورة'] },
+  { flag:'🇦🇪', words:['الإمارات','إماراتي','دبي','أبوظبي','أبو ظبي','الشارقة'] },
+  { flag:'🇴🇲', words:['عُمان','عمان','عماني','مسقط'] },
+  { flag:'🇰🇼', words:['الكويت','كويتي'] }
+];
+function extractFlagEmoji(str){
+  return (str||'').match(/[\u{1F1E6}-\u{1F1FF}]{2}/gu) || [];
+}
+function resolveFlags(label, title){
+  const set = new Set(extractFlagEmoji(label));
+  GULF_KEYWORDS.forEach(k => { if(k.words.some(w => (title||'').includes(w))) set.add(k.flag); });
+  if(set.size === 0) set.add('🌐');
+  return Array.from(set);
+}
+function cleanSourceLabel(label){
+  return (label||'').replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu,'').trim();
+}
 
 const WEATHER_CITY_LABELS = {
   "Riyadh":     { name:"الرياض",     flag:"🇸🇦" },
@@ -365,76 +286,20 @@ const WEATHER_CITY_LABELS = {
   "Muscat":     { name:"مسقط",       flag:"🇴🇲" },
   "Kuwait City":{ name:"مدينة الكويت", flag:"🇰🇼" }
 };
-
 const MARKET_LABELS = {
-  "USD/SAR": "دولار/ريال سعودي",
-  "USD/AED": "دولار/درهم إماراتي",
-  "USD/OMR": "دولار/ريال عُماني",
-  "USD/KWD": "دولار/دينار كويتي",
-  "Brent Crude": "خام برنت",
-  "Gold": "الذهب (أونصة)"
+  "USD/SAR": "دولار/ريال سعودي", "USD/AED": "دولار/درهم إماراتي",
+  "USD/OMR": "دولار/ريال عُماني", "USD/KWD": "دولار/دينار كويتي",
+  "Brent Crude": "خام برنت", "Gold": "الذهب (أونصة)"
 };
 const CRYPTO_LABELS = { "bitcoin":"بيتكوين", "ethereum":"إيثيريوم" };
-
 const FLIGHT_LABELS = {
-  "DXB (Dubai)":  "مطار دبي — DXB",
-  "RUH (Riyadh)": "مطار الرياض — RUH",
-  "MCT (Muscat)": "مطار مسقط — MCT"
+  "DXB (Dubai)":  "مطار دبي — DXB", "RUH (Riyadh)": "مطار الرياض — RUH", "MCT (Muscat)": "مطار مسقط — MCT"
 };
 
-/* ===================== الدول الخليجية: كشف الأعلام من نص الخبر =====================
-   لكل خبر نبدأ بعلم مصدره (مستخرَج تلقائيًا من اسم الخلاصة نفسها، مثل
-   "أخبار عُمان 🇴🇲")، ثم نفحص نص العنوان بحثًا عن أي دولة خليجية أخرى
-   مذكورة صراحة؛ إن وُجدت، تُضاف كل الأعلام المعنية معًا (مثال: خبر عن
-   "الكويت وعُمان" يعرض العلمين). "عمان" بلا تشكيل مستبعدة عمدًا لتفادي
-   الخلط مع العاصمة الأردنية "عمّان" — نعتمد على "عُمان" المُشكَّلة كما
-   ترد فعليًا في خلاصات المصدر، أو على ذكر "مسقط"/"سلطنة عمان". */
-const GULF_KEYWORDS = [
-  { flag:"🇸🇦", words:["السعودية","سعودي","الرياض","جدة"] },
-  { flag:"🇦🇪", words:["الإمارات","إماراتي","دبي","أبوظبي","أبو ظبي"] },
-  { flag:"🇴🇲", words:["عُمان","سلطنة عمان","مسقط"] },
-  { flag:"🇰🇼", words:["الكويت","كويتي"] },
-  { flag:"🇶🇦", words:["قطر","قطري","الدوحة"] },
-  { flag:"🇧🇭", words:["البحرين","بحريني","المنامة"] }
-];
-function extractFeedFlag(feedLabel){
-  const m = (feedLabel||'').match(/\p{Regional_Indicator}{2}/gu);
-  return m ? m[0] : null;
-}
-function detectGulfFlags(feedLabel, title){
-  const flags = new Set();
-  const base = extractFeedFlag(feedLabel);
-  if(base) flags.add(base);
-  const t = title || '';
-  for(const {flag, words} of GULF_KEYWORDS){
-    if(words.some(w => t.includes(w))) flags.add(flag);
-  }
-  return Array.from(flags);
-}
-
-/* ===================== فصل مصدر الخبر عن العنوان =====================
-   خلاصات Google News تُلحق اسم الموقع الناشر في نهاية العنوان
-   ("... - العربية"). نستخرجه هنا كي يُعرض بشكل منفصل وأنيق أسفل
-   البطاقة/الشريط بدل أن يبقى ملتصقًا بنهاية العنوان الضخم. */
-function splitTitleSource(rawTitle){
-  const t = (rawTitle || '').trim();
-  const sepRegex = /\s[-–—]\s/g;
-  let lastIdx = -1, lastSepLen = 0, m;
-  while((m = sepRegex.exec(t))){ lastIdx = m.index; lastSepLen = m[0].length; }
-  if(lastIdx > 0){
-    const source = t.slice(lastIdx + lastSepLen).trim();
-    if(source.length >= 2 && source.length <= 40){
-      return { title: t.slice(0, lastIdx).trim(), source };
-    }
-  }
-  return { title: t, source: '' };
-}
-
-/* ===================== نظام الأصوات (بيبات ناعمة) ===================== */
+/* ===================== نظام الأصوات ===================== */
 let audioCtx = null;
 let soundEnabled = true;
 try{ soundEnabled = localStorage.getItem('gcc_sound') !== 'off'; }catch(e){}
-
 function ensureAudio(){
   if(!audioCtx){
     const Ctx = window.AudioContext || window.webkitAudioContext;
@@ -444,7 +309,6 @@ function ensureAudio(){
   if(audioCtx.state === 'suspended') audioCtx.resume();
   return audioCtx;
 }
-
 function beep({freq=880, duration=0.09, volume=0.045, type='sine', delay=0}={}){
   if(!soundEnabled) return;
   const ctx = ensureAudio();
@@ -453,21 +317,17 @@ function beep({freq=880, duration=0.09, volume=0.045, type='sine', delay=0}={}){
     const t0 = ctx.currentTime + delay;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
-    osc.type = type;
-    osc.frequency.value = freq;
+    osc.type = type; osc.frequency.value = freq;
     gain.gain.setValueAtTime(0.0001, t0);
     gain.gain.exponentialRampToValueAtTime(volume, t0 + 0.012);
     gain.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
     osc.connect(gain).connect(ctx.destination);
-    osc.start(t0);
-    osc.stop(t0 + duration + 0.02);
+    osc.start(t0); osc.stop(t0 + duration + 0.02);
   }catch(e){}
 }
-
 ['click','touchstart','keydown'].forEach(evt => {
   window.addEventListener(evt, () => ensureAudio(), { once:true, passive:true });
 });
-
 function updateSoundIcon(){
   const btn = document.getElementById('soundToggle');
   btn.textContent = soundEnabled ? '🔊' : '🔇';
@@ -481,7 +341,7 @@ document.getElementById('soundToggle').addEventListener('click', () => {
 });
 updateSoundIcon();
 
-/* ===================== الساعات (مكبّرة) ===================== */
+/* ===================== الساعات ===================== */
 function renderClocks(){
   const el = document.getElementById('clocks');
   el.innerHTML = Object.entries(TZ).map(([city, info]) => {
@@ -492,38 +352,21 @@ function renderClocks(){
 setInterval(renderClocks, 1000);
 renderClocks();
 
-let lastData = null;
-
 function detectOrientation(){
   const w = document.documentElement.clientWidth || window.innerWidth;
   const h = document.documentElement.clientHeight || window.innerHeight;
-  const wasPortrait = document.body.classList.contains('portrait');
   document.body.classList.toggle('portrait', h > w);
-  const isPortrait = document.body.classList.contains('portrait');
-  if(isPortrait !== wasPortrait && lastData){
-    lastTickerHash = '';
-    renderTicker(lastData);
-  }
 }
-let resizeDebounce;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeDebounce);
-  resizeDebounce = setTimeout(() => {
-    detectOrientation();
-    if(lastData){ lastTickerHash = ''; renderTicker(lastData); }
-  }, 220);
-});
+window.addEventListener('resize', detectOrientation);
 detectOrientation();
 [0, 150, 500, 1500, 3000].forEach(t => setTimeout(detectOrientation, t));
-if(window.ResizeObserver){
-  new ResizeObserver(() => { detectOrientation(); }).observe(document.documentElement);
-}
+if(window.ResizeObserver){ new ResizeObserver(detectOrientation).observe(document.documentElement); }
 
 function escapeHtml(str){
   return (str||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
 
-/* ===================== الخبر الرئيسي (خبر واحد ضخم في كل مرة) ===================== */
+/* ===================== الخبر الرئيسي (خبر واحد ضخم، مصدر وأعلام أسفله) ===================== */
 let lastNewsHash = '';
 let heroItems = [];
 let heroIndex = 0;
@@ -533,12 +376,7 @@ function renderNews(news){
   const items = [];
   for(const [source, arr] of Object.entries(news)){
     const label = NEWS_SOURCE_LABELS[source] || source;
-    (arr || []).slice(0,6).forEach(item => {
-      const raw = item.title_ar || item.title;
-      const { title, source: outlet } = splitTitleSource(raw);
-      const flags = detectGulfFlags(source, raw);
-      items.push({ label, title, outlet, flags });
-    });
+    (arr || []).slice(0,6).forEach(item => items.push({ label, title: item.title_ar || item.title }));
   }
   const hash = JSON.stringify(items.map(i => i.title));
   const isNew = hash !== lastNewsHash;
@@ -550,7 +388,6 @@ function renderNews(news){
   heroIndex = 0;
 
   if(!items.length){
-    document.getElementById('heroTag').textContent = 'الخليج المباشر';
     document.getElementById('heroTitle').textContent = 'لا توجد بيانات متاحة حالياً.';
     document.getElementById('heroSource').textContent = '';
     document.getElementById('heroFlags').innerHTML = '';
@@ -562,20 +399,21 @@ function renderNews(news){
 function showHeroItem(idx, animate){
   heroIndex = idx;
   const item = heroItems[idx % heroItems.length];
-  const tagEl = document.getElementById('heroTag');
   const titleEl = document.getElementById('heroTitle');
   const sourceEl = document.getElementById('heroSource');
   const flagsEl = document.getElementById('heroFlags');
   const barEl = document.getElementById('heroProgressBar');
 
   const apply = () => {
-    tagEl.textContent = item.label;
     titleEl.textContent = item.title;
     titleEl.classList.remove('swap');
     titleEl.classList.toggle('long', item.title.length > 80);
     titleEl.classList.toggle('xlong', item.title.length > 150);
-    sourceEl.textContent = item.outlet ? ('المصدر · ' + item.outlet) : '';
-    flagsEl.innerHTML = item.flags.map(f => `<span>${f}</span>`).join('');
+
+    sourceEl.textContent = cleanSourceLabel(item.label);
+    const flags = resolveFlags(item.label, item.title);
+    flagsEl.innerHTML = flags.map(f => `<span class="flag-chip">${f}</span>`).join('');
+
     beep({freq:660, duration:0.07, volume:0.035, type:'sine'});
 
     barEl.style.transition = 'none';
@@ -586,9 +424,7 @@ function showHeroItem(idx, animate){
     barEl.style.width = '100%';
 
     clearTimeout(heroTimer);
-    heroTimer = setTimeout(() => {
-      showHeroItem((heroIndex + 1) % heroItems.length, true);
-    }, dwell);
+    heroTimer = setTimeout(() => { showHeroItem((heroIndex + 1) % heroItems.length, true); }, dwell);
   };
 
   if(animate){
@@ -599,183 +435,143 @@ function showHeroItem(idx, animate){
   }
 }
 
-/* ===================== الپاستيّة العائمة: أسواق + طقس + طيران =====================
-   بدل الشاشة الكاملة القديمة (كانت تُخفي الخبر وتبدو رديئة)، نعرض بندًا
-   واحدًا صغيرًا وأنيقًا في كل مرة، في ركن ثابت لا يزعج القراءة، ويدور
-   إلى ما لا نهاية مع بيب لطيف عند كل تبديل — أفقيًا وعموديًا على حدّ سواء. */
-const POPUP_DWELL_MS = 6000;
-let popupItems = [];
-let popupIndex = 0;
-let popupTimer = null;
-let lastPopupHash = '';
+/* ===================== الپاستيلة العائمة (أسواق/طقس/طيران في حلقة أبدية) =====================
+   بدل الشاشة الكاملة الدورية (نتائج سيئة بصريًا)، عنصر فني صغير في الزاوية
+   يستعرض القيم واحدة تلو الأخرى، بلا توقف أبدًا، ببيب خفيف عند كل تبديل. */
+let popItems = [];
+let popIndex = 0;
+let popTimer = null;
+let lastStatsHash = '';
 
-function buildPopupItems(data){
+function buildPopItems(data){
   const items = [];
-  const markets = data.markets || {};
-  for(const [label, val] of Object.entries(markets)){
+  for(const [label, val] of Object.entries(data.markets || {})){
     if(label === 'crypto'){
-      for(const [coin, prices] of Object.entries(val || {})){
-        items.push({ icon:'💰', label: CRYPTO_LABELS[coin] || coin, value: '$' + (prices.usd||0).toLocaleString('en-US') });
+      for(const [coin, p] of Object.entries(val || {})){
+        items.push({ icon:'💰', label:CRYPTO_LABELS[coin] || coin, value:'$' + (p.usd||0).toLocaleString('en-US') });
       }
     } else {
-      items.push({ icon:'💹', label: MARKET_LABELS[label] || label, value: String(val) });
+      items.push({ icon:'💹', label:MARKET_LABELS[label] || label, value:String(val) });
     }
   }
   for(const [city, w] of Object.entries(data.weather || {})){
     if(w.temperature_2m === undefined) continue;
     const info = WEATHER_CITY_LABELS[city] || { name:city, flag:'🌡️' };
-    items.push({ icon: info.flag || '🌡️', label: info.name, value: Math.round(w.temperature_2m) + '°م' });
+    items.push({ icon:info.flag || '🌡️', label:info.name, value:Math.round(w.temperature_2m) + '°C' });
   }
   for(const [ap, count] of Object.entries(data.flights || {})){
-    items.push({ icon:'✈️', label: FLIGHT_LABELS[ap] || ap, value: count + ' رحلة' });
+    items.push({ icon:'✈️', label:FLIGHT_LABELS[ap] || ap, value:count + ' رحلة' });
   }
   return items;
 }
 
-function renderPopupItem(idx, animate){
-  const el = document.getElementById('statPopup');
-  if(!popupItems.length){ el.classList.add('empty'); return; }
-  el.classList.remove('empty');
-  const item = popupItems[idx % popupItems.length];
-  const iconEl = document.getElementById('popupIcon');
-  const labelEl = document.getElementById('popupLabel');
-  const valueEl = document.getElementById('popupValue');
-
-  const apply = () => {
-    iconEl.textContent = item.icon;
-    labelEl.textContent = item.label;
-    valueEl.textContent = item.value;
-    el.classList.remove('swap');
-    beep({freq:720, duration:0.08, volume:0.03});
-    beep({freq:980, duration:0.08, volume:0.025, delay:0.09});
-  };
-  if(animate){
-    el.classList.add('swap');
-    setTimeout(apply, 260);
-  } else {
-    apply();
-  }
-}
-
-function refreshPopup(data){
-  const items = buildPopupItems(data);
+function renderStats(data){
+  const items = buildPopItems(data);
+  popItems = items; // القيم تتحدّث دائمًا؛ الدوران نفسه لا يُعاد تشغيله إلا مرّة واحدة عند البداية
   const hash = JSON.stringify(items);
-  if(hash === lastPopupHash){ popupItems = items; return; }
-  lastPopupHash = hash;
-  popupItems = items;
-  if(!items.length){
-    clearInterval(popupTimer);
-    document.getElementById('statPopup').classList.add('empty');
-    return;
-  }
-  popupIndex = 0;
-  renderPopupItem(0, false);
-  clearInterval(popupTimer);
-  popupTimer = setInterval(() => {
-    popupIndex = (popupIndex + 1) % popupItems.length;
-    renderPopupItem(popupIndex, true);
-  }, POPUP_DWELL_MS);
+  if(hash === lastStatsHash) return;
+  lastStatsHash = hash;
+  if(!popTimer && items.length) showPopItem(0);
 }
 
-/* ===================== البانر السفلي (دوران أبدي حقيقي بالبكسل عبر JS) =====================
-   نقيس عرض نسخة واحدة من المحتوى فعليًا، نكرّرها حتى تغطي ضعف عرض
-   الشاشة على الأقل، ثم نُحرّك الشريط بواسطة requestAnimationFrame مع
-   إعادة تدوير الموضع بالبكسل (لا بالنسبة المئوية) — فلا يظهر أي "فراغ"
-   بعد الدورة الأولى مهما كانت كمية النصوص قصيرة أو طويلة، وتبقى السرعة
-   ثابتة ومريحة للعين دومًا. */
+function showPopItem(idx){
+  if(!popItems.length) return;
+  popIndex = idx % popItems.length;
+  const item = popItems[popIndex];
+  const card = document.getElementById('statPop');
+  const apply = () => {
+    document.getElementById('statPopIcon').textContent = item.icon;
+    document.getElementById('statPopLabel').textContent = item.label;
+    document.getElementById('statPopValue').textContent = item.value;
+    card.classList.remove('swap');
+    beep({freq:1046, duration:0.06, volume:0.03, type:'triangle'}); // بيب أبدي خفيف مع كل تبديل
+    clearTimeout(popTimer);
+    popTimer = setTimeout(() => showPopItem(popIndex + 1), 4500);
+  };
+  card.classList.add('swap');
+  setTimeout(apply, 250);
+}
+
+/* ===================== البانر السفلي — دوران أبدي حقيقي مُدار بالكامل عبر JS =====================
+   السبب الجذري للعطل السابق ("يمر مرة واحدة ثم يبقى فارغًا/متجمّدًا"): الاعتماد
+   على حركة CSS بمعدل @keyframes + animation-iteration-count:infinite. بعض
+   إصدارات متصفح OBS المدمج (CEF، وضع العرض خارج الشاشة) لا يُعيد رسم/تحديث
+   حركات CSS الخاملة بشكل موثوق بعد اكتمال دورة واحدة. الحل القاطع: نتخلى
+   تمامًا عن حركة CSS وندفع الموضع يدويًا كل إطار عبر requestAnimationFrame —
+   هذا يُجبر المتصفح على إعادة الرسم في كل إطار ولا يمكن أن "يتجمّد" أبدًا،
+   وهي الطريقة المعروفة لتفادي هذا العطل تحديدًا داخل مصادر متصفح OBS. */
 let lastTickerHash = '';
-let tickerRAF = null;
-let tickerPos = 0;
-let tickerUnitWidth = 0;
+let tickerOffset = 0;
+let tickerHalfWidth = 0;
 let tickerLastTs = null;
-const TICKER_SPEED_PX_S = 70;
+const TICKER_PX_PER_SEC = 58; // وتيرة قراءة مريحة وثابتة، لا تتسارع أبدًا مهما زاد المحتوى
 
 function buildTickerSegments(data){
   const segs = [];
   let n = 0;
   for(const [source, arr] of Object.entries(data.news || {})){
     (arr||[]).slice(0,3).forEach(i => {
-      const raw = i.title_ar || i.title;
-      const { title, source: outlet } = splitTitleSource(raw);
-      const flags = detectGulfFlags(source, raw);
-      const flagHtml = flags.length ? `<span class="ticker-flags">${flags.map(f=>`<span>${f}</span>`).join('')}</span>` : '';
-      const prefix = n < 2 ? '🔴 عاجل — ' : '📰 ';
-      const sourceHtml = outlet ? `<span class="ticker-source">${escapeHtml(outlet)}</span>` : '';
-      segs.push(`${flagHtml}<span class="ticker-col"><span class="ticker-title">${prefix}${escapeHtml(title)}</span>${sourceHtml}</span>`);
+      segs.push((n < 2 ? '🔴 عاجل — ' : '📰 ') + (i.title_ar || i.title));
       n++;
     });
   }
   for(const [label, val] of Object.entries(data.markets || {})){
     if(label === 'crypto'){
       for(const [coin, p] of Object.entries(val || {})){
-        segs.push(`<span class="ticker-title">💰 ${escapeHtml(CRYPTO_LABELS[coin] || coin)}: $${(p.usd||0).toLocaleString('en-US')}</span>`);
+        segs.push(`💰 ${CRYPTO_LABELS[coin] || coin}: $${(p.usd||0).toLocaleString('en-US')}`);
       }
     } else {
-      segs.push(`<span class="ticker-title">💹 ${escapeHtml(MARKET_LABELS[label] || label)}: ${escapeHtml(String(val))}</span>`);
+      segs.push(`💹 ${MARKET_LABELS[label] || label}: ${val}`);
     }
   }
   for(const [city, w] of Object.entries(data.weather || {})){
     if(w.temperature_2m === undefined) continue;
     const info = WEATHER_CITY_LABELS[city] || { name:city, flag:'' };
-    segs.push(`<span class="ticker-title">${info.flag} ${escapeHtml(info.name)}: ${Math.round(w.temperature_2m)}°م</span>`);
+    segs.push(`${info.flag} ${info.name}: ${Math.round(w.temperature_2m)}°م`);
   }
   for(const [ap, count] of Object.entries(data.flights || {})){
-    segs.push(`<span class="ticker-title">✈️ ${escapeHtml(FLIGHT_LABELS[ap] || ap)}: ${count} رحلة نشطة</span>`);
+    segs.push(`✈️ ${FLIGHT_LABELS[ap] || ap}: ${count} رحلة نشطة`);
   }
   return segs;
 }
 
-function stepTicker(ts){
-  const track = document.getElementById('ticker');
-  if(tickerLastTs === null) tickerLastTs = ts;
-  const dt = (ts - tickerLastTs) / 1000;
-  tickerLastTs = ts;
-  tickerPos -= TICKER_SPEED_PX_S * dt;
-  if(tickerUnitWidth > 0 && tickerPos <= -tickerUnitWidth){
-    tickerPos += tickerUnitWidth;
-  }
-  track.style.transform = `translateX(${tickerPos}px)`;
-  tickerRAF = requestAnimationFrame(stepTicker);
-}
-
 function renderTicker(data){
   const parts = buildTickerSegments(data);
+  const track = document.getElementById('ticker');
   const hash = JSON.stringify(parts);
   const isNew = hash !== lastTickerHash;
   lastTickerHash = hash;
   if(!isNew) return;
 
-  const wrap = document.querySelector('.ticker-wrap');
-  const track = document.getElementById('ticker');
-  const unitHTML = parts.length
-    ? parts.map(p => `<span>${p}</span>`).join('')
-    : '<span><span class="ticker-title">لا توجد بيانات بعد…</span></span>';
-
-  cancelAnimationFrame(tickerRAF);
-  track.style.transform = 'translateX(0)';
-  track.innerHTML = unitHTML;
-  tickerUnitWidth = track.scrollWidth || 1;
-
-  const containerWidth = wrap.clientWidth || window.innerWidth;
-  const repeats = Math.max(2, Math.ceil((containerWidth * 2) / tickerUnitWidth) + 1);
-  track.innerHTML = unitHTML.repeat(repeats);
-
-  tickerPos = 0;
-  tickerLastTs = null;
-  tickerRAF = requestAnimationFrame(stepTicker);
-
-  beep({freq:880, duration:0.09, volume:0.035});
-  beep({freq:1175, duration:0.09, volume:0.03, delay:0.09});
+  const content = parts.map(p => `<span>${escapeHtml(p)}</span>`).join('');
+  track.innerHTML = content + content; // مكرر لضمان دوران بصري سلس
+  tickerHalfWidth = track.scrollWidth / 2;
+  tickerOffset = 0;
+  track.style.transform = 'translateX(0px)';
 }
+
+function tickerFrame(ts){
+  if(tickerLastTs === null) tickerLastTs = ts;
+  const dt = (ts - tickerLastTs) / 1000;
+  tickerLastTs = ts;
+  if(tickerHalfWidth > 0){
+    tickerOffset -= TICKER_PX_PER_SEC * dt;
+    if(tickerOffset <= -tickerHalfWidth) tickerOffset += tickerHalfWidth;
+    document.getElementById('ticker').style.transform = `translateX(${tickerOffset}px)`;
+  }
+  requestAnimationFrame(tickerFrame);
+}
+requestAnimationFrame(tickerFrame);
+// بيب أبدي خفيف كل ~9 ثوانٍ لمرافقة حركة الشريط بلا اعتماد على أي حدث CSS
+setInterval(() => beep({freq:1046, duration:0.06, volume:0.025, type:'triangle'}), 9000);
 
 /* ===================== تحميل البيانات ===================== */
 async function loadData(){
   try{
     const res = await fetch('data.json?_=' + Date.now());
     const data = await res.json();
-    lastData = data;
     renderNews(data.news || {});
-    refreshPopup(data);
+    renderStats(data);
     renderTicker(data);
     document.getElementById('updatedText').textContent =
       'آخر تحديث: ' + new Intl.DateTimeFormat('ar', {numberingSystem:'latn', dateStyle:'short', timeStyle:'medium'}).format(new Date(data.generated_at_utc));
