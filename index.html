@@ -119,8 +119,11 @@ main{ position:relative; z-index:1; padding: 2vh 3vw; min-height:0; display:flex
 }
 @keyframes flagPop{ from{ transform:scale(0.55); opacity:0;} to{ transform:scale(1); opacity:1;} }
 .hero-source{
-  font-family:'IBM Plex Sans Arabic', sans-serif; font-weight:600;
-  color:var(--teal); font-size:clamp(13px,1.5vw,20px); letter-spacing:0.01em;
+  display:inline-flex; align-items:center;
+  font-family:'IBM Plex Sans Arabic', sans-serif; font-weight:700;
+  color:var(--bg); background:var(--teal);
+  padding:0.45em 1em; border-radius:8px;
+  font-size:clamp(14px,1.6vw,21px); letter-spacing:0.01em;
 }
 
 .hero-progress{
@@ -552,11 +555,16 @@ function renderTicker(data){
 
 function tickerFrame(ts){
   if(tickerLastTs === null) tickerLastTs = ts;
-  const dt = (ts - tickerLastTs) / 1000;
+  let dt = (ts - tickerLastTs) / 1000;
   tickerLastTs = ts;
+  // السبب الحقيقي للعطل: عند قفل الشاشة أو تبديل مشهد OBS ثم العودة، يتوقف
+  // الرسم لفترة، وعند الاستئناف يكون الفارق الزمني بين الإطارين ضخمًا (قد
+  // يبلغ دقائق) — هذا يدفع الشريط آلاف البكسلات خارج الشاشة دفعة واحدة ولا
+  // يتعافى بمنطق "إضافة واحدة فقط". الحل: تحديد سقف للفارق الزمني لكل إطار.
+  if(dt > 0.25) dt = 0.25;
   if(tickerHalfWidth > 0){
     tickerOffset -= TICKER_PX_PER_SEC * dt;
-    if(tickerOffset <= -tickerHalfWidth) tickerOffset += tickerHalfWidth;
+    while(tickerOffset <= -tickerHalfWidth) tickerOffset += tickerHalfWidth; // تعافٍ كامل ومضمون مهما كانت القفزة
     document.getElementById('ticker').style.transform = `translateX(${tickerOffset}px)`;
   }
   requestAnimationFrame(tickerFrame);
