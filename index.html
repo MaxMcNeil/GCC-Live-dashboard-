@@ -49,28 +49,30 @@ header{
 }
 .brand{ display:flex; align-items:center; gap:1vw; }
 .brand .mark{
-  width:2.2vh; height:2.2vh; border-radius:50%;
+  width:max(14px,2.2vh); height:max(14px,2.2vh); border-radius:50%;
   background:var(--live); box-shadow:0 0 1.2vh var(--live);
   animation: pulse 1.4s ease-in-out infinite; flex-shrink:0;
 }
 @keyframes pulse{ 0%,100%{transform:scale(1); opacity:1;} 50%{transform:scale(1.35); opacity:0.55;} }
 .brand h1{
   font-family:'Noto Kufi Arabic', sans-serif; font-weight:900;
-  font-size: clamp(16px, 2.2vw, 28px); color:var(--sand);
+  font-size: clamp(22px, 2.6vw, 32px); color:var(--sand);
 }
 .brand h1 span{ color:var(--gold); }
 
 /* الساعات: مكبَّرة بوضوح — كانت غير مقروءة سابقًا */
 .clocks{ display:flex; gap:1.8vw; font-family:'JetBrains Mono', monospace; align-items:center; }
 .clocks div.clockcell{ text-align:center; }
-.clocks .flag{ font-size:1.5em; display:block; margin-bottom:2px; }
-.clocks .city{ font-size:clamp(11px,1.15vw,15px); color:var(--sand-dim); letter-spacing:0.02em; font-weight:600; }
-.clocks .time{ font-size: clamp(20px, 2.6vw, 34px); color:var(--gold); font-weight:700; direction:ltr; }
+.clocks .city{ font-size:clamp(15px,1.3vw,17px); color:var(--sand-dim); letter-spacing:0.02em; font-weight:600; }
+.clocks .time{ font-size: clamp(26px, 3vw, 40px); color:var(--gold); font-weight:700; direction:ltr; }
+.flag-icon{ display:inline-block; overflow:hidden; border-radius:3px; box-shadow:0 0 0 1px rgba(0,0,0,0.3); line-height:0; }
+.flag-icon svg{ display:block; width:100%; height:100%; }
+.clocks .flag-icon{ width:2.1em; height:1.4em; margin:0 auto 4px; }
 
 .sound-toggle{
-  width:3.2vh; height:3.2vh; border-radius:50%;
+  width:max(30px,3.2vh); height:max(30px,3.2vh); border-radius:50%;
   border:1px solid var(--line); background:rgba(255,255,255,0.03);
-  color:var(--gold); font-size:1.4vh; cursor:pointer;
+  color:var(--gold); font-size:max(15px,1.6vh); cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   margin-inline-start:1.6vw; flex-shrink:0;
   transition:background 0.2s, transform 0.15s;
@@ -110,20 +112,20 @@ main{ position:relative; z-index:1; padding: 2vh 3vw; min-height:0; display:flex
 .hero-flags{ display:flex; gap:0.5vw; flex-shrink:0; }
 .flag-chip{
   display:inline-flex; align-items:center; justify-content:center;
-  font-size:clamp(20px,2.8vw,36px);
   background:rgba(255,255,255,0.05);
   border:1px solid var(--line); border-radius:10px;
-  padding:0.25em 0.45em;
+  padding:0.3em 0.5em;
   filter:drop-shadow(0 0 6px rgba(201,162,75,0.35));
   animation: flagPop 0.45s cubic-bezier(.34,1.56,.64,1) both;
 }
+.flag-chip .flag-icon{ width:max(26px,2.8vw); height:calc(max(26px,2.8vw) * 0.667); }
 @keyframes flagPop{ from{ transform:scale(0.55); opacity:0;} to{ transform:scale(1); opacity:1;} }
 .hero-source{
   display:inline-flex; align-items:center;
   font-family:'IBM Plex Sans Arabic', sans-serif; font-weight:700;
   color:var(--bg); background:var(--teal);
-  padding:0.45em 1em; border-radius:8px;
-  font-size:clamp(14px,1.6vw,21px); letter-spacing:0.01em;
+  padding:0.5em 1.1em; border-radius:8px;
+  font-size:clamp(18px,1.8vw,24px); letter-spacing:0.01em;
 }
 
 .hero-progress{
@@ -141,40 +143,55 @@ main{ position:relative; z-index:1; padding: 2vh 3vw; min-height:0; display:flex
    une par une, à l'infini, sans jamais gêner la lecture de l'actu géante. */
 .stat-pop{
   position:absolute; top:clamp(10px,2vh,22px); inset-inline-end:clamp(10px,2vw,26px);
-  z-index:5; max-width:46vw;
-  display:flex; align-items:center; gap:0.7em;
-  background:rgba(18,27,46,0.74); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  z-index:5; max-width:60vw;
+  display:flex; align-items:center; gap:0.8em;
+  background:rgba(18,27,46,0.86); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
   border:1px solid var(--line); border-radius:14px;
-  padding:0.9vh 1.3vw;
+  padding:1.1vh 1.6vw;
   box-shadow:0 6px 20px rgba(0,0,0,0.35), 0 0 0 1px rgba(201,162,75,0.08);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .stat-pop.swap{ opacity:0; transform:translateY(-8px) scale(0.95); }
-.stat-pop-icon{ font-size:clamp(18px,2.1vw,30px); flex-shrink:0; filter:drop-shadow(0 0 4px rgba(201,162,75,0.4)); }
+.stat-pop-icon{ font-size:max(24px,2.1vw); flex-shrink:0; filter:drop-shadow(0 0 4px rgba(201,162,75,0.4)); }
+.stat-pop-icon .flag-icon{ width:max(24px,2vw); height:calc(max(24px,2vw) * 0.667); }
 .stat-pop-body{ min-width:0; }
-.stat-pop-label{ font-size:clamp(10px,1.05vw,14px); color:var(--sand-dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.stat-pop-label{ font-size:max(14px,1.05vw); color:var(--sand-dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .stat-pop-value{
   font-family:'JetBrains Mono', monospace; font-weight:700;
-  font-size:clamp(16px,1.9vw,26px); color:var(--gold); direction:ltr;
+  font-size:max(22px,1.9vw); color:var(--gold); direction:ltr;
 }
 
-/* ===== BANDEAU DÉFILANT (boucle pilotée en JS — voir plus bas) ===== */
+/* ===== BANDEAU DÉFILANT =====
+   السبب الجذري الحقيقي للعطل ("يمر مرة ثم يفرغ"): كان .ticker-track عنصر flex
+   عاديًا داخل حاوية RTL موروثة من <html dir="rtl">، فيتم قلب ترتيب/موضع
+   العنصر بالكامل بواسطة خوارزمية flex الخاصة بـ RTL، بينما كانت حركة JS
+   تفترض نظام إحداثيات LTR بسيط (translateX سالب = يسار). النتيجتان تتصادمان:
+   الموضع الابتدائي غير متوقع، فيظهر الشريط فارغًا أو يتجمّد بعد دورة واحدة.
+   الحل القاطع: عزل الشريط في حاوية عرض (viewport) موضعها معروف بدقة، والشريط
+   نفسه بـ position:absolute مثبَّت من اليمين — إحداثيات بكسل صريحة، لا التباس. */
 .ticker-wrap{
   position:relative; z-index:1;
   border-top:1px solid var(--line);
   background:linear-gradient(90deg, var(--gold), #8a6d2e);
-  overflow:hidden; white-space:nowrap;
+  overflow:hidden;
   height:7.6vh; display:flex; align-items:center;
+  direction:ltr; /* حاوية الطبقة الخارجية بترتيب صريح ثابت، بغض النظر عن اتجاه الصفحة */
 }
 .ticker-wrap .tag{
+  order:2; /* يبقى ظاهريًا في أقصى اليمين */
   background:var(--bg); color:var(--gold); font-family:'Noto Kufi Arabic';
   font-weight:700; padding:0 1.6vw; height:100%;
   display:flex; align-items:center; gap:0.4em; flex-shrink:0;
-  font-size:clamp(14px,1.4vw,19px);
+  font-size:max(16px,1.4vw);
+}
+.ticker-viewport{
+  order:1; position:relative; flex:1; min-width:0; height:100%; overflow:hidden;
 }
 .ticker-track{
-  display:flex; flex-shrink:0; width:max-content; will-change:transform;
-  color:#1a1206; font-weight:700; font-size:clamp(17px,1.75vw,25px);
+  position:absolute; top:0; right:0; height:100%;
+  display:flex; align-items:center; white-space:nowrap; width:max-content;
+  will-change:transform;
+  color:#1a1206; font-weight:700; font-size:max(19px,1.75vw);
   padding-inline-start:2vw;
 }
 .ticker-track span{ margin-inline-end:4.5vw; display:flex; align-items:center; }
@@ -246,7 +263,9 @@ body.portrait .stat-pop{ max-width:70vw; }
 
   <div class="ticker-wrap">
     <div class="tag"><span>●</span> مباشر</div>
-    <div class="ticker-track" id="ticker" dir="rtl"><span>جارٍ تحميل الشريط الإخباري…</span></div>
+    <div class="ticker-viewport">
+      <div class="ticker-track" id="ticker" dir="rtl"><span>جارٍ تحميل الشريط الإخباري…</span></div>
+    </div>
   </div>
 </div>
 <div class="updated" id="updated"><span class="health-dot" id="healthDot" title="الحالة"></span> <span id="updatedText"></span></div>
@@ -254,42 +273,77 @@ body.portrait .stat-pop{ max-width:70vw; }
 <script>
 /* ===================== إعداد المدن والأعلام ===================== */
 const TZ = {
-  "الرياض": { tz:"Asia/Riyadh", flag:"🇸🇦" },
-  "دبي":    { tz:"Asia/Dubai",  flag:"🇦🇪" },
-  "مسقط":   { tz:"Asia/Muscat", flag:"🇴🇲" },
-  "الكويت": { tz:"Asia/Kuwait", flag:"🇰🇼" }
+  "الرياض": { tz:"Asia/Riyadh", code:"SA" },
+  "دبي":    { tz:"Asia/Dubai",  code:"AE" },
+  "مسقط":   { tz:"Asia/Muscat", code:"OM" },
+  "الكويت": { tz:"Asia/Kuwait", code:"KW" }
 };
+
+/* ===================== أعلام SVG مضمّنة (لا نعتمد على رموز الأعلام الإيموجي) =====================
+   على العديد من أنظمة Windows ومتصفح OBS المدمج (CEF)، لا يتوفر خط إيموجي
+   ملوّن للأعلام، فتظهر كحروف الدولة النصية "SA" بدل صورة العلم فعليًا. الحل
+   القاطع: رسم الأعلام الأربعة كـ SVG بسيط ومضمّن، يعمل مطابقًا على كل جهاز. */
+const FLAG_SVG = {
+  SA: `<svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
+    <rect width="3" height="2" fill="#006C35"/>
+    <text x="1.5" y="0.92" font-size="0.3" fill="#fff" text-anchor="middle" font-family="'Noto Kufi Arabic',sans-serif" font-weight="700">لا إله إلا الله محمد رسول الله</text>
+    <rect x="0.55" y="1.22" width="1.9" height="0.1" fill="#fff"/>
+    <polygon points="2.45,1.15 2.65,1.27 2.45,1.39" fill="#fff"/>
+  </svg>`,
+  AE: `<svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
+    <rect width="3" height="2" fill="#fff"/>
+    <rect y="0" width="3" height="0.667" fill="#00843D"/>
+    <rect y="0.667" width="3" height="0.666" fill="#fff"/>
+    <rect y="1.333" width="3" height="0.667" fill="#000"/>
+    <rect width="0.9" height="2" fill="#EF3340"/>
+  </svg>`,
+  OM: `<svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
+    <rect y="0" width="3" height="0.667" fill="#fff"/>
+    <rect y="0.667" width="3" height="0.666" fill="#DB161B"/>
+    <rect y="1.333" width="3" height="0.667" fill="#008000"/>
+    <rect width="1" height="2" fill="#DB161B"/>
+  </svg>`,
+  KW: `<svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
+    <rect y="0" width="3" height="0.667" fill="#007A3D"/>
+    <rect y="0.667" width="3" height="0.666" fill="#fff"/>
+    <rect y="1.333" width="3" height="0.667" fill="#CE1126"/>
+    <polygon points="0,0 1,1 0,2" fill="#000"/>
+  </svg>`
+};
+function flagIcon(code){
+  return FLAG_SVG[code] ? `<span class="flag-icon">${FLAG_SVG[code]}</span>` : '';
+}
 
 // Les clés RSS_FEEDS (fetch_data.py) contiennent déjà un libellé arabe + drapeau
 // (ex: "أخبار عُمان 🇴🇲") — on extrait ce drapeau par regex, et on complète en
 // scannant le titre pour d'autres pays du Golfe explicitement mentionnés.
 const NEWS_SOURCE_LABELS = {};
 const GULF_KEYWORDS = [
-  { flag:'🇸🇦', words:['السعودية','سعودي','الرياض','جدة','مكة','المدينة المنورة'] },
-  { flag:'🇦🇪', words:['الإمارات','إماراتي','دبي','أبوظبي','أبو ظبي','الشارقة'] },
-  { flag:'🇴🇲', words:['عُمان','عمان','عماني','مسقط'] },
-  { flag:'🇰🇼', words:['الكويت','كويتي'] }
+  { code:'SA', emoji:'🇸🇦', words:['السعودية','سعودي','الرياض','جدة','مكة','المدينة المنورة'] },
+  { code:'AE', emoji:'🇦🇪', words:['الإمارات','إماراتي','دبي','أبوظبي','أبو ظبي','الشارقة'] },
+  { code:'OM', emoji:'🇴🇲', words:['عُمان','عمان','عماني','مسقط'] },
+  { code:'KW', emoji:'🇰🇼', words:['الكويت','كويتي'] }
 ];
-function extractFlagEmoji(str){
-  return (str||'').match(/[\u{1F1E6}-\u{1F1FF}]{2}/gu) || [];
-}
 function resolveFlags(label, title){
-  const set = new Set(extractFlagEmoji(label));
-  GULF_KEYWORDS.forEach(k => { if(k.words.some(w => (title||'').includes(w))) set.add(k.flag); });
-  if(set.size === 0) set.add('🌐');
-  return Array.from(set);
+  // نكتشف الدولة عبر رمز العلم الإيموجي الموجود فعليًا في اسم المصدر (منطق
+  // نصي بحت، غير مرتبط بمشكلة العرض)، وأيضًا عبر كلمات الدولة داخل العنوان.
+  const set = new Set();
+  GULF_KEYWORDS.forEach(k => {
+    if((label||'').includes(k.emoji) || k.words.some(w => (title||'').includes(w))) set.add(k.code);
+  });
+  return Array.from(set); // فارغة = لا نعرض علمًا مخمَّنًا خطأً بدل عدم عرض شيء
 }
 function cleanSourceLabel(label){
   return (label||'').replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu,'').trim();
 }
 
 const WEATHER_CITY_LABELS = {
-  "Riyadh":     { name:"الرياض",     flag:"🇸🇦" },
-  "Jeddah":     { name:"جدة",        flag:"🇸🇦" },
-  "Dubai":      { name:"دبي",        flag:"🇦🇪" },
-  "Abu Dhabi":  { name:"أبوظبي",     flag:"🇦🇪" },
-  "Muscat":     { name:"مسقط",       flag:"🇴🇲" },
-  "Kuwait City":{ name:"مدينة الكويت", flag:"🇰🇼" }
+  "Riyadh":     { name:"الرياض",     code:"SA" },
+  "Jeddah":     { name:"جدة",        code:"SA" },
+  "Dubai":      { name:"دبي",        code:"AE" },
+  "Abu Dhabi":  { name:"أبوظبي",     code:"AE" },
+  "Muscat":     { name:"مسقط",       code:"OM" },
+  "Kuwait City":{ name:"مدينة الكويت", code:"KW" }
 };
 const MARKET_LABELS = {
   "USD/SAR": "دولار/ريال سعودي", "USD/AED": "دولار/درهم إماراتي",
@@ -351,7 +405,7 @@ function renderClocks(){
   const el = document.getElementById('clocks');
   el.innerHTML = Object.entries(TZ).map(([city, info]) => {
     const t = new Date().toLocaleTimeString('ar', {timeZone: info.tz, hour:'2-digit', minute:'2-digit', numberingSystem:'latn'});
-    return `<div class="clockcell"><span class="flag">${info.flag}</span><div class="city">${city}</div><div class="time">${t}</div></div>`;
+    return `<div class="clockcell">${flagIcon(info.code)}<div class="city">${city}</div><div class="time">${t}</div></div>`;
   }).join('');
 }
 setInterval(renderClocks, 1000);
@@ -417,7 +471,7 @@ function showHeroItem(idx, animate){
 
     sourceEl.textContent = cleanSourceLabel(item.label);
     const flags = resolveFlags(item.label, item.title);
-    flagsEl.innerHTML = flags.map(f => `<span class="flag-chip">${f}</span>`).join('');
+    flagsEl.innerHTML = flags.map(code => `<span class="flag-chip">${flagIcon(code)}</span>`).join('');
 
     beep({freq:660, duration:0.07, volume:0.035, type:'sine'});
 
@@ -461,8 +515,8 @@ function buildPopItems(data){
   }
   for(const [city, w] of Object.entries(data.weather || {})){
     if(w.temperature_2m === undefined) continue;
-    const info = WEATHER_CITY_LABELS[city] || { name:city, flag:'🌡️' };
-    items.push({ icon:info.flag || '🌡️', label:info.name, value:Math.round(w.temperature_2m) + '°C' });
+    const info = WEATHER_CITY_LABELS[city] || { name:city, code:null };
+    items.push({ icon: info.code ? flagIcon(info.code) : '🌡️', label:info.name, value:Math.round(w.temperature_2m) + '°C' });
   }
   for(const [ap, count] of Object.entries(data.flights || {})){
     items.push({ icon:'✈️', label:FLIGHT_LABELS[ap] || ap, value:count + ' رحلة' });
@@ -485,7 +539,7 @@ function showPopItem(idx){
   const item = popItems[popIndex];
   const card = document.getElementById('statPop');
   const apply = () => {
-    document.getElementById('statPopIcon').textContent = item.icon;
+    document.getElementById('statPopIcon').innerHTML = item.icon;
     document.getElementById('statPopLabel').textContent = item.label;
     document.getElementById('statPopValue').textContent = item.value;
     card.classList.remove('swap');
