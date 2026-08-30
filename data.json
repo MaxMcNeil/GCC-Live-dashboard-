@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-30T12:07:01.898432+00:00",
+  "generated_at_utc": "2026-08-30T12:08:45.654824+00:00",
   "news": {
     "أخبار السعودية 🇸🇦": [
       {
@@ -211,15 +211,15 @@
     "USD/KWD": 0.3085,
     "crypto": {
       "bitcoin": {
-        "usd": 78263
+        "usd": 78425
       },
       "ethereum": {
-        "usd": 2462.34
+        "usd": 2467.28
       }
     }
   },
   "flights": {
-    "DXB (Dubai)": 5,
+    "DXB (Dubai)": 7,
     "RUH (Riyadh)": 0,
     "MCT (Muscat)": 0
   },
