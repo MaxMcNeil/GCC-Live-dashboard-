@@ -90,6 +90,7 @@ main{ position:relative; z-index:1; padding: 2vh 3vw; min-height:0; display:flex
   padding: clamp(16px,3.4vh,40px) clamp(18px,4.4vw,56px);
 }
 .hero-body{ flex:1; display:flex; align-items:center; min-height:0; }
+.hero-content{ width:100%; min-width:0; }
 .hero-title{
   font-family:'Noto Kufi Arabic', sans-serif; font-weight:900;
   font-size: clamp(30px, 6vw, 84px); line-height:1.32; color:var(--sand);
@@ -100,12 +101,11 @@ main{ position:relative; z-index:1; padding: 2vh 3vw; min-height:0; display:flex
 .hero-title.xlong{ font-size:clamp(20px,3.6vw,44px); }
 .hero-title.swap{ opacity:0; transform:translateY(12px) scale(0.98); }
 
-/* المصدر أصبح أسفل الخبر (وليس ملتصقًا بنهاية النص)، بخط مختلف وأصغر عمدًا
-   عن العنوان الرئيسي حتى لا يُنافسه، مع الأعلام بشكل فني بارز بجانبه */
-.hero-footer{
-  display:flex; align-items:center; gap:1.1vw; flex-wrap:wrap;
-  margin-top:clamp(10px,2vh,20px); padding-top:clamp(8px,1.6vh,16px);
-  border-top:1px dashed var(--line); flex-shrink:0;
+/* المصدر والأعلام أصبحا فوق العنوان مباشرةً، ضمن نفس الكتلة المُتمركزة رأسيًا —
+   لا مسافة فارغة بينهما بعد الآن، بخط أصغر عمدًا عن العنوان حتى لا ينافسه */
+.hero-kicker{
+  display:flex; align-items:center; gap:0.9vw; flex-wrap:wrap;
+  margin-bottom:clamp(10px,2vh,20px);
 }
 .hero-flags{ display:flex; gap:0.5vw; flex-shrink:0; }
 .flag-chip{
@@ -223,11 +223,13 @@ body.portrait .stat-pop{ max-width:70vw; }
     <div id="mainStage">
       <section class="hero-card">
         <div class="hero-body">
-          <div class="hero-title" id="heroTitle">جارٍ تحميل الأخبار…</div>
-        </div>
-        <div class="hero-footer">
-          <div class="hero-flags" id="heroFlags"></div>
-          <div class="hero-source" id="heroSource"></div>
+          <div class="hero-content">
+            <div class="hero-kicker">
+              <div class="hero-flags" id="heroFlags"></div>
+              <div class="hero-source" id="heroSource"></div>
+            </div>
+            <div class="hero-title" id="heroTitle">جارٍ تحميل الأخبار…</div>
+          </div>
         </div>
         <div class="hero-progress"><div class="hero-progress-bar" id="heroProgressBar"></div></div>
       </section>
@@ -548,10 +550,28 @@ function renderTicker(data){
 
   const content = parts.map(p => `<span>${escapeHtml(p)}</span>`).join('');
   track.innerHTML = content + content; // مكرر لضمان دوران بصري سلس
-  tickerHalfWidth = track.scrollWidth / 2;
   tickerOffset = 0;
   track.style.transform = 'translateX(0px)';
+  scheduleTickerRemeasure();
 }
+
+// سبب عطل شائع آخر: القياس يحدث لحظة إدراج النص، لكن خطوط Google Fonts قد لا
+// تكون قد اكتملت بعد (لا سيما داخل متصفح OBS المدمج) — فيقاس عرض بخط احتياطي
+// أضيق من الخط الفعلي، فيختل التزامن لاحقًا عند اكتمال تحميل الخط الحقيقي.
+// كما أن تغيير حجم/اتجاه المصدر في OBS (أفقي↔عمودي) يُغيّر العرض الفعلي بما
+// أن الخط يعتمد على وحدات vw. الحل: إعادة القياس من عدة مصادر مستقلة، بالإضافة
+// إلى إعادة قياس دورية ذاتية الإصلاح كل 12 ثانية مهما كان السبب الجذري.
+function measureTicker(){
+  const track = document.getElementById('ticker');
+  if(track && track.scrollWidth > 0) tickerHalfWidth = track.scrollWidth / 2;
+}
+function scheduleTickerRemeasure(){
+  requestAnimationFrame(() => requestAnimationFrame(measureTicker)); // بعد اكتمال التخطيط (Layout)
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(measureTicker);
+}
+window.addEventListener('resize', measureTicker);
+if(window.ResizeObserver){ new ResizeObserver(measureTicker).observe(document.documentElement); }
+setInterval(measureTicker, 12000); // إصلاح ذاتي دوري — يضمن عدم "التجمّد" مهما كان السبب
 
 function tickerFrame(ts){
   if(tickerLastTs === null) tickerLastTs = ts;
