@@ -1,19 +1,7 @@
 {
-  "generated_at_utc": "2026-09-13T09:52:02.702625+00:00",
+  "generated_at_utc": "2026-09-13T13:57:41.503846+00:00",
   "news": {
     "أخبار السعودية 🇸🇦": [
-      {
-        "title": "الهجوم على خط \"شرق-غرب\": ترامب يرجح مسؤولية إيران - الحرة",
-        "title_ar": "الهجوم على خط \"شرق-غرب\": ترامب يرجح مسؤولية إيران - الحرة",
-        "link": "https://news.google.com/rss/articles/CBMiPkFVX3lxTFAzbUpIdkNHOEhaOFBIbWdMcFVzS2QwMXZVeDlYWVh5TGNzSjZQTS12SmJnQXpzOEZ0ek1aWDNB?oc=5",
-        "published": "Sat, 12 Sep 2026 14:29:19 GMT"
-      },
-      {
-        "title": "هجوم على سفينة تجارية إيرانية بمضيق هرمز، وترامب يرجّح وقوف إيران خلف استهداف السعودية - BBC",
-        "title_ar": "هجوم على سفينة تجارية إيرانية بمضيق هرمز، وترامب يرجّح وقوف إيران خلف استهداف السعودية - BBC",
-        "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE51NnpFTm1MZHlUYzNLaTBhRm1odjNjQlpEbE1ZZkgtM3VsUlY3bW91WFAxQVBPSnM4Rzg5Nzc3eWc2a0VjMmtKTWxyOFdCaUlqekRDNGlRd192Z3U40gFiQVVfeXFMT3lMWlg2eDZIakVRYkNBN2h3dXRFWWVpR1VkWjdiZXliX1lKc0U5aXdHcUdKVzd5R0xmRFpkYkd2alhSaFcta2dDc0tzaXN5V24yaVF2aGl3X1laVHVaSEwyOWc?oc=5",
-        "published": "Sun, 13 Sep 2026 05:47:38 GMT"
-      },
       {
         "title": "تعليق مقتضب من ترامب على استهداف خط شرق – غرب بالسعودية - CNN Arabic",
         "title_ar": "تعليق مقتضب من ترامب على استهداف خط شرق – غرب بالسعودية - CNN Arabic",
@@ -21,22 +9,34 @@
         "published": "Sat, 12 Sep 2026 11:31:14 GMT"
       },
       {
-        "title": "الحوثيون يعلنون استهداف قاعدة عسكرية سعودية، وسط تصاعد القتال مع القوات الحكومية المدعومة من الرياض - BBC",
-        "title_ar": "الحوثيون يعلنون استهداف قاعدة عسكرية سعودية، وسط تصاعد القتال مع القوات الحكومية المدعومة من الرياض - BBC",
-        "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1oTF9uN3pSc0FZM3p4UU5aNm9FdF9JR3pPejFIUGlvVnlvLUdobENUSHAtcV9qSXpUN29QR0RBMEh3Nl9pdG9hekkzc1NzalhIMXdvUGJkd1RXQVBD0gFiQVVfeXFMTS1ndDJLRTFmTnlXV2ZyX2FjQU1Xc2x5cGhjY08tUkRQZjdXbHNCRjhSWGFNVTVMMGQtbC1fbFdQTzRXQzNSN21PaHlsOTk0WXVQWFl4UXVWU3VXYWYtdWVLTXc?oc=5",
-        "published": "Sun, 13 Sep 2026 09:20:49 GMT"
+        "title": "العراق يغلق معابر مع إيران ويلاحق «منفذي هجمات» على السعودية - الشرق الأوسط",
+        "title_ar": "العراق يغلق معابر مع إيران ويلاحق «منفذي هجمات» على السعودية - الشرق الأوسط",
+        "link": "https://news.google.com/rss/articles/CBMimgVBVV95cUxONE50cExqSk5JX2VWNUtTYUhhT3A5OUpGT180b0dnVHNiQW4zNGlqVnJkZ21GTThKcHhHSVloNFJkN2RTY0NtZXV3enUwMzJkYmRiZ3ZhMFR2MVpIc0tZNWd1MTVuSG84dnYzaDZqWnFIVXZXXzZMU1B0aUpJcmJscXFXc0J1YzlUaXpRaVNrT2wyNU1NZGYyMW5qTHd6bzAxWHhmekh3MVVERS1fNUJ3Rnhxb2s4SFpaaG13VDIweVpobE9TMWFTQlVYaThMMGp5ZW5CNUhzVi1JR0lJWDZHYlp4UExLcFNsd1RyZHpGM2l3TWl6bDFhOW9sdWFGOFZRelJzeW9CZFM5NXRlbUlIc2dGUUFUQWlnc3g5QUVOd3Z4S2JxVkVpUmtENVVWRnlVNmN1WkVqZ1A3Vm5YQjZVOUNDelhPXzlKUnhPOXQ0UHdMU2UzWHd1UTlubzRQa3BHdnZZMklVZ0Npa2dVV1h4MGFBT2J1YVFlN0o0ODlCNjUyQTFBS1dUcFVzRTJhYkRtZ3hYM2tXMWZKaDVqb2lWdEJDR0NWWG1QWDJmeFNCNWg2MFloNlJ5RTU3anRfS1BYTmZiSnNyZ2JnWlVqT1kwTFFvVkNvTFRhQUh5bzN1WVo4QkRNVUVLUFdIRWtwSl90WE5uMklyUDJSS2t2U2ZNNUdFV2FLMzVRTnU3SG8xeWRmaHpfRUkwV00xR09IVUtRZXJHenQ1T095UWVaZVlqWDc0ZmJVWVNaYk9mNUREeXlQSzBkMW0wS0pOY1Y1NHRtcmlsaExkdjNRUEtGc3NPVWF1dVF3MEtEZXlmYTAwSVNBTHE3VE51NU94c0dTTDJmYlM0R1N6SnZPQ0ZXV0xTUUw4QU5UMmEyclE?oc=5",
+        "published": "Sat, 12 Sep 2026 13:47:32 GMT"
       },
       {
-        "title": "الحوثيون يعلنون استهداف قاعدة عسكرية في السعودية - France 24",
-        "title_ar": "الحوثيون يعلنون استهداف قاعدة عسكرية في السعودية - France 24",
-        "link": "https://news.google.com/rss/articles/CBMizwNBVV95cUxNZWVUR3BSNXlzNDk0QnYwMTRXdzdUZFN2aURXdXRuYy1KeVRBZEloeVF1Z1ZZcV9XWk1FdmlqYUdFNmFBeDNjZXFNMU9xUVhQb2JzMDJyTW1TQUdlNVZkMThQMkU5R2hkVW1FS2NWT3Rwb0JLVVhGaUZ0djJmOGYxa0xJWUxXTDZTdlR6NjVUaHhqT1Ezc3M3QkJzYmZmbzBKbkFJZHZ0V2wtME1MQzFnYVA3eFhMa29DbDIwMTFHSE0zdVV4eGhod2hqSUZWN29wcGRoXzQ1dnFsSWxyRU5rbkZrTGptX2ZvRUptVU5jZ0dsUFM2SjFHa0wwUXZQa3BNc0dIc2Zua0dZajlkNHgtNFdUbDlZTmNqNDdXRVZWS1VkVmVFUEZ2TkdxaG9Sb1BPTEN2ZkhwRDA2ZFdXdHh3a1Z2RUxYUDBybUFZZmRBemtoVUpqYlVUNEMxYURCODlCRnVsWWpydXd5QU5mcVhaVXZycVRiNHF6SEEtSkJsa1hvNUhFZ21FZFp1UmV6MTR6M0RjNGZ3ak9fZktvZjRYLWNKb2lCVFZHanFhT0c0VEhmYnBVUEtNYXRaSnRoOWp4NDQ5RFlWTEMtN181R2Zz?oc=5",
-        "published": "Sun, 13 Sep 2026 09:26:59 GMT"
+        "title": "بغداد تطلق تحقيقات على معابر إيران بعد مهاجمة السعودية - alarabiya.net",
+        "title_ar": "بغداد تطلق تحقيقات على معابر إيران بعد مهاجمة السعودية - alarabiya.net",
+        "link": "https://news.google.com/rss/articles/CBMi4wNBVV95cUxPYl9QZFU1dElPS2lSMFVpazlPQ2E5bGdqcmJlNFhQamlMU21mcDVXR3cxTzhYV1FrN1g0b2dQUm43bE44SEoydlFhZkxkU1VHUWQ1ZTRURGdZY3N4MTZUaDlMSDgwMHVGR3J2UjdmbzlVX0tNd0hocTRRSWtvbklEMWMwcmNrS0dlcGFoTktRV1JKTGZIdENldE1xNjVUZkFuejhucGJKdldjQTk3NkNUcVgyRTBTSU90czRscUNTYVhEME9abFR1bksxa1J5RXA5WXpBRWhaZkNEMmFnSTQwSm53a3k4dWs4NGFrOHRteFk1bGpXYmZMalRvMVNDdVpYS1BMcEFtaUdrQ25PanZVQ1liTzlNN2xISGp5NFlWMm5DdjJCR1BNN3JVM3VlX1hIQ3BFa3NDeWkxYkl5YkI1R3RBa1hVUGlYS21ERkE2WjExREtoTGVZR2QwU0c5M3lPZlhUc2gwYl9jUGNSY0RIdnRVMmVWZ0ZTcXdneHRmWWEwQjlOSFBqQVh6ZTVrVjVObU1VODNZQk05ZWFRWVhEeHBMQXpGNDJ4QmU1MGFRNGdwUXBqOEhTcXZrRDI2eWt1MGdLektnUkNKcGxmWHZsazVYY2hCdjI1eVJDUEgzcG5ORWvSAegDQVVfeXFMTUFjTHljUEJycG15NHZ1NGh2SndUMnlubVhqd1VyR3dDY2JVVEtlSXVaQkYyS09EbXNfZ29lV21FUU9lc3c2X2poQ1FONTJPeUZ2YlNibDBMWk15bENXSEJIVHJmMUpmdkM0M0FxMENXRTJ4RDE5X0R1R0lKaE54b0loaHFzMVRlWXIzN05aUDdXQVJfR0I1Q0ZSa21LX1RUazdGcGRjLTAtLW1yX1I5c0oxM2ZDMEZDd21TRV9VX3JGanlBOTYtWjkzaTFGbFVZTVJFN0ZsTy1ld21leGFPc2hyb2hpZkVYMGI2aVB0TGoxamRNNUdYR282cG9qa0kzdXI5c0tub0sxNEhaNUgxOVlhdGJacGVDc3J1S3ZOUUZfakczYlBzZkFkNWVkaGoydFNRd3RhWVFla2lLWlJGa0laXzF1LWxQczE3Ri0yVEF5ZHdvMEo3YWt4YUlVYTFHRUtyS0dPM3J2dklPOE1UdzF5WV9aUGhDdGlSVWFOWTh1RjJWSTdqYWg3VG9qVDhNRjBDcVlwNUJqOXpwLU9uM1JCaFZqblJxU3B3ekVoUnBnVFlHWkp0UzQtb1kyZ0hOWEV5djA1UGNKRlVxRFRmYTRiNGJ6b0NQR0l1UWdsRnQ5Q1BLVmZxdG0?oc=5",
+        "published": "Sat, 12 Sep 2026 08:30:00 GMT"
       },
       {
-        "title": "\"صواريخ بالستية وطائرات مسيّرة\".. الحوثيون: استهداف قاعدة عسكرية في منطقة شرورة بالسعودية - CNN Arabic",
-        "title_ar": "\"صواريخ بالستية وطائرات مسيّرة\".. الحوثيون: استهداف قاعدة عسكرية في منطقة شرورة بالسعودية - CNN Arabic",
-        "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPcjBlcWJLUjhkb3NVSjZqcThLMHFuM1dGVUt3X3hIN2ZUWXlMVnk5UWhsbzdlUXVXNUNGMW9iNVNxbXduczhrb3Z2SkJiR2c1aWNwR0ZfdENfV1pXcHBCNHZsQkJwR0pnMVdkQ2FFSmY2d3N0aHZfdHUyMWtVenVORFJBQ2EteTRoQVlB?oc=5",
-        "published": "Sat, 12 Sep 2026 22:08:34 GMT"
+        "title": "وزير السياحة الجامايكي: إكسبو 2030 يسرّع جهود الربط الجوي بين السعودية والكاريبي - alarabiya.net",
+        "title_ar": "وزير السياحة الجامايكي: إكسبو 2030 يسرّع جهود الربط الجوي بين السعودية والكاريبي - alarabiya.net",
+        "link": "https://news.google.com/rss/articles/CBMihgRBVV95cUxQd1NsSURhc1NpZ01STXVUWTZEZENlRndnQ0k1MUpReFlYMkhqS19rTjFFSm53dmRkUkRBb295N1ZiQnRUUm9uQ29VUWJjMFhJcjl5cTA3R2JObnhDRk84Zm14VUNxTjlJclNmTEhhcEpfWXRjRkdLc0plUDdoOXJfc3FTb3VXUWE0Xy00TlhlOXhuVzZ1dF81Ul9qMmgxZmlGb3R6R0dSMmRaZlhzdnlJSjg2a2ZNUURuMmRsTDBOVHgzUVZNOUY0MEI0YWNMRlI3NG9adnIxM1VDODRyeTRsOHFHVnBJM254a3NfdFEwdVBtSzduYUxKa2pSR0tDRjFfZjZ0bkVtc2FEcVB4NHh5dzZNYTV2UklCRGFlaXFyV1U5ZTAteUdfenB1VlRWLUx5V2VsaTlnNzVlX0Zva3JCNnU2RW9aZzhIMjJIek5Xd1FFMy1GMFBCUHVPdnhkSXY3b3lVLU9QcFNVRDgxc1VCVS1HN0NuLUlyUkhISktFc0ZNZVhvZm5PVGQ3TWliX2l5OGdvMTRZcnFvSFRqVXdQMVhSS0JfYW5LN2dOeUZ5NVRIX1U4ZE9TQWZoWk1WR3FjRXQweW1leFBEZmZhV1liOTBCRGJOdzZyVTBfcllxZVNucUJOS29HT1lqT2VRRW9TejhyY2huZDRxRGFaTjVCX0pXcDhMUdIBiwRBVV95cUxQVVBOSURSY05qOWtnTUh0X016WjBTekFjWVlHT0hZRVBPTVFfeC1qaGJydl9odkZheWIwbjRwYkcxejgyOV9FWWI5T1BtZmRGZTRIZUtfNExiT3ZGMHRaRTJlSW45aDZKSlV3TXpYMzJKRlpCaXZTWkNkWVloQUhWVUlmeWZOVWlkbDhrNHdSQzJLOFdSVDRXR05CZnAxZ2oxYl8ya1ZwLTRpRHRrUVZJci03WkxqZDJkZzh3eWVCVmNCbGhKLVFacnhGN0lmdGlZMXl1aURMQi1YRi1UOUtlLU5IWWE4X29GaHNnTVhHQVhtaHF3a01wZmo5WW1tdjJMcFlTTHVLTW54QUxaTDFXYVoySmc0a3ZaMnZvenNhV3VmQkNSQmk1Zm5SSDl1RU1LQjZyMUt4UmN0NTNGamU1RTJIdUZqNThncGdaejk3cjdzdmNDU0FEdDZDbjh2eVZNNXA3eGtTdmYyZFdFV3NJWHZTaG1FZVYyQlJwSkJZRzdFYzVvUEpNeUgtaEswc3RKanF0cFhmWl9MV0hVdVZFQ2NKM3BraGpoMThfZzJ4OTE3blFMa3pBVThqQVFyVXp5RG9MSmtWLXYyQ2x5V2FLNWx2OG1Oc3pnM2xhbXVCdzhCTGlVbWRXLXZ0RG9RTTN6bTBXdnllUUF3eGpIVVZwNjFMMlFTZlpxeW1V?oc=5",
+        "published": "Sun, 13 Sep 2026 13:21:52 GMT"
+      },
+      {
+        "title": "مؤشر الأسهم السعودية يتراجع 142.70 نقطة ليغلق عند 10864.57 - صحيفة سبق الإلكترونية",
+        "title_ar": "مؤشر الأسهم السعودية يتراجع 142.70 نقطة ليغلق عند 10864.57 - صحيفة سبق الإلكترونية",
+        "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE02YmRIZWpJTm91bVZQQ3JpNXZTUk9aVHdqT2I2ZG1UZW5MT0JibFNfMmFzQjVwUHF5N3lYSU15WDBzU3lEa1Vn?oc=5",
+        "published": "Sun, 13 Sep 2026 13:39:26 GMT"
+      },
+      {
+        "title": "مؤشرات الأسهم في السعوديه هبطت عند نهاية جلسة اليوم؛ المؤشر العام السعودي تراجع نحو 1.30% - Investing.com",
+        "title_ar": "مؤشرات الأسهم في السعوديه هبطت عند نهاية جلسة اليوم؛ المؤشر العام السعودي تراجع نحو 1.30% - Investing.com",
+        "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5hRFU1Uk12amV5TEtnRDBuM0NJazhhcWFIM21udUNDNDQweC05enpSNnVhZC1XR0ZHclhVODcxajkwVERMRjJfQTFKOHhUTDFvYlhHY0Z2N3hiZWVHcTJTZng1VlFGbjd1SlBnSFVKck0?oc=5",
+        "published": "Sun, 13 Sep 2026 12:45:00 GMT"
       }
     ],
     "أخبار الإمارات 🇦🇪": [
@@ -47,34 +47,34 @@
         "published": "Sat, 12 Sep 2026 11:42:04 GMT"
       },
       {
-        "title": "رئيس الدولة يصدر مرسوماً اتحادياً بتعيين أمين عام لمجلس الإمارات للإفتاء الشرعي - الإمارات اليوم",
-        "title_ar": "رئيس الدولة يصدر مرسوماً اتحادياً بتعيين أمين عام لمجلس الإمارات للإفتاء الشرعي - الإمارات اليوم",
-        "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9aRkxGWF9UR3Z6Z1RDWGhCYk5kZUZHYmxOQzVUZUxJY0FVTkhXNmxYcnZkYVpNTjhaOGFpVy1EYzZXSEI5WVNLNW4wVEdfTlVfekFzcVBUS25YeEk4MFBjeVEyQlZQYlp1ejJFZWhDSXZ0LVZETGlSNdIBkwFBVV95cUxQenlLRFlkUl92TlI2dmlOaEE2dWYzX3VfZHBjTFc0dkJ5cXN4alI4YXFqcmFNSWwyNk5CT1RSd0ZuTGROMjM3azZ5SWR1SDRfVkZKMk12V1ZvOTZ0aENBYU5VbXo3MXB6ZUVQcDBSRUU2QWphUjNXY0M4SFppbUZvVVBDNVhHMWJGWXJqTlJFeF9KdzQ?oc=5",
-        "published": "Sun, 13 Sep 2026 04:42:49 GMT"
+        "title": "رئيس الدولة يصدر مرسوماً اتحادياً بتعيين أمين عام لمجلس الإمارات للإفتاء الشرعي - البيان",
+        "title_ar": "رئيس الدولة يصدر مرسوماً اتحادياً بتعيين أمين عام لمجلس الإمارات للإفتاء الشرعي - البيان",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE14bEVBVmdPbnY0YzV0bVpNem1rcnZaYk82aUFQQV9HaVFiSW9JUGVUTVF6Zk9Venl5N0ZQZloyWHZrZUJTbGlBYW9ZVEkxQmVE0gFWQVVfeXFMUENtX0MwdHRoaXBPM0xfMG9aTWRfQ3EySzBFbEtUejA0Z0h0bEFfVGVxRjR6SUVfaDZfRnBlak9peXFPeEZDQWFHbERXanJWOHY1TmJwTmc?oc=5",
+        "published": "Sun, 13 Sep 2026 04:39:00 GMT"
       },
       {
-        "title": "الإمارات تُدين بشدة استهداف خط أنابيب في السعودية بمسيرات قادمة من العراق - وزارة الخارجية الإماراتية",
-        "title_ar": "الإمارات تُدين بشدة استهداف خط أنابيب في السعودية بمسيرات قادمة من العراق - وزارة الخارجية الإماراتية",
-        "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPeGlfVVJvWjBfU2NJU2t1YlhCeVdveVVkc3o3ajFydDRNaWFlSWlnY09SWjNlVFZRS2dxSTVZTEVRbnNDR3VnNlNrWFpGd2xFTVNBOHRPSGZLdHl6YUV6UnRacGN2ZzNQaHNVSjRzQ216UnVjVEhvODdEZjBuQjBuYw?oc=5",
-        "published": "Sat, 12 Sep 2026 10:33:49 GMT"
+        "title": "أول بيان لوزارة الخارجية الإماراتية بعد إعلان الجزائر قطع العلاقات الدبلوماسية مع أبوظبي - CNN Arabic",
+        "title_ar": "أول بيان لوزارة الخارجية الإماراتية بعد إعلان الجزائر قطع العلاقات الدبلوماسية مع أبوظبي - CNN Arabic",
+        "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOX01OZXR2Nmg5MnRFZFpmZGFCbzNfbW1OZTdZTmJFZXdvUEszM0J1MERRNHhwaWZWTHRvZHhCY1ZnZmh5a2NsY01FMnN0RUJNV2hrbXZvcjBWdmJtMUhfYzBkcDA0ejFuY2ROOS1NWHlxT2QtS05UbFZlVEQ3TzVQT3N4eS1reDcxUWJUeXBtdEhqMXdKbHU5eVJfQWx4YjRERGNjOTRGa05PVVFnbWVEaVRyX3BjcFktV2hyY2h3?oc=5",
+        "published": "Thu, 10 Sep 2026 18:03:00 GMT"
       },
       {
-        "title": "الإمارات تدعو مجلس الأمن لتوسيع حظر السلاح ليشمل جميع أنحاء السودان - البيان",
-        "title_ar": "الإمارات تدعو مجلس الأمن لتوسيع حظر السلاح ليشمل جميع أنحاء السودان - البيان",
-        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE4xQ3ZzbXVQR0g1cWhtNDdoUWFhbXhySjA2VlNfS29iN2pvVV9Wb3JIcTh4Vlg5VGRMZkcwZ1k0Tkgyb2JjZjcwR0xNRWhDZnNu0gFWQVVfeXFMTU1WSkdKWGtMX1dzT0RxemZrX2lOaHBGMjN2WmZnVnl3d1hsZWE0eWV0MG8zeXZ1b3M4SE9xT2s0bXJrVjNlRWhBWTZSdDZsZ2J6eFctYmc?oc=5",
-        "published": "Sat, 12 Sep 2026 15:59:00 GMT"
+        "title": "الإمارات تؤكد حرصها على علاقاتها مع جميع الدول بما يخدم مصالح الشعوب - wam.ae",
+        "title_ar": "الإمارات تؤكد حرصها على علاقاتها مع جميع الدول بما يخدم مصالح الشعوب - wam.ae",
+        "link": "https://news.google.com/rss/articles/CBMimgNBVV95cUxOM2Y2NFVDN1N5RzZlVTc5aG0tT1Fsa2JmR1NCWWRfeHplNEpHQTJDVlZtREZlSHcxbzIxTlBXY3pvcjBzYWFIYkZ3ajBVS2V3azl0QWhLeFJtSGxhLVhyRV8zRU4yZmtYS1NCbzVkM2lDRmd2cGFzYmNUdmM4YkxWOTlXdldrR0I2MWh4WjJpM1dOTE5aZmFRTFJNeXAweFFqVE53RW1rcUwtZzZwSGNfNlhDU1F5TVhweU5Jb1lsRUQtRWotWGktT3h4cUNfWnJRZWpzLW5lOUhsc19IaV9xdXdHak5XS0t6dG16MlItWUVsSVRldlN6RFpuekNwYVRjN3FJaVBqUVdodFAxUXpIWUVJSXBRZlVUcWdaMDU4T0ZSNk9QRlptbndCTURIQUtzZkVaak1JLWIzeUxvRmF3YmJYYk5MSGhZbFg2VFVFZ18xYUtqcjlvRVpBdlpuLWtOZHhjSG5tS2RwSEpIZzFZQnNSU3lCbEo1WXM4UEo3T0xObVdJMFFoZFVNT1ZfVk1ieGFrU0lGWlRJdw?oc=5",
+        "published": "Thu, 10 Sep 2026 17:31:35 GMT"
       },
       {
-        "title": "عن إيران وغزة والسودان وأوكرانيا.. ألمانيا والإمارات تصدران \"إعلاناً مشتركاً\" بشأن أبرز الأزمات - CNN Arabic",
-        "title_ar": "عن إيران وغزة والسودان وأوكرانيا.. ألمانيا والإمارات تصدران \"إعلاناً مشتركاً\" بشأن أبرز الأزمات - CNN Arabic",
-        "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNQ0pqb0lrdjNyN3RaLVBiR1pDdE1DbHJmVmtVMjZMcTVMcXp6YkhWM3F2dnBpWHB1VURrYjR1TzhXcWxENmc4djF2QXhxajFRWjd2MjA1VGxfbzJhRF9lMmpzTzk0eHVGWUtBNGtSUHdkNzZYdDZ5U2wyTlg1ckNVb3dKTHVwQVM5YWFLTWpJODB5NElfdG54VndUOXppMmRTcldMQkJMdm8zdDZhdGFxdjNuaHNINmpKZG14eFAtUjVuNGU5ZFN2RFV3?oc=5",
-        "published": "Fri, 11 Sep 2026 21:01:19 GMT"
+        "title": "الجزائر تقطع العلاقات الدبلوماسية مع الإمارات - Reuters",
+        "title_ar": "الجزائر تقطع العلاقات الدبلوماسية مع الإمارات - Reuters",
+        "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9LeXY3T1B1U1QzV29LWF9UdFZmczh6aHFrWThFRnVmZ0l0UTJTaHIxT1U5QTZOQ3RSVlpLeEZ5TV9pUEZzNmlQd09xaXpvb2Y3NF9YWmJzZWVjOTNOUkE0VzIwY3l6SExhbnpCajgyTGpPdXg5SEhDakVMbw?oc=5",
+        "published": "Thu, 10 Sep 2026 18:49:52 GMT"
       },
       {
-        "title": "حصري-مصادر: الإمارات تراجع خطة مشروع مركز بيانات للذكاء الاصطناعي بعد هجمات إيران - Reuters",
-        "title_ar": "حصري-مصادر: الإمارات تراجع خطة مشروع مركز بيانات للذكاء الاصطناعي بعد هجمات إيران - Reuters",
-        "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9BbURqUlhVUFFTSXQwNVZfMUFDM3pUMVVJRFZPRnhLN2ktN19qWXUwVHp1VGt1MG5nUjZTUDlQcngzTUZvWXVETUJnd0k0dnBNSXVvTkFTQWxpc0RabUt0bl9kX25XVXc5dkx0bEFReVY4VDBaMXJLcWphVFVxY2s?oc=5",
-        "published": "Fri, 11 Sep 2026 09:19:28 GMT"
+        "title": "سفارة دولة الإمارات في تل أبيب تستضيف حفل إفطار رمضاني - وزارة الخارجية الإماراتية",
+        "title_ar": "سفارة دولة الإمارات في تل أبيب تستضيف حفل إفطار رمضاني - وزارة الخارجية الإماراتية",
+        "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNWlNIeGhuVENfZW4wVVQ1czdTejlyMkZ0bTZLZ0xRcWg2Q1lDSzJ2RF9nTl8wMERHUEsySkJ4ZzcyQ0lTUWpCSnVJU1FESEd4QW4ySWx0emNCd20yalNVcmV3YUVxbjR6NUU2NHNJZENhUFhnc0lUVEp3ZW5hWkxvWVk2YWtUa3duc1U0?oc=5",
+        "published": "Thu, 10 Sep 2026 17:51:55 GMT"
       }
     ],
     "أخبار عُمان 🇴🇲": [
@@ -82,125 +82,125 @@
         "title": "اجتماع هرمز المرتقب في عُمان يواجه عقبات إيرانية وخليجية - DW.com",
         "title_ar": "اجتماع هرمز المرتقب في عُمان يواجه عقبات إيرانية وخليجية - DW.com",
         "link": "https://news.google.com/rss/articles/CBMiggRBVV95cUxQZjJNU3NENnRNdFFOb2U4VmtfV1VHYktUNzNkNmdaZXlVQlZOT2w1V1FMbG9ibldhVzZjdERRZHpQZUFzSmNRY1ZwVnI3S21tNDZfNjl4bXdhMmktTkZLZUZiRXRMeFBUTHZCYTVyNUdhV2hFRXJ3cVNiOVBKVWtPLUFzQUZlX1NLTkl5c3FhQXZzNkRTZmN2MjNSNy1oSVZnVFpCckp4aHV4akFNcTA1NXc4REprR1l3WHhwTXNFSGtJNFdGc25yem5HOTRFWjJQenFMS2I4YmhfaDR1c0tRbi15aHIxLVY0WVdpT2hhVUtfOTVseUxRX2k4YlRrR2JmR2FMSFFyZVB0UDkyQWJxcm1xRzhOQm1nQlo2SGhCMlFKcVlxckRMNU00Qmp5SzE1LUtpeXRIMkdaTmhjbjJYTVY3SGw2cmFoempYRnlXTDNOQ1hXaEE3bDJpVTZNZnJFZEtsUzQ1YjN6a3NTeTA3ejVMZHl0YjgwbzhURmViajYyOWNBTGFrUjlkOWtTSFVUMHRQOUZXYjFuVzNMOGhBRW5iUWJlR1JxLXZ6M3FZdlFCZUpzeWRXZ1VNN1pDSEdZbl8tdHU2Z3drcXF2Szc0d2NhaGVaQ1ktSnJVSzBlZVFUeUhTR3BoazZOcC01c3ZEd3I2blV0M2h2bW9EQUItMVVB?oc=5",
-        "published": "Thu, 10 Sep 2026 07:00:00 GMT"
+        "published": "Thu, 10 Sep 2026 16:39:29 GMT"
       },
       {
-        "title": "مفتي عُمان يعلق على الصراع في اليمن ويأسف لتصريحات علماء مسلمين - arabic.cnn.com",
-        "title_ar": "مفتي عُمان يعلق على الصراع في اليمن ويأسف لتصريحات علماء مسلمين - arabic.cnn.com",
+        "title": "مفتي عُمان يعلق على الصراع في اليمن ويأسف لتصريحات علماء مسلمين - CNN Arabic",
+        "title_ar": "مفتي عُمان يعلق على الصراع في اليمن ويأسف لتصريحات علماء مسلمين - CNN Arabic",
         "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQRTNQc0VhMTRLdXcxY3ZJYXJxVEZKaUEyZGRTNHB3ZnZaMWFXSXEzNS1NaDY1YU8zSE1mcWZ2Z3RMUnRQVDJSWWN5QTRDb3hSeDY0RERXRWc2ck45RmlUUUtHM09BNV9FcmNuVFlmWjVqMl9aQlliSjBCRVJXVEJvRkZFZnMwTE43TlBCcDRmSjFOdW4zVlZGMmJ3?oc=5",
         "published": "Sat, 12 Sep 2026 06:36:16 GMT"
       },
       {
-        "title": "عُمان تمول 25% من صندوق صيني للابتكار والتقنية - الشرق بلومبرغ",
-        "title_ar": "عُمان تمول 25% من صندوق صيني للابتكار والتقنية - الشرق بلومبرغ",
-        "link": "https://news.google.com/rss/articles/CBMilANBVV95cUxOUkM0Z09yYTY0VF9nNVVNZ2FHYWQ4RkpndXVRaTNDTU1JcTZxYzRyUEU2OVgzN3lTak9YbldlSl8zaVBUZElTQjRSUDlycDBfNjg1RTNHRXZCUGtfNlBUcEx3ZW1vaHJYM2cxZ2ZrSVVFdHJtcjZhUUVNM2lSNFFMdGpqYW05ZDBYTDkzTkZtMDlxbUhjTHBPcW1XOW9mTmxaeE5uSy1hTWlyanJ4bk5UWGF5d2JYdk9EQ05rLThUTDdFbGx3TnJpdGpSNGJJTkpLT2o5cXd1S09CVnNzcGpmbXkwcjd3MmpsTHBpbFNuU0gxa2xoaWU5Qmw5d0JFVTNQcTZtb0x1VGlqWWs4N0lmNUs3cDJOVFZBSW5iTDgyTGEwOENueUpIejhzMWQ1enlObmp4V1R6WDZMOTFETzd1Q3RNSTA1cjZxTzNxSlFlb2hNVXBlS05TTVNRdmtwR19ScUhCdVZsUUpKbjBqWkpPazNyMHljYk9uNXdmaFNXb1I0b1lsUzJPSnhCempjakFrM0dEZA?oc=5",
-        "published": "Sat, 12 Sep 2026 11:44:42 GMT"
+        "title": "%3.4 معدل التضخم في سلطنة عُمان خلال أغسطس 2026 - جريدة البورصة",
+        "title_ar": "%3.4 معدل التضخم في سلطنة عُمان خلال أغسطس 2026 - جريدة البورصة",
+        "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE92cHlEeC1acEJ5R1lCMW81TXQ0bkFWakt3UEtybHcyRUo4QjBiODUxdGduUmJ1OFcxUFRaZ3V6Z0JwZWxLeC1UNnplOWRlcmVweG1zVU5zTjQxalk?oc=5",
+        "published": "Sun, 13 Sep 2026 13:25:54 GMT"
       },
       {
-        "title": "صادرات عُمان من الجبس تتجاوز 14 مليون طن خلال عام بدعم الطلب العالمي - معلومات مباشر",
-        "title_ar": "صادرات عُمان من الجبس تتجاوز 14 مليون طن خلال عام بدعم الطلب العالمي - معلومات مباشر",
-        "link": "https://news.google.com/rss/articles/CBMijgRBVV95cUxNb0FYZE1jSzlKWkkxeDdOS1JkS2tfN3BjSE1OWlpranlJWlNrUFEyakZqYTh4X0U1WU1NeThHcjdGRFhtOXBxTDNRSUxQa3h2dG9tYVVpdl9KZTJMMV96OEFKZldPM3ByTTl2UU1VRUtFdGg2bjBldEVlZXBmVy1EZUNRQlZxT1BKaERjTk1tNFYxMHg0QWsxNXpZNHVyWHdRRUo4RThFRzhvbVFFYlU0MkUtNFZSTnA4VHZhcHoteFdTaUxJc1JlRldON0lWWXBiSWNwbnVQTzRyUFJPb0hNRGkzaG1NU2g0N2JfUFdYZkpncGpjQ2VUQWtwdnNCdFFyUTE4N3pBTmhyMF90OGY5WDZnbFBCcU5CZjRVUG1ZeS1KOGw4bVZEeEZnYzM4UmxQRWpMNEFfbW1QWjZNLXNHSU4yZldVelBQSS1qclBpMDRGTzVuREhDTWFxU1oyUXBKLUYwOW5maEFGZmZIbWtKZUlMLVZDVllqTHlPclVPeDc3UFRwQ2IzOVg3Q3lhal80YVlsdVhVLXVUd01sSnczcW41d2hNWW9WZGZFcmJRNWRvalFOYVlFTE5icG82V0o4akxqYzNHMlJLUjVtcXU3c242dzJ2LVlZYW84M2xKbTNHcG94LS1LVVRfMTNEcmx4RS1jUEp4SjFCVVhHcDUyTnY3NkVHU2lZcmtZTGpn?oc=5",
-        "published": "Sun, 13 Sep 2026 07:52:21 GMT"
+        "title": "أسبوع عُمان للمناخ ينطلق بمشاركة 50 دولة - بوابة الأهرام",
+        "title_ar": "أسبوع عُمان للمناخ ينطلق بمشاركة 50 دولة - بوابة الأهرام",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1zMW5JQ2xuSUd3N3l2S1F5WTdZUm5ZcTZVb3hJT0sza0hpSXFscFBwZjlzSUdYajAxTU5VbkRnVTA2b3VrSUV0c0pIYUJ6MXVoeFVzTk1B?oc=5",
+        "published": "Sun, 13 Sep 2026 12:59:00 GMT"
       },
       {
-        "title": "واشنطن تقيد حماية السفن بـ \"نوافذ آمنة\".. وهرمز على طاولة اجتماع إيراني خليجي في عُمان - مونت كارلو الدولية",
-        "title_ar": "واشنطن تقيد حماية السفن بـ \"نوافذ آمنة\".. وهرمز على طاولة اجتماع إيراني خليجي في عُمان - مونت كارلو الدولية",
-        "link": "https://news.google.com/rss/articles/CBMi_AVBVV95cUxPZlBLYlcxZEllVUFva3lRQkRqN1FvMlpqMnFlOExKSWkwYWFpd0VFOGtoZGxIS2FUaFFRZXNtcGdfVGFfcEFnblFlaWpIYllJSEg2eW92VjBoODdmakVhUUZXdTFVQkdyRmNYTXA1Ym1KWWlEOWlKdy12RW05MjlRTkFVVTRyS0tRLU1IdG1jRGVZVkpZRWZCWllPMWNsYUxyRk5kc3NxVGVCZWZoeERuRVJGS2gxNWwyU3VPaG9iaUJFM3NfcHYxNFJIQzhvOG9UUWdvLXVWWUNLdDY0V2xoWnYwSW5TVktlN3BFZ1VxX25ncU1OWDdsQUxFbTUtMW9kQXUxR2l5MlpjMGg0UlhEMkw1cmpNR2syQUwyYUxnZnBvc0JEWHhkb0R2dE40cy0zeDF0bzNQS0NRbE1MQTQ0Z3U1NEtMeFU1LXBnQ1poaDk1aWRnbklydlFUdXc2SThqVV9aN014LXpCNE1RMGFJMjV2R1dpYzF5c3dleDdya3puWmMwUmJpN0lubjN5LUd3VFVxYktvaHRiWUV4cVVXNk15a0JDVHRTdWpRd0h3cnlWSFZKX0xPcS1GVHJ6NzBXcHZ3S1lBY2JRNkI5LVNzTjZjLUxkODNETmlOeVlEOUk5SnhUdDhHT2dqRFJzNElQTUFrajlzS0lQb1RmQk1oVUFGazF5WEJiOHUyQWVXc0JXREllNzRJckpOZUt4dzdXLWt1T0ROdHRWVlhYUVp5a1FNNlBDODlPOGZBVjh3NGg5Q1RRLVoweVp0OTMtQ2JPQS1kVGh5a1ltMFpTTzVDVjlkZ0JUUThkZlQ3ZjFVZ1M2UW96c1g2LUtMZmpYS0ZMckRid1BZZFU1aUFHMmpIWWNta3BPYVpZUWxDY0dkLVpOTXZhQ3ZIUGJjUHdZTTNGNGlVZ25GUlZ1Z254dE1xejhhUmZzN1RhdWZldVdLellRdlJYSHB5bVphWnFnMFI4OTRWY3AyYVZuaVdJengyTEtCQzNTQTJhbC1odA?oc=5",
-        "published": "Sat, 12 Sep 2026 10:13:46 GMT"
+        "title": "في حدود 5000 ريال.. عُمان تتيح إسناد أعمال حكومية لمواطنيها من أصحاب العمل الحر - معلومات مباشر",
+        "title_ar": "في حدود 5000 ريال.. عُمان تتيح إسناد أعمال حكومية لمواطنيها من أصحاب العمل الحر - معلومات مباشر",
+        "link": "https://news.google.com/rss/articles/CBMiwgRBVV95cUxNbzlMWDdXTVRXWXAyOWJwemsxekxWOF9EM2F1b2FPal9xREw4QzUySW9kME11Vi1HbEYzV3JwWnNyTEkyOExsTlZkT3FnZlpGS2ltV3poZVFKanFUaEs4dU5GNHJkMlVZRWZBdW1aVGVuSjBEczBpOFZLTm84Q0tmdUtadHZCRnVmTjNMV1VNa0JRM2tycXA4OGwxa05zazZhUG9NZGtNemFuckZpVFRoWkVVdGhXSVpMUHpZSW14cHNWVWFidkdXcmpBaDFqcUtoaTBiQW1KVTlNZjZRUVVoZ0x0ZU5PWHlqQzhFR3NhdUFDd01UaV9aQ1Z0X2hKY3VScmdqYWFzM014Y3dNWFdya2NSTEtyQklUbmJlZlBNSWh2bS1BVXY1eUdiaEhBYmEtUXZmYXF5LWhvbU45UzhYTnZNVllsN3B5eERfVUxJdmVOVWtIT2plSmRsczduME93YUo0OEJxbjNUbG5oMVIwa1VuaXF0bTV5cVlRTDZ4NnJ2bDgtdUhHajk3d25RTUpHY0t1a21qNVdhWHpJX2xjdnc2SUNfY3J4b2RSVnRpWTBpdEZQeDFSN3NZNGtKdElPRUxtcTZhQXBvcTRaSXB5ZGNWaHNCcXNzejZ0Zi1aVGpvSzhDUzdrVHJiUS1hMW83UzJWbGd2RlJXc2ZmOEpJUHlkcE5yZ2c2WlpTbnNQalVhY1diMWlZQXpabUpGSjNsM1VLVmZnWmZjZnZGZnhId3cyUWRjSndMLTdWS1MzY1VCZw?oc=5",
+        "published": "Sun, 13 Sep 2026 08:59:40 GMT"
       },
       {
-        "title": "هجوم على سفينتين قبالة عُمان والحرس الثوري يعلن استهداف زورق أميركي - عرب 48",
-        "title_ar": "هجوم على سفينتين قبالة عُمان والحرس الثوري يعلن استهداف زورق أميركي - عرب 48",
-        "link": "https://news.google.com/rss/articles/CBMi7gVBVV95cUxNX0Z6c2t5NTg1Sk5hSGdEYjdoQzNlbXZFSlBDNHo5d3BXMlB3bWlKOUVLNDMxdklwdGVpMi1NbXI1S1pzZk55azk1ZFJQbDFqVk9GVU1wZUpKYUtqRHk1WDJEalBnc3ZlTlk1VzVpLTkxRUxISWhFb21pdHJXX2ZpWHVJS2RFQ250T3hrbHdCWHdRdVN5M3k4Rm1BenhKS1gwbHZQdHZLWTNZN2JUXzZFTFVPOEQ5bTV5bVpWQ2RpXzduek1lLTZpLVVUQU5ZZnBWZWRTaFctNUJ2c1Y1RFc4OGhnbDVjQ1RBOTVNX0RvdF9SRDZGNlNONGdETEpOU2xqQmdZOG9OVzNxOHVoNDd2UTdkQ1JyaUFEQnU0bENnanlTTV9uSnZTU1paaDFSTTQxbVc1bFZ5dXBCcDZRamJwOWZrdTZDNmxTVEg2cC15RTM2dWZsTEU2UHFzcnVqUmV3NFV3UHJ1X3VndWpXeU9kcXRveGtJTC0yb3B4aF9ocGlmZC1PRmN2UE55NUZXcjdCY0FmTW1EbG5oOW9kamMyY0ZTbDliSVQ5ODRlQ2hKZ21aRC1vUDJMWVpaWFJLbVlCaFpxVHFCal8yRFNxYWptNFcxRnBhOHhBSXVGbzA0TmZVbENPVGx3b01jb3Q4aXBQYWVBTWhORmFOYk5rZTkwNDRmTkRLS0Z4YnlOQmlsdV9lNGNPTFpIVE1RdFFtV202YzlLWlY1MzVJakdOSkZyajdOV2d1VW5LTncwdW1wbUJTQUxfbHc2NlFlRk9VZ3FBak5pdk04azQteHoza0lOcGVaUTg3UlpRSFMtVF9mRVFyMFJ4bTVoZEtqek9qRjhiY0ZBSWJJU3VqZi1sRExTaUt3LVpUNGRheW4zRFlJZlhGSlJTbmRIX0FMNTVyaW1iTVN2R20yNVh3OFBHWS1fbFkwVjNRcVNqQjhqbDFORGtCck1XQXBHM051NkExczhINEM2b3A3aGVkMUhBX2fSAfMFQVVfeXFMTjEyMVh3bkNxSnFQYTVsVTJvTUJIQTdWVkZzRTl2Wmg2aE0yNjUycDZobFU1bWxiZ1NmQUx4ZUNNNHZXUi1SSHhlc3pGX0hTWXU0eE1VUW5LczJPVGVFdXk4Z1pIYzFpczlNNHBrYVp0RlBtcW8tWE5rOWlKdnV5SDVKRms3OENwZmg1NjdaVkZEeEg3NGhnUTM4S3B4dWlqRThRQmxwWTFEWXNwQzRDUmtpck04TWhrZU9LOElyT3hoMm9Lak55STZRdS1qYnZhUWtieWdEUnpFRS1palJHSVNwQW9rblMtbmxZOG1lOUNNS3h6ck9ra3NKc185cmV1MDZ1TkFORGdCRVlDZVpzM3dKWHpSaXNXSXVqS3hUMU5nWEVhaERZS3lDc1gwUTRLN3Y5UVd5cFRXX2RvNDBpZ2RTWndmdWpJLUwwYUF6WFFQcVB3QngwN2JHMHBQOXNXN3hZQjhKcnNpUmE0dEd3NF9JU2Nsa0RyVHJoUmtzNVViY1ZwVDFndld5VHhyNzhqQS1vSEZvOGo0TEdHQ1B0bnhsRmRGcDluVmpVb3N6anV1T2dSQ2c2dkw1eFJ0TjhwUzVPd3F3ckhVU2pmZXJpVVVjTTVXUnk4M1dtc05oZk4xT0h0RElBOEd1YUpSYWhFY0MyMEduVUNaT3JVc0MzY21QVjRaWUhtZ0gzaEJXWVZfSkRPVXVxQUtNaWZOanQ3YzBtUG85ZzNHdWdwTkt3b3pDRGFkRHpRa0tOVkhWZEVDb3BhamdRaU9ZdnJmMkdrSE90OXBUTlVUZXZiS0JDS19ZUDJMRklEX0o3Z0ZXdjA1MHIzQmhtVFJhbEZBQWQ3UHRzdmlKbW9mdUVBNE1ud2k4U29CZHhrdnV4bmgyNU5CcUhaTUxyQTJSVGdQdFpia0dMTVM4ZnYwMUtTVWdIc1RLekFvbjRKN1RHYnRMUnpHQ1N0a2p3SEF3a251dTJGYW5nY0hDYk4yQVBZMEFsdlRLa0U?oc=5",
-        "published": "Thu, 10 Sep 2026 20:46:00 GMT"
+        "title": "اجتماع إقليمي في عمان لبحث مستقبل مضيق هرمز - France 24",
+        "title_ar": "اجتماع إقليمي في عمان لبحث مستقبل مضيق هرمز - France 24",
+        "link": "https://news.google.com/rss/articles/CBMioANBVV95cUxPOVZWU24zVHd4bE9JdkxIYlhZdHF6QXBkUjFWaXlLMlhmdzFZSlg2ZVkxNDZYR3FZMzd3MENIcmNqRHFySE80aTR6QWl1T3BUQkZ1NkhZQVRqYWRycVNSbjlTZFhrdkI1eHVINjBkcktKMU9MSlI5UEtIajF0Qkp0TW9FVmdlY1ZKdGlMV3prYnVTNVNrSjd3dEFtcUl6QjQxTkY1OVNkWGNoZEk5aTVQbEsySXdQcUxIZEVMRjFHRU9PaXI3ZGh2N3IxeGdOd2RkUHZFT3RKSlRLTEpadXYtXzFxTHlZZUNpOWJBRHh4THdueXJnWXpTcGFwNjhoajc1UWRLR1o0RFVnZXQzSy1OVXF0Zm4wZ0NCdUo4bkgzTEhlSi1mUEVScGFpbjFjLThNOGJDRlBEbWE2M0VKNkdZUEx2aGJtVzQtai1NQjFYc0lZbkRoNGJLQ0MtVXZZcENfYXd5NG8xamlzRlhjUFNnVzJiOHZPTjctWHJJajBZOVdRQWRlUEtVaDEyVmRlRFJTRUUtckc0czlNV2dPTE9xeA?oc=5",
+        "published": "Sun, 13 Sep 2026 08:14:07 GMT"
       }
     ],
     "أخبار الكويت 🇰🇼": [
       {
-        "title": "سحب الجنسية في الكويت.. ماذا يحدث ولماذا؟ - bbc.com",
-        "title_ar": "سحب الجنسية في الكويت.. ماذا يحدث ولماذا؟ - bbc.com",
+        "title": "سحب الجنسية في الكويت.. ماذا يحدث ولماذا؟ - BBC",
+        "title_ar": "سحب الجنسية في الكويت.. ماذا يحدث ولماذا؟ - BBC",
         "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE04RGNVLVdvaE9RT3FfNEEtTE82OEVTUnI4bmJZZi13WmpTY01JektEa2thWmlMRmRhaWFxSG56bTBveGlKRFF1NEthWVE1R2pidzRacWZRZEkwMkp60gFiQVVfeXFMUFR3bmt3Q016LU9BVTRWOWJ3Ynd4d3owR0JBTlF2YjljVDBKU1ZLRGQyX1pqVFhqVnQya1VieVF1MlpZSzk1UzYyOWllM3AyNHYwWDJGVEl5OGdoOG5RZUdMZHc?oc=5",
         "published": "Sat, 12 Sep 2026 09:02:35 GMT"
       },
       {
-        "title": "بورصة الكويت تتباين صباحاً وسط صعود لـ8 قطاعات - معلومات مباشر",
-        "title_ar": "بورصة الكويت تتباين صباحاً وسط صعود لـ8 قطاعات - معلومات مباشر",
-        "link": "https://news.google.com/rss/articles/CBMihANBVV95cUxNdW42aVJXNlp6dnI4VjQ1S1owLUhKMkttZERRenU4Y3VEX1pjOXg1QmRobHRMX2dVUDhMbkgwVHE1V1FCeHVlMDY4NV91a2g0MFhBTmVucy1BeVhWT1FZZlNuZXZnNHBCNXh1YnplemlXTHBTOUtOT3N1RGJ3ZEhLS19jRlV0dVZuelZNTF85SFZYYi1LVE5ROVVrRF9ia2VIdDBqeW9ncmFySm1FMnFBR180eEhmY0hFX18ybXExTnYtTU5mZXZBeWdCVVlZbXFQUFM5WkRON0xEbmtSQ2Rwd2t2M3RBYmM3WGFJZU96MW9pY0R3U0Q2cXNBMkdjNE4wdk4zQlowZjE2TzZnTlRQdHVtOFgzRUFRM0k4aTBiZ2hJT1RfUHgtZDJvSEVHVnNKdTFwVjJYUVNibmIxRk5WZy1rR180eGVhREtsR0doUnI3djZwMlZINFVKZTE4SVhzZTlzcWxGSExWaElkTVVNQ25NZElONXlEUXlCN2FEQWo1WXQw?oc=5",
-        "published": "Sun, 13 Sep 2026 06:41:05 GMT"
+        "title": "\"التجارة\" تُعلن أسعار الذهب في الكويت - معلومات مباشر",
+        "title_ar": "\"التجارة\" تُعلن أسعار الذهب في الكويت - معلومات مباشر",
+        "link": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxNVk9mdVRESUV3ZFpqTnBjUnZqUzMxUEx0WFhhVE9Celh4QndJSk9NLVdMVFRRQWRaV1hKYl9OckFHcDBRcHRmN1g4NUphRy1Zb0xqZmcwM0V2VHN5aDVsd0t3RWJFdnNrMUNkYWllRXlfWFZwQTA3VDdpZUM3MDhCcDNONUtDU1VzdkY2dHBZYnBLQ3pYNXN0NXhQTnJwNUVxT1ByM3Q0R1BMdVJueEdzTE5oNDFiNGRuOFJ0bnVxZGJYT0o3T2YyOUpQMkJ6c0VoSUx4V1h5TDg1NHJJTnJXb2lSZVJtbjZBLXlxeWxOd2JOMGprLXkxTHJaRk9ZdFJ0M2RVdlRmYlpBM2ktWlp3SC1JMHRjbk1paEcxWHNrRWNrbC1BRVl3a1l3Z0RGam5ZM1NwVERvN09faEVUMUZzc0FNZw?oc=5",
+        "published": "Sun, 13 Sep 2026 05:18:19 GMT"
       },
       {
-        "title": "تراجع محدود لسعر الذهب فى الكويت.. عيار 18 عند 43.075 دينار - youm7.com",
-        "title_ar": "تراجع محدود لسعر الذهب فى الكويت.. عيار 18 عند 43.075 دينار - youm7.com",
+        "title": "طمأنة رسمية للجالية المصرية بالكويت بعد إنهاء عمل 7 آلاف وافد - aawsat.com",
+        "title_ar": "طمأنة رسمية للجالية المصرية بالكويت بعد إنهاء عمل 7 آلاف وافد - aawsat.com",
+        "link": "https://news.google.com/rss/articles/CBMiwgRBVV95cUxPM3lYbVkxOUQ5OG8xbzdIQUlrSkV0WXBtOGlId0MxbU5nZDZ4VUppMzFqcXRsdzhkVTRDaENZWXA3UmI1cm9QSG9hOHhCeldqOTFNYmlCMFdhSlJEa2kyQ0EtbHh1MDVINFZPcDB6QXRmZlh5b0RiSnhobjRLYVllU0V2ZHpYZVVwV1NmaGxvQVp0RGpwSGFKeEhsZG5ULU4tX1hhVVVCVE5md2VWbWx6MUlZODhGSzh0VW5OQWtaWkJNUFB0X3ZPcVVad2UxZnlZM3d1emRNV1dIYW5fTWZidEkwYUp3cWRwUEdZSmFUWXl6NWZKOVNBVm5ER1pVLURZTTVxcG5SQ2xCTEtBVnhaUHhhdnFWN0U2dVFDbHhvZTVSMjU1N0hTNG5ORFpxZWdRQmRCcXBtNmxMbEpha3VBaHJMVDI2V2tkdXpGeGREWHJ5ZWN0TVdHUS1MVnhycFpEZ0tvbjVndUhnUzZkQ1VLRG5zcElWR2g4VExPMmJGZm9VZWtnV1F3RHp5Um1yZjdEbnRBWFdueHJVT2VlUnExcXpIc0s0al9IQmVkOWZFRWNkS2k0cXVJN1dOZDVoWmtHb0tRRXNzeThNUDhvamh1Z0ppUXNvNkxYMFVwa3pyY3l4NTN2T0RFZjVKODYwV2xSNnpNWGg5X2tUZlB3WmRseFpxVlZQZGV6Y01sd1BQOGJDNEVrdGE4Rm45dXp4cHBQcl85TzNwU2NwWmpBLWNidDBrbmNkV1lIS0JqYUhMTHM5dw?oc=5",
+        "published": "Sat, 12 Sep 2026 16:22:34 GMT"
+      },
+      {
+        "title": "اتصال هاتفي بين وزير الخارجية والتعاون الدولي والمصريين بالخارج ووزير خارجية الكويت - mfa.gov.eg",
+        "title_ar": "اتصال هاتفي بين وزير الخارجية والتعاون الدولي والمصريين بالخارج ووزير خارجية الكويت - mfa.gov.eg",
+        "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5CRHZwRnZQM0hSeUE0ZDdmbVNsSENlUzFPeGFNRG10dzFUTmFFclZ4bzZrZmQ4dTZBSjNsam5UcV9ha243VVhOdE1tZkdTcURnLTdpVWF3T003dFpaVmhRXzA0bjFzQkNfcnp0UWJ3QWNJazdVbFE?oc=5",
+        "published": "Sat, 12 Sep 2026 10:12:37 GMT"
+      },
+      {
+        "title": "تراجع محدود لسعر الذهب فى الكويت.. عيار 18 عند 43.075 دينار - اليوم السابع",
+        "title_ar": "تراجع محدود لسعر الذهب فى الكويت.. عيار 18 عند 43.075 دينار - اليوم السابع",
         "link": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxQeDBHMVRGY01fejJXZ3pWYUhTWExmY0ZKTWJfVVl5RUt2QUI4SXgtd1dDWWpBTTZTRkl2R3RvQUFldW5zbUxmSkx3RU41QTRiaXlwYnl3TVljdHYyV2cxcXJhMlZtTGFyc0Q0WU5OQlpFUHJZb0I2dlJzZDBfRDloNXFDNmVqOFZURno0Q1o4RzA5aTg1U1dPQ0w5RGxQSVN2ZmN1M0JsbF91czdxZUF6dUx3Qzh6Q01CRFJfSmUyWEVnMlFnd2puMjVlQXBtc3hmUEVjVXBZdDB6TWZIcUdyTC14YmFILVAtclFZS181Ty1lNE9wdm1uTFRmWndVRGRCcDNQeDg2TnNWNUg4d0RhaXpHQ3BUT0NwZ1I0N1M4S1FycHB3ZkJrTF9FLU5VQ3NuamV0NnEzUGE1NVE2X3FpV3QxYjRPZjAzUEU2M25tbzNXajlkVzUwUWZDTzBDYm1INHNyYzRwdXlBS1hBVllfcTV2STFkT0pKZ0RR0gH2AkFVX3lxTE5LYlJFa05EN0M3cURnVkMwSld6S3NkUDJMTjF4aUNUeWxVeDVyM2xjanJDaUxHbVdoa0tkX1NBUWNwRTVyZ1VrV1ptbWdZMzRwZ1RjQ1ZkcV9ValdBOFNybmEyWFFJSWNpVjVuR3Y5UEdxVVNmNzk4OTFpMk4yeW04b0ZNUEFaNERTb0tWVWVPV1VxY3pzQm0tWjVmdkdKb0xaLXNxTU9JTXhia1dQajdqSFhUcUxiYUZteHlUYzJOQWNyWXR4dDJXTXdpcDY5TDlxeVEwUng1cjVCb1ZYclZhRjlydlVSZW0xYmtER1BUVkpPZEctcFJScFZEUnZKVzZCeUZJanNNbjFYSHFOVEtXd2pyOGJydENYc1lRMy1Yd0ZXbnl0VE1xQjJmdGc5dnk5cUNVVm52MDRpeUd6Tlowa2ktM1BEZ1RlcjVMR1VWZWxHQzlUSWVCZ2c3eWtGOXZxT2tNMjRIVjBIRTliQUl1LU1IeS1R?oc=5",
         "published": "Sun, 13 Sep 2026 09:09:00 GMT"
-      },
-      {
-        "title": "بعد إخطار 7 آلاف معلم بإنهاء العقود.. تحرك مصرى كويتى ورسالة طمأنة للجالية - المصري اليوم",
-        "title_ar": "بعد إخطار 7 آلاف معلم بإنهاء العقود.. تحرك مصرى كويتى ورسالة طمأنة للجالية - المصري اليوم",
-        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE02SzhOVjlGdm9weXFRbHZqR2k5RklsazdVbmM5OER1TF95blRKUWR0aWRiZUNGd3EzMGhOSlYwSjE4azdTS0VEdGNPRFZDcGhfdnJWell4RHB0d1gzX1BR?oc=5",
-        "published": "Sat, 12 Sep 2026 18:48:00 GMT"
       },
       {
         "title": "الكويت تعقد اجتماعاً أمنياً مع العراق وأميركا لبحث التطورات الإقليمية - alarabiya.net",
         "title_ar": "الكويت تعقد اجتماعاً أمنياً مع العراق وأميركا لبحث التطورات الإقليمية - alarabiya.net",
         "link": "https://news.google.com/rss/articles/CBMitgRBVV95cUxNRVNIVURMUEY5RF85bDdPeExxOVFfTlVyOWt6eGMxU3AySlE3SzZpV2prMFRzSldia0d4eVJHNDNDUW1xaHVvOEtnRW85Um9BMURpNzhLQWxGZUo3R0pMRHd0MjZkTVBFbmZXZzhUTW96aEJKSk91ZTZIQU83ODctUmY3VGltOHotNXM3YmhVUnpraVFjYURQNVdGRVU0bEMzNE9weU9lc05TVkZwZko0emw1ZkhCbF9QOHctYUdLZlc3Z2UtbDZmX3hMWEhfYi13cnZiR0tpaFR3em53cUZnRlBuc21WWTM2NVRPMk53SXZfNVNWYm5sdm1ncURPZ2JWRnA1dmhPVXZMQ2plU29TRGtKUm5id3FOdlNYWUE3ZjNJTFdNRF9TRVJOQU9SdW5kQWtpa3dmRGg1QmZtM2o4c2FkRmhYcnRldDZ6dG5hSU1ndkVUWTlBU3hNb1h6SUZkNEVkWGFBZkRpTGFrS3I1eC1ONVFidEJkYk44MUlFLUtKYXA3cU1Xcld4WGVJWlVhTi1Jd2JlYk8zdW5VRm5YeVdoSHlOQW5URUpvdnNzcTZCTTVLMnlYeTEwTVNHWUZFVVJRUGR6dFFrZTZveXJVRFhWWXFRZ3VCbzZ1eUxOWWxidGxIZ0NPQ3h5VFUyQUY4REwyMHpjRmpEY1NnNEFJdWk4VF9iS3BpY1NpSnZHT2ExMndva21nc1VHQkRJQzNwWl9oUEhGc0Jvdm13YmV5U2JldURiUdIBuwRBVV95cUxNWHhYX20xNWRUN0l3TkVyZlN2d09FUDdHU3BxWlhEalU5VmNpblBGcktrSjhPSnpzeXVXeEtTQjMyUDhuT3h6YkpIMDlwZi1vWkZOTFA3N2ZpbHZOMDR5V2o3RFY3NWx1eU02b3MwMk1UVlFYWXBsTWg4RnZLT2E5Wm45bllxd0I1RVZPYkJGQ0E3NUlyUTdGN01nVHJPVlhHcUJPa0xKb20zU01GeURNWE9vbEtfSElDSVRzTFVsd0NocUJUZzdRSmN4aEdsZW12M0M4bVdEOTVwNm45X1UyZ2pqRDE0V1R4VnRBV08zMkxrMHRIUVlCTEI0MlVsendIcTlKaGViZTBMOUJNUGpfVl9fY09wT0dmeThrd3JsMnFGVE5zWUh3T0dpNW1HeGktLVQzMHU4NUlEYmI5Z3ZyV0tuRkdBRC1SNlNoaGpVSUZET2ZBNE8xZEUtTEloaGRjajdxR19BRlNvTTlmbDNueVFNNjdESWpZTWEyNFA0NHl3a0w5U05RcjB2cmU1dE1SaFRPb2k5VDg3QUZwbUI1dHNkamhhVFFzNzRtZGE4OVNNel9wU3BBRDhPeFVWSngxZEE0U0s4WkNtS3BXMzZyMTlNdkFDMEcxTllVdnJfOF9VSmc3aXh3cUhQNHhlajlYSkJ2bmFLNXdHS2VLVEMzZUdJWktvUGxNcXZSLVRqSnZOQzFZSU5vT080ZDVxT3pPWUVFamVzTDQxTW40NTh6NERBakt4cjF2N1BV?oc=5",
         "published": "Thu, 10 Sep 2026 18:35:00 GMT"
-      },
-      {
-        "title": "الكويت تدعو العراق لاتخاذ إجراءات تضمن عدم استخدام أراضيه منطلقا للاعتداءات على دول الجوار - بوابة الشروق",
-        "title_ar": "الكويت تدعو العراق لاتخاذ إجراءات تضمن عدم استخدام أراضيه منطلقا للاعتداءات على دول الجوار - بوابة الشروق",
-        "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNQk1YbkRjR1h3NWZGaU9PcC02V3ZwWi1ESGM4Tkl2YzZaMFk5Z0xFVjFEV1hGN01LMjdONFFRcFFlMjVYNjY5cFc1QUhxVEFZXzZXNFI5NEpJbHJBYkNQWEs4LWlyeTN2b19mbUVLYm5BS2IwMVNIWUtMaXhJMi1sNzgyZ2NrZXhSUzRiTmZ1eVZXY3lUdmtCMlQ1R1pHcmVKY1RmSlA0Zw?oc=5",
-        "published": "Sat, 12 Sep 2026 08:02:48 GMT"
       }
     ]
   },
   "weather": {
     "Riyadh": {
-      "time": "2026-09-13T12:45",
+      "time": "2026-09-13T16:45",
       "interval": 900,
-      "temperature_2m": 42.3,
-      "relative_humidity_2m": 8,
-      "wind_speed_10m": 4.8,
+      "temperature_2m": 42.0,
+      "relative_humidity_2m": 7,
+      "wind_speed_10m": 13.1,
       "weather_code": 0
     },
     "Jeddah": {
-      "time": "2026-09-13T12:45",
+      "time": "2026-09-13T16:45",
       "interval": 900,
-      "temperature_2m": 34.9,
-      "relative_humidity_2m": 60,
-      "wind_speed_10m": 15.3,
+      "temperature_2m": 34.2,
+      "relative_humidity_2m": 64,
+      "wind_speed_10m": 10.5,
       "weather_code": 0
     },
     "Dubai": {
-      "time": "2026-09-13T13:45",
+      "time": "2026-09-13T17:45",
       "interval": 900,
-      "temperature_2m": 39.5,
-      "relative_humidity_2m": 31,
-      "wind_speed_10m": 11.2,
+      "temperature_2m": 35.7,
+      "relative_humidity_2m": 52,
+      "wind_speed_10m": 10.0,
       "weather_code": 0
     },
     "Abu Dhabi": {
-      "time": "2026-09-13T13:45",
+      "time": "2026-09-13T17:45",
       "interval": 900,
-      "temperature_2m": 41.1,
-      "relative_humidity_2m": 22,
-      "wind_speed_10m": 7.8,
+      "temperature_2m": 36.3,
+      "relative_humidity_2m": 47,
+      "wind_speed_10m": 10.9,
       "weather_code": 0
     },
     "Muscat": {
-      "time": "2026-09-13T13:45",
+      "time": "2026-09-13T17:45",
       "interval": 900,
-      "temperature_2m": 36.2,
-      "relative_humidity_2m": 40,
-      "wind_speed_10m": 17.9,
-      "weather_code": 3
+      "temperature_2m": 33.6,
+      "relative_humidity_2m": 47,
+      "wind_speed_10m": 10.4,
+      "weather_code": 0
     },
     "Kuwait City": {
-      "time": "2026-09-13T12:45",
+      "time": "2026-09-13T16:45",
       "interval": 900,
-      "temperature_2m": 41.5,
-      "relative_humidity_2m": 11,
-      "wind_speed_10m": 3.9,
+      "temperature_2m": 39.1,
+      "relative_humidity_2m": 33,
+      "wind_speed_10m": 10.7,
       "weather_code": 0
     }
   },
@@ -211,15 +211,15 @@
     "USD/KWD": 0.3066,
     "crypto": {
       "bitcoin": {
-        "usd": 76739
+        "usd": 76841
       },
       "ethereum": {
-        "usd": 2482.74
+        "usd": 2478.36
       }
     }
   },
   "flights": {
-    "DXB (Dubai)": 2,
+    "DXB (Dubai)": 6,
     "RUH (Riyadh)": 0,
     "MCT (Muscat)": 0
   },
