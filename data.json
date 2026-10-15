@@ -1,13 +1,7 @@
 {
-  "generated_at_utc": "2026-10-15T18:45:08.140122+00:00",
+  "generated_at_utc": "2026-10-15T22:45:04.748978+00:00",
   "news": {
     "أخبار السعودية 🇸🇦": [
-      {
-        "title": "قصر معاشيق: الحوثيون يقصفون محيط القصر الرئاسي في عدن، والفيفا تُرجئ مبارياتها في السعودية - BBC",
-        "title_ar": "قصر معاشيق: الحوثيون يقصفون محيط القصر الرئاسي في عدن، والفيفا تُرجئ مبارياتها في السعودية - BBC",
-        "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBCVEdFbFJ1ZVphR19rdnlQNWpKdVQ4NkNiVjBQeGcxZU00a0NTaWxDSVBmc3pCVGZwX1VNZWRoel9zTE83cUE5bGdGdnNVLTN2UDliYjhlYzhZRE9YWmfSAWNBVV95cUxNZkFsNzZhUmpyUkJJTlVMazl2VjY1YV9BekZFM3BhVnlNaTdpNy16MUtLVHhaanNMTGkydkJkRkhyUS1rczlpdVRjWldteGd5Y19NMXRaWkhhT1hNdXNkVHE2U1k?oc=5",
-        "published": "Thu, 15 Oct 2026 15:59:29 GMT"
-      },
       {
         "title": "تحليل.. كيف نجح الحوثيون في استهداف منشآت السعودية الحيوية رغم إنفاق المملكة عشرات مليارات الدولارات سنويًا على الدفاع؟ - CNN Arabic",
         "title_ar": "تحليل.. كيف نجح الحوثيون في استهداف منشآت السعودية الحيوية رغم إنفاق المملكة عشرات مليارات الدولارات سنويًا على الدفاع؟ - CNN Arabic",
@@ -15,28 +9,34 @@
         "published": "Wed, 14 Oct 2026 05:47:10 GMT"
       },
       {
-        "title": "التحالف بقيادة السعودية: الحوثيون حاولوا مهاجمة عشرات المنشآت في المملكة - Reuters",
-        "title_ar": "التحالف بقيادة السعودية: الحوثيون حاولوا مهاجمة عشرات المنشآت في المملكة - Reuters",
-        "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1fWEgzaUpzSFVNTkdOemdsLWdSSHFNR1ZuQ3dFR2U0dTAtdTFjRFZXV3VDOFozQjhoVVpuV2xQNU9SUms5b0ZuYjdBajNTMTBMSzZRY2lDclFNQjhuNGltMlY0LWxhUFJLSEJ2SnFIdE11c0ZQemdDVVdoYU85b28?oc=5",
-        "published": "Thu, 15 Oct 2026 16:29:44 GMT"
+        "title": "كأس آسيا في السعودية.. تلميح بالتأجيل وترقب للقرار - سكاي نيوز عربية",
+        "title_ar": "كأس آسيا في السعودية.. تلميح بالتأجيل وترقب للقرار - سكاي نيوز عربية",
+        "link": "https://news.google.com/rss/articles/CBMilwNBVV95cUxPaHB3b1N0R09CS3N6ZUxjd0pmcGlaRmYzYWFvTmdNb3NuR0ZFTjlodVhLVF96RUJucEN3MFRMUG5DcDZrNDlZZVZuWXhScUpKU25DTlhuVGVKS01NZU80V21BeFcxQkNLcDEyTVhBU0dma3I1bnJBZU4tQTM3Umh0R0x2UnBOc2Q4TGRhTXVRQlVERmtLMzBMRUZkZGFfRURmckJFWkZEbWUtdU1VS2ozRHJiN2w2SGxleHJILUMxS3dkbERpWW5qaF8wTTgtX2o2cFc1ZnhjZGE1Vy1aYlNJdDZEd1Y2ZllZTURySWY3R2RpN0lsSm5EbUFxeXFsbC00UnlkSVNDdVpLRFR0ZkJ1VC13bUhMVnI5UkNGZUtGVGRDNGdRcEd4V2lobHNDeTRKZHVGSkRncTAxczZBaEtIZDhyY1ROVWVSVHdnTG9mclhtR1RQVmJIcjI1QWltZTNTWFB0dHZXcHpQZDVSbDZ3cGpOdF8zWkxpYUxHdGZ0UWgxOXAwTHk4SDRDSkFPZzhLTF9DTVR0TdIBnANBVV95cUxPTG9scVJqb01Db0w5dHNTSWpKeUlmMG1yRE5TRldYaHJWWF9kUXFGeEpLNHllSjVWdldCQ2YxYnI0RndleXZCMlhid24tdkF5Tm5xVkk5cnM2R3VXZzFJSFptUDdzUVVMT2pLU3E0aDJvNDlPVVk0M1NhWXhxOGQ1eDJHWXJYajR5RFBhZzlHN1lUMXk0OUt3X3hqR2VLZEg1UHladC1CS18tMlJuUy0tZlcwODdZOUpWOXRObk1EY1ljUXlMN1ZWNm1ZdnNWcU1BenBFbmZjRlc2Z2oxdTAxOVpLQmxsTHE4cGxYN0V3NXF0Y2JlWlhLY0NPdWsycE9ZRDFfUDF2UVlvMWdBWmVYU2FZanNoeVVTYTVXUGIwRmw4UHNEdnVibUdVd3RPNVZ0NkdqRk9XZTF6Q0dYZzlNLXVjcjB2VVVtZEU0S2RpdWxQWTVKX2FxN2h2NlZuVVprZmtmUDlvNnlZeUt1LUdTUk5xSUpjbVFHVEt6NEgxLWhoajF1VDBJU3FwVWxxVHlRRmdrcnExTGFqZnQ0?oc=5",
+        "published": "Thu, 15 Oct 2026 09:50:54 GMT"
       },
       {
-        "title": "السعودية لا تنحني.. ونهاية الحوثي تقترب - عكاظ",
-        "title_ar": "السعودية لا تنحني.. ونهاية الحوثي تقترب - عكاظ",
-        "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9Lck9VTkFhQXRlSmhkandqajdhaWhVS1k1a1ZKOG93UU85eld4alk3WGtpWDczLW1pNzhQNVFUXzE5SFhkYWQ2ZHB5bzJDanE0RmlFdmM0QnV0Rm1W0gFUQVVfeXFMTW8yS2U4ZTlock9teFN4YjJwbVlCRVF2MUttaDN0dlNkZkdQQmhha3lRb0ZQWUpKeDhkcy13MjJvN2l4ZFN6aTh5UzRFdkhEclAyS2hw?oc=5",
-        "published": "Thu, 15 Oct 2026 18:33:00 GMT"
+        "title": "اللجنة المحلية المنظمة تؤكد استمرار الاستعدادات لكأس آسيا السعودية 2027™️ - عاجل",
+        "title_ar": "اللجنة المحلية المنظمة تؤكد استمرار الاستعدادات لكأس آسيا السعودية 2027™️ - عاجل",
+        "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5NbTRZZE9zM2t1b2dSUmtkRV9uUmZRcEJWZjI5WlpKYnhNY3hpZXY2eW14WWR5X1JlUEF6a0drY3ByUzZmcHRR?oc=5",
+        "published": "Thu, 15 Oct 2026 21:58:00 GMT"
       },
       {
-        "title": "السعودية تعلن اعتراض صاروخ \"كروز\" بمنطقة المدينة المنورة - سكاي نيوز عربية",
-        "title_ar": "السعودية تعلن اعتراض صاروخ \"كروز\" بمنطقة المدينة المنورة - سكاي نيوز عربية",
-        "link": "https://news.google.com/rss/articles/CBMi4ANBVV95cUxPcWNwaXZSTGZROElocUl5dDkwNk5IeC14WEhxSDJ4M1JTazBxY2UtQVZaYWV3VEszRkt4NlF3ZXNyclVzSW5neFlHMjRqQ0c3QlF6MGhHNWdWeEgyTUZCQllYWmxFNmZSUFBWeWp6T0lVdVI2MG1xNlBERnN1NkNLX3V1ZFR1d21fVTByRjAzOXhEb0drVGhfT2RTVy1qdFZiU0JyMjJFMlVmSGZYd0RpV1lhcE1VTHZBUVF3NDJOV1FtSFNnNUpETW5ycVp2ajBIOXNfMlZXbHhLRXJ5eVBrQ1lhRXJUWi1HNlBKajVPS3JVZ3RFR1daMXdFbnMwMno5a1BITUZvdVJIZ3NralRpYmRrYkxkT3plVTduWFVzWnl1OGFsLTE3REpvVEowek04aFYtc3E0dW43R2VkNUJjbGZtVWpUME5fRFFmU0QxZ2VoTGp2Q1Vhc2Z2T3hEVG9sWnFNWHJ0a1NDMUNRd2NGMzhqcmhHQ1Q4ZjBWZEtPNHpBdER3ZVFWN25wTUpsNm5mSlU2NGhmR3BTd3pvdm9XTThTSFVMTlBCdGxmdEdLTE8tYnJYaHlkb0tVSDljWUhOa2FrT2t5NTFjWFpHQXVuZHYyTWhSYUxGVUxWMXM2VkHSAeYDQVVfeXFMTk1xd0YyMUxKdGQ0Y25GZXpDOWU2bm9JNF95cUVCRGVQYi11WVp4ckRjLVRmWlp3c2V4S2p6bHhqZ0R6MXRCRlNzcTZRd0FDTVFQMGlPQ3U1THA2OUpWR0hXWkFSLWhVdG1zd1ZOMzJvYWR6cE12ZnZYWDZqRjFpbFdrS3ZqWXU1SF9jYWctVUw5OWdtTUQ4c0MtVVIwaGRkZllHZWJoMjlkeXUyaFdwVjIxQkU5UWxaMmtrTjlxOU5YQXpNdi1TTE5uSmRGblVfRlRFQ1BJU1dITUN6NUNtTEJiNXZLbVRSZHJEQmNMRGtXSnJjNjQyWjVTbWVLTFlpMTRlUlJDX21zelExSl9UWDNOUkdPUXlJUG82cC1FSXlweWVmUDhkcVh5MFNWWEtlMXExNzI4dzN3SVhfeFhxWmV5eFlQY3hwOEpwSEpTRmlDdl9UWU1ZRHVreXA1eURDME1FX0pWQjZNZ0Zvdk04TFFmY0NkYlpTRi1jQ3AxOEJ4ak81VkNPVWQyLUVqM0RLRTNib0g3RXBESDlnLUE4S0dkTktENGpJMnhmRmdMLUx0WWNtSXdzLVB4Zm1CT21WY0dlTGRENHEzRHZUREJpbGFybXdQZFJLUk96b0ZuSDA0TTN2bURn?oc=5",
-        "published": "Thu, 15 Oct 2026 09:37:20 GMT"
+        "title": "السعودية تؤكد استمرار استعداداتها لاستضافة كأس آسيا 2027 - الشرق الأوسط",
+        "title_ar": "السعودية تؤكد استمرار استعداداتها لاستضافة كأس آسيا 2027 - الشرق الأوسط",
+        "link": "https://news.google.com/rss/articles/CBMiywRBVV95cUxQZnJFY19RdkhsU0FnRmE3Vk5VaktrVmpySVFRc05VTUJSSDQ0SzFsRnJkOXNodTVrOE9WZFA3YVFWLVZtQ1JqcW5hVnBhV0FONUNFWkdzWDVSWWxRQWhoSjF0ZkNyd1lVR0dXR3J1TDNLalpFZE1VSnlEN1BuSTBXZkhpMTE5WXhCZFVsSzVFSWVGMENrUjdxX243VE5FQWVVbktac2pGZ1JIVkZ3MHZSWnptRV9CNHluZWNlSUlYZjMzWVZqYkxRUlI1T1RreHlXTDc1MnRWdDNaWjktS2xTaElaQWNPa05hbHNtSGZ1bTFyMTBFdGNWaGc5bFNsRGM3UE8zbHlIcVFIU2pCRVEzeG03ZUtNWURyZEZyWHc3cmZkTlZ4UXVHWVg5Uk9jM2t5d3FQaW1wa1lKMExEc3M2VnAzX1ozTXNLc2xWZzNwWEJHWHVSa3FpVmFONVhXenZHa1RDU002NktSMGRvVVFMNEpSLXViaW53Sk1pUW9ZQzhOdkJzNUpRb21JQ0RnN2hvTHlNV3NmeElTOUNGVlVBeWFGWEZPWnZFSVNWLXlHd3pFQ1FaRl94RDdhb0JCcVFPR0NaSTJuWGNySVJoMGtxMXdTSEl0bGczeHE1OHlES05DaTg5ZGc2anVMTmN6SWpUMTQxdzBrTEFnSDZybkMwTWpsXzVOVmZ1MG9DZGlod1dFdmZjZkk3Z0dJRUZ6eld4d1dLWlp5TDBtODhiOEs4bkhJUzNNd3ZaOEhNYV85VktoV0NsYnI5MmFzMA?oc=5",
+        "published": "Thu, 15 Oct 2026 21:26:21 GMT"
       },
       {
-        "title": "السعودية.. صور آثار شظايا صاروخي \"كروز\" اعترضا بالرياض | CNN Arabic | CNN - CNN Arabic",
-        "title_ar": "السعودية.. صور آثار شظايا صاروخي \"كروز\" اعترضا بالرياض | CNN Arabic | CNN - CNN Arabic",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPaXZyT2M2aGYyUjJNandDQUZDMkcwM0FZVEhBQ3NVVnpXREp0XzYyVFFtc3dvaDFMTUVkRVd3dlBPYmIwbExxZTY3N0ZHWlg1dkRreGpMMmVoTlJ6YUJ6Y0RWR1VqSG5JWlU2Q2lmTm9LcUlhZ0kzMmJOc2plOWR4cUdyYWthWHBZS3BkWEdTN1dYcUZKX2RYQUNGcw?oc=5",
-        "published": "Wed, 14 Oct 2026 02:33:00 GMT"
+        "title": "مجلس الأمن الدولي يدين هجمات الحوثي المتواصلة والتصعيدية ضد السعودية - العربية",
+        "title_ar": "مجلس الأمن الدولي يدين هجمات الحوثي المتواصلة والتصعيدية ضد السعودية - العربية",
+        "link": "https://news.google.com/rss/articles/CBMiwwRBVV95cUxORmhWcWhWZjVGclhfZ3ZjZ29ubk1fR01tQUdNTWFCZDljVTFrRXNtdjgwc0w1YTI0aGNTb1FKOWVicHdrQ1ZsM1VLcUo5U0NSN3V1ZFZBMzk3UXg3TllEbmhNeFlVWHhVb3RTX1FUdU9odWRrV0t4ejNPUS1CdUh6V1NObEZGNXZmTi0wUU0xQzNILU93WWNSRnlpZFZKdk5RQ3BLelVhdmlGcmhfcTB6dndNTEVReDlxSzVGWGFlMVREdV9uSjE5cDU1U0F3WmY4Z212Nk01QUp1OUFNM0Y3cWl0czI2OHZVcnBoVlJwOEFNakNxalppVzNnZ0VKYUN2cU5rLWo5Tnd1TXRMZFdNb25za3V4a0JkaG8yN3VPNW1lZHdKRWVIMFIxb0pBRUZiam1ySXVtM0VFNzRzQklIQjhwZU5iMEtMWXBXLXdyeUxxU2ZtNlF5bGFEY25Kc3NvM3BLeVQ0U0U0NUJ0WEVBY3k3bUZ3THFhdWJCS1hwaUFZMENodC1ncHREY3NOTzhJYmk5LVpZTmlUSTlCV0pEUk4xZFRKN2pqUkZaWGpIdllqbWZGQUl1b3RhSnFZQ2JGRFUtLVRzXzlGM0tKRmFqTldkd3NNc2xDWTVlVlFUaVBld0szUkNQZFVHanpQZ0ZjMFdSSzZFaTg2YWVoXzJ0UVBtaGdmNGZRZV9fbkdYeGJTMkVXM0FlU180QVlwdkJiSDZSTVBxaGphbXpSeG8xZ2hCbjFLOVJsSXR4ZnhBeVhnenfSAcgEQVVfeXFMTmFod3Q3akZOSUl3bzA1dnRFVjlXeEtyMTZYV2xXdEw4eTRDMUtmdEFaZnZhS0FFNFAxUEhoN3hGRUNFUDdfRnk1YTd6aHkxcVBhMHh2U3RPVHRnQmhWV2xvRWF6NXEyN0xpUDZPLVd3UXBqUjIybEFCSnRZYUJMeFRoUlFZNXhBU2d4dTNxMWVPX2w5ODgyQVNkMldPS2VyTlRlTFNqbmFMdXhQWlRMeXo5ZjVVRXNHN2paQ19JaFRwNlB4Rjk1TXU1NTUxTHFLMXhjZy1ILWRMMXE0eURmekFrVlA3RzA1czJST1NQUjFnWERtQzA3ZG41bUhGVXpYU0Q5QUFubHhnSVNSN3hNNXBMSlBmcjhTSUVrOGZ3MlNFQ05vSll5Yk1DUDNDX0l0NTZYMks5NUV5NWFHcUg0NFhEX3QtdmZMVFQxOGVGUC1KYlV3aERYMEVZc3RwS1habnZjUEwzV2t4V2Z1THBhamRxSlltNFZES3JQTkhqcGp4VWtOT01NZVhQSG12QXF0NkdPTFFyVC1NaGVqSVpoencxS2o2VDQ3aGNyNUtqSlc1eVJrS2Jvck1LUk02OHhPQVVib0FVMV9nb2l4dE9Nc08yX2lVX0NSMTNaUnlrSVNNN0NXUG9vUXJlYzJSQmViVmlxV2xZQUE2WGRNdnplaWpaZVJzdWllSEdDQkRVRFhyb0lHQWRoWnlyTXJSeUd0QW5Ga3hHTG9qYWp1d0Y5QTVYbmFsbHJrZENjaTNUamFCYTczbWRCYXA?oc=5",
+        "published": "Thu, 15 Oct 2026 21:31:00 GMT"
+      },
+      {
+        "title": "عن كثب-رغم الهجمات الدامية على مطار الرياض.. نظام الإنذار السعودي لم يصدر تنبيهات علنية - Reuters",
+        "title_ar": "عن كثب-رغم الهجمات الدامية على مطار الرياض.. نظام الإنذار السعودي لم يصدر تنبيهات علنية - Reuters",
+        "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5Rb2VaMm9rNzc1ZV95ZXVOTTE5andFbm95ck0zVjJldXprYjBVUXhLM21LcXctTWJjNnN6NnUxTzZvUDZBTXVOb1pEVGNaWGpCcmF3TlRscUE1eUNuSjlqdlczUjBFbU40SUcxOTE2c0NnaEk5aWdWVHk4bw?oc=5",
+        "published": "Tue, 13 Oct 2026 01:58:35 GMT"
       }
     ],
     "أخبار الإمارات 🇦🇪": [
@@ -59,10 +59,10 @@
         "published": "Thu, 15 Oct 2026 15:50:35 GMT"
       },
       {
-        "title": "الإمارات أمام الأمم المتحدة: إزالة الأسلحة النووية الضمان الوحيد ضد تهديداتها - صحيفة الخليج",
-        "title_ar": "الإمارات أمام الأمم المتحدة: إزالة الأسلحة النووية الضمان الوحيد ضد تهديداتها - صحيفة الخليج",
-        "link": "https://news.google.com/rss/articles/CBMihgZBVV95cUxQMTB6NnZlSFFXcmtJMnZyQVBMeURENUNmYTloUVA0d1hjeUZSYVJ2YjJYUDJUWjFvNTdJWFBNNHZpaEJVa1JlRm82VTVhd1VheTdMVVo1U1dxZXJCeGdKaVlFdVgtY1pNMlMxQnk3OFBhb1k4Y21DQW9QeHhWT1R3bkVnZkpYQk9TalZXRkRwVGJxc3JzTGFCTG1FLUJ5OHpoYXAtY3p2YV9mZmlZbjFDMS1QSDBuakdPaHNacEY4dzA4VXRxTE03NkRZRVlhN1J1M3FQZWozS2dseUE2NENEM2w3aUVtTzVXdmVySHkzMXV2WVAxbVZ5cEVFV1c4d0t5aWhuYklsbFRYbk1SWFhTb3BIeUhOWmVidzEycU1KUHYxYTFOMVlUNUQyOWZMVF84UWtHcEQ3RFRtQ2h3dTBpTFFpcTJXMEI5TG01M2JQcUNwOVNCRkYxNE1hNDhZNTAtNUtIVC1Ec1BvMlVNd3pxZU9jVE1BLThhWjFCbXFSN2hQTUhuWmE5UTlUNF9xU1dWMUFod2s1OXpTc0QtZXc1X3B4ZTAxaEwwTnFhRl9YMDJHemZGWUZQem03Y21VSU9uLVE5b1hWdzlkNElzUjR6NlY5MWNvT1RNVDBuTXE4NDVPM2pMNFU5NFJYaV93SHdYeXk5cnV1ajVYTGY4NFMtcTVfZXU0NjNEZ1BFNUZNYndpSDJwa2c2Q2JpME1UZS03NldfWVZZMng1aFd2RWhtd0ZsSUpCTzFmalFEeGlESjRNQ1FsSENfc2dqbGhBTkFLMTFuSXVjT2V3R3JNV0FYNWJMdUxiSFFiRm0tWUxuWTBNNi1PMlEzNXlpVW4zOS00UUpvaGN5cHpXeVlFTURXNXNrRlhFMzdJTjdkUmFFRWozMU9kZkRERXlsZ3NPODJRODJZM1hHN21ReEJpZU5hYUtrNVZmSThDU2lsR2IyRnNrUWxDWU51cGFYZ2o1LWYtcHVqMTlwOU5ybFZtTE1XYzlvVV9FaENmdHBEUEVjdTIzb3Fld3c?oc=5",
-        "published": "Thu, 15 Oct 2026 16:04:29 GMT"
+        "title": "«دبي الأفعال» ينقل تجربة الإمارة إلى صُناع التغيير - صحيفة الخليج",
+        "title_ar": "«دبي الأفعال» ينقل تجربة الإمارة إلى صُناع التغيير - صحيفة الخليج",
+        "link": "https://news.google.com/rss/articles/CBMiqgRBVV95cUxQM3g2U0JRbXN6VVFlRGtaeEp3VzdZRW5XMFJUNm5QQzhnOVk3RFQ1MFpaczl1cUZpRHdxc3I1cUZ3MnJKLXNsWkhCcjY0dGFONzNxVlFBWmhYRDFpei04X21UNnVjY3VYVTBUQ2g2Z0Q2ZHc4WG1tcjdrWHdRRXgtM011aXg1WUZEb2ZHaXdYZVBoMnhCZEx6TmRtaHF4bmgzMldRQkhsQk92dEtkb0hHS0FCdFhiNV90TlEyemxPRDE4M1NSSkVGRDZKczI3Z3JFdFJCS1U3emhOcTNHQW1KU3hnSU05eUxVZ2U4VEJlelB0LTJMWEJlb1ZXb0xYVHBfUDNaUWR6a3FuY2E1OFoxNUtibS1kQjdHVXpCeU1IdFh0dW9NZGV1Z25ZU3hQSFNLOHktR1lNdXpkdm9MT3E3VE9COW4wTDluY2ZSMHhGclB6YnhkNUVDb05WaEFicVhPcWQ2NjUxM3ZQeFg1djFVdUtiZjVhZU5SNW9EeUFhZjdaUW9nRXhKNDlmYVBIc1hfLU1tZ1doc3haSFBtVk9yd2VZTVBZQjNfbUREdnFuRWtCQTdtTnlFMU1hVjcyal9mQkNQUnYzdndMWTRDY3I2ZDlKY0o1TmktZl82RjdvUkl6RHFSZHdRRGpUX002MVZlaUUtUU9xa3NLcTAya3dUbVRPMFZxd05IWHVydGdDYW1KRG0wX3lVUEtwR0ItbXZ4RlR1ajlDaTNtUQ?oc=5",
+        "published": "Thu, 15 Oct 2026 21:24:34 GMT"
       },
       {
         "title": "بتنظيم من مركز الإمارات للدراسات والبحوث الاستراتيجية.. النسخة الأولى من «منتدى التعليم الإماراتي» تعقد فعالياتها في أبوظبي - مكتب أبوظبي الإعلامي",
@@ -71,37 +71,13 @@
         "published": "Thu, 15 Oct 2026 08:53:53 GMT"
       },
       {
-        "title": "أدنوك للتوزيع وجيتور تعززان تجربة العملاء في الإمارات - alwatannewspaper.ae",
-        "title_ar": "أدنوك للتوزيع وجيتور تعززان تجربة العملاء في الإمارات - alwatannewspaper.ae",
-        "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5WajhxOThOVWVqWHBYUGNuVXRvMDNfM0Z0MWMxYUlhcWt2QU9wREVZNXNDUjJhcTNFdmxYVkxzeHlJaEtQSTFJ?oc=5",
-        "published": "Wed, 14 Oct 2026 20:00:44 GMT"
+        "title": "الإمارات تستعرض تجربتها الاقتصادية والمالية في اجتماعات صندوق النقد والبنك الدوليين 2026 - alwatannewspaper.ae",
+        "title_ar": "الإمارات تستعرض تجربتها الاقتصادية والمالية في اجتماعات صندوق النقد والبنك الدوليين 2026 - alwatannewspaper.ae",
+        "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE95NmNkb3JZTDI5TzZEY2ota0NnNHM2enNCcVRmb2cyWldLczJORGh5TnpEOUFuMzdxemxnd3JRQXMwdktid1Bn?oc=5",
+        "published": "Thu, 15 Oct 2026 20:00:07 GMT"
       }
     ],
     "أخبار عُمان 🇴🇲": [
-      {
-        "title": "رئيس مركز مراقبة الأمراض بسلطنة عمان: التعاون مع مصر في مكافحة الأوبئة فرصة لتعزيز الأمن الصحي - صدى البلد",
-        "title_ar": "رئيس مركز مراقبة الأمراض بسلطنة عمان: التعاون مع مصر في مكافحة الأوبئة فرصة لتعزيز الأمن الصحي - صدى البلد",
-        "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5nSXMwdUpYLUZ4dzl2Z1JNd0Yzbm1obUR2eGs0ZDdnN29RMHRoSGw1WmNUV0kzcWVBRTB4WTQwaGdOVm5iMmNj?oc=5",
-        "published": "Wed, 14 Oct 2026 13:23:00 GMT"
-      },
-      {
-        "title": "وكيل الصحة العمانية: مصر شريك مهم للسلطنة لما تمتلكه من خبرات فى مختلف المجالات الطبية والصحية - اليوم السابع",
-        "title_ar": "وكيل الصحة العمانية: مصر شريك مهم للسلطنة لما تمتلكه من خبرات فى مختلف المجالات الطبية والصحية - اليوم السابع",
-        "link": "https://news.google.com/rss/articles/CBMizwNBVV95cUxONlRuV2FrYzliZlVXMndacUxlWklqTTd2aHB4V1llRnF6UWdEQmttMlRmRk91cHlVZk0yYjF4M0hxd1FfUUNKekV3N0FpU0Q3MDF2dVBzNkctcjR6Y3ZZb3A3T2wtUmFuQ0dyVXZZcnlTT0NtQjdnX2hkSFdLa0pmc3czYXVMUXlkd3RyY3I4TERFbDdWSkgwcGdjQW9VOE56d2ZQS1lkRmg4Y3RjcXhBLXlRVkRPcHdCQkpzNEtQeGNGOGh3a0hjX0NuWm5aY0RwWWluNlUwOWh6X0Z3Q2VvQVdnN04waUhLY2hjXzlibFV2Y3B1Uzg2dGVJY3pCU1lfc3NFbjlzLUxlWnNCRmwwOXRjWVVBVV9teVBKakQ5WWs2Z1pES2RaX2tTR0ZRVDU4ZjhZcHc5ckF0OUtTajFSbzlES2lXcWxtZEFPMUlOV1doRWp4QlBSUzl4VUVBaEx6UEpBdExsVUtxaHVGTVhGUTV1bGcyVE05d0lFMmlMeEl1S0Y4cnIzQl9FYkNJaUVpUHFOa1F2X1pjeVhGNDJtWk1HM2F5Z2hsMkk0V1JFaXpWVWJjSVU4THVTQ3JPOHNsS21hZ1hLSUpscDNDQ3Zj0gHKA0FVX3lxTE5BYWZmWTJ6MVlwQkZBM2RJbVFmS2wxaThpNE1kUHpGR0FraUpYUV9IY3dndmpZaXl1UlVwMFZZSXlkaXNibUZRS3dkOC1STUVEaUp2Ymp6QmtEX2VsUXVKTHVsbzAwbl9pYVVtR1c2MFlKcVBHMFcxdXJTSFNUNnRtWG4zdTJwX2dPeDdIalZSV1hyWnBPdTNkbWx1UWgwUE5aeUtTNzU2YjJlN3k0X25na3hmYWYwX3RRQ1dqTWtrMy0tc0Q3eXY4dXNZOC1GdURwNkpXRndhYXFCczl4MWhuRkFrU0V5ZDN0RzE4aS15QjZBOVJETzEtRk9mRTM5SlBydktZdjRwaVVsS2MxRXc4eWEteS03Tnh2S3JrWmFvbXRtYm9IeF81ZzJSZ2tzajFoWVdzcGozV1JGSkIta1ZmT09Mdlp0WFZ3a1RqRkFKRVI5Q0NrQmY4c2c5LXNxR3lxblpBTjk1LXBNMkNJeXdRWnZUWmRLMElsNVRQRzktMmRHejR0RE5rSUhwMlpFdHJPUlQ4ckZ0bElDS09XOVVtUXhueUwzdUtNQjdSNE54Y094X1pJUlI5M2RtTFl3WU5DZ2I5TGdCaXFn?oc=5",
-        "published": "Thu, 15 Oct 2026 10:58:00 GMT"
-      },
-      {
-        "title": "سلطنة عُمان تشارك في أعمال الدورة الـ73 للجنة الإقليمية لمنظمة الصحة العالمية للشرق المتوسط بالقاهرة - بوابة أخبار اليوم الإلكترونية",
-        "title_ar": "سلطنة عُمان تشارك في أعمال الدورة الـ73 للجنة الإقليمية لمنظمة الصحة العالمية للشرق المتوسط بالقاهرة - بوابة أخبار اليوم الإلكترونية",
-        "link": "https://news.google.com/rss/articles/CBMi4wJBVV95cUxOQmJqT3hzVm5pWE5VRFJ6aklXYk43MDVZeUZLbFc5RUlHYnVIdGd5aW1Za2JSdU5wY0kxdmxXZ3Z1OFJpS25TSGs5UVB1eUxRbl9oMjZFcDB6MWVlZ214RFRsa3FXTDZIUXlNNVNPbE15c1BhRU9hY05JdEhUYmo0WDc2Y01xc1Jodk9jQnJxNzJFTlNlbGpxT2hsSENudExRNzl3Q09XeWMxb3k5Nkg4dlVJMHlubEJMekM0d0JNZ2xJSDJmX1BKN0U2b2pCSUlDeUVVQTcwREhwVDdXem84dXFPWWFMMkY5am1YUUFsMXQ0MW9TUHFpdGltQUhpRmlTWG1NT2hhNlR4YlhmZnhXTkoyUldLR3RNYXFPaUd6OFUza2licmI0OG1XX2NUcVZtN1o1eWJQRjZHUlEyVnU5VUFIaXgxd2hwd2d5anUyNXFGNTBUZkNIZGRrQ0xBY2FlYmpj?oc=5",
-        "published": "Wed, 14 Oct 2026 13:46:28 GMT"
-      },
-      {
-        "title": "سلطنة عمان تشارك في قمة جنيف لاستشراف العلوم والدبلوماسية وتبحث تعزيز الشراكات الابتكارية - بوابة الأهرام",
-        "title_ar": "سلطنة عمان تشارك في قمة جنيف لاستشراف العلوم والدبلوماسية وتبحث تعزيز الشراكات الابتكارية - بوابة الأهرام",
-        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5tWlhqdTRubGFwSlFiZlZldGpvaHRHYTBEREVtX0dUbnZHcVdzRndwUXQ3bjRsNS1mdGJxc3FrZlU2MUVZc3hJdjYta1NuVGVLdDRIWkRR?oc=5",
-        "published": "Thu, 15 Oct 2026 12:58:00 GMT"
-      },
       {
         "title": "بدعم الإيرادات وترشيد المصروفات.. \"أريدو عُمان\" تضاعف أرباحها عن 9 أشهر - معلومات مباشر",
         "title_ar": "بدعم الإيرادات وترشيد المصروفات.. \"أريدو عُمان\" تضاعف أرباحها عن 9 أشهر - معلومات مباشر",
@@ -113,20 +89,44 @@
         "title_ar": "آيفون يطفو قبالة سواحل عُمان بعد غرق سفينة قرب مضيق هرمز - العربية",
         "link": "https://news.google.com/rss/articles/CBMi6ANBVV95cUxOcENiYkY1NVAzam16ZmpXZ2x4UVpJZlVlS0J3RldUT1VEX2UyaTYwcVpLaXVDQU1FeTVZMk5mRnN4aWFzcE1JMWlKOENnenhaclY2T1JlTDFJdXhMLTE2WTRWM3k2czVsTXhLdEo1dlRvTEF1ZXZ4ODg2RTdyemU3eXlIQTVaZ0p1V21pa3lNUUJ1NkhxWW9uSmgtWU4yUDYydFE0T2VoLU1LM2ZWM2w2MVlPR1JLUU9mQ21fUzFJUlZMVG9aRFBtdXVoRV90bW1zVi1qcWVJZmxsRTN3N0VTVGRSd2VjMDFHWGNiV3FPNkFVMVAteF9Ob1drT2pOZEJfel9tTzVXRjVNNUtTMm1QYlJMei1TWEJ4R2pRcUZsYzZQbnRJUzFLOWZ4UWpNOUROc3gzTFBHTXNyRmJJZmthTDM1eDRBVlZkZzh5aHBadmdYd0lNcFJvZU85ZElKWUc0em85Q25XT1hZbjc2ZWw4VENvR3ltelNnYk45c0tKX0hPVjhERkx2UTN1RkdKYnJPTFBKb0xFQzd0LUoxRndWNElpcTVZZDNYSE1kXzJTQXFUemF5TU9kcmpGelFkbUNUaTZKOGl2QTY2dmhRNnlnSFVOMV8xMzVCVHBWc1NJMWZWRDRaZ095S9IB7gNBVV95cUxPM2plTGk3ZTNIQWdtUzZ3YnlTR0tyeFpFYThFcTRGcmdfNjRuMUQ2eFFVVzZ6MVdtT2QtX0xCdmRtdjRseXJaODd1aHpQbXpWX1RYMnZGUnJmUndEdVFReGx1dnAtX2U0N2dGUldnOEY3TFZ5Y3hzVjN4Zm8yb0VsbXdqRjVFS1UwZW1Ib3NxZFBTX3Zza0hnUG5JbnJkQVdjclJqUEtiemNYQUNxN0Q2NnBMVDBUbGZraVFVSWVvbVlGd0cyejU1b19iY2k5dHEtMzg4dHRNZjJwVUs0cE1makh5TElCY2N4X2UyWHFrY0lqbVhJYzA1UDYtYlN3eEFPZmtRQWVhZDRvSTdfRVEyVEFTUWhVY0JqTVhIN19WRVVBbjJMVS1xd3FrNzMxNW9FVXNrVEJFTnFxWVRJaHZRel92U2NCSnFKN0duMnNybmdpSC1Ic0J2M1c1Vk1iNGJaWk9mTzM2TFhSVndGMjB0LVA2Yzk0UXgwVWw3elAtTVlMSWNSRmhuZ24taW9WLWVLWVRrMHZZRE1vNHc3cDhxcGpNR0hpTjlfOUwtUlVvR09HTnZ2aVlyeGM1UXhKZWpJOVdHSEh2TERWeTdUUVhiX0ZHbThESnlCdlF4YWNhaUNYRlctWEpLV0ZJaTZ6UQ?oc=5",
         "published": "Thu, 15 Oct 2026 10:27:00 GMT"
+      },
+      {
+        "title": "سلطنة عمان تشارك في قمة جنيف لاستشراف العلوم والدبلوماسية وتبحث تعزيز الشراكات الابتكارية - بوابة الأهرام",
+        "title_ar": "سلطنة عمان تشارك في قمة جنيف لاستشراف العلوم والدبلوماسية وتبحث تعزيز الشراكات الابتكارية - بوابة الأهرام",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5tWlhqdTRubGFwSlFiZlZldGpvaHRHYTBEREVtX0dUbnZHcVdzRndwUXQ3bjRsNS1mdGJxc3FrZlU2MUVZc3hJdjYta1NuVGVLdDRIWkRR?oc=5",
+        "published": "Thu, 15 Oct 2026 12:58:00 GMT"
+      },
+      {
+        "title": "أ ف ب: الحوثيون يرفضون طلبًا سعوديًا للاجتماع في عُمان - Masrawy",
+        "title_ar": "أ ف ب: الحوثيون يرفضون طلبًا سعوديًا للاجتماع في عُمان - Masrawy",
+        "link": "https://news.google.com/rss/articles/CBMi2ANBVV95cUxPdzhtTnFIZnBPMWdaODh0Y29GeGRyNUpUNzRCa1VtVm5La21EVVRyWVBDNE5yRVVobWhWQUhQdHJLOURiYlpWamtHTnc5Q1ZSNEYtellvZ0JuSElic1NjN3VkZzJxR3pMUDkwNDl4cFgyNXJGbFRaSjk4SXhGTHlrTTRYX1I0bVV0a0h2U3ItVENUbWlRcEc1QjJXNzZZYlk5dWR6Y0tyTWVVS3RkRXl3Vy0xbjVkZmhpN2ZFQi11WFlZczA1UUVSSFN3OEU2SjNUM1lHRHJNSnRnMWhfcklFZEhJZGlFRm0wanBpZEcxRnlpX2gtLWw3cGVIS2ZfQlFobm41WXZ4WEl1bVNUb05zcmRqV0t5VUdKV1B6MDNTQnhmTUllZVc4RmtGZFdwbWcxUW5lVU80NXhBNHp2UTJXWVpSMmNWMWxzZ1kxRWFodHJDOG9ldHN5Q05YRDhEWHJYLTZPX1ZLRkYtWm9SX3R3RVZZVk9IS0xBd3o0eEdFajlObks0Zi1PS0ttZHYwWXo5NUs5VWI3eWllTUM5MUcwcHVISUh6eGV3Vk1rRUpQYm1mWnBWZU9Mcks3UlA2dEk0Z3VZR1IxZTJEUjRjUGxxVUk3UVdWN1dY0gHeA0FVX3lxTE1VeHp2TU8xU3Rld2VQcFdWRmFRcDl5S0k4R3pQaUZQUG02UHFMWHZORHkxTHpnZ2hraVJGTjNHSDU4S2l1N1M2VW03MnRRdXZmdUo1TUpYaW5xYzFuT3RsWDM0UUM3dVRBbjRpZ3JSbkM5WkV1aFl3U1E5ZF9sT25lbWJaVkU4VFJ4Nm8yUXptMlFFaUEwcHd5aVdocnphb2FVV0pkNzBVSV8tYkFDaDVHTmNTQmNrbGlDZnZZQjdNUXB5cjZJbWJZMGQ5ZFczR1BuSms4X2VMV25FSnZLNUc1bnZaeXlxSm83OXh0OURvenZjcWUwZUFqTFoyaV9iQXpaOEM1cEo1Q3JPMGtWdHRmbzYtRlN5TWM3TnVXSFFmcFBiS3UxNmxGOEI0b3Y3d3RlZVNtZUhoZ2Z3UmRFMmZwV1k2czN6TzRVZG1qMzg3M2tWUmRyQ084VjFTU3V6Z0hFdnFoQ0p3Z09sMU5GOW1RaUtXSTdrNUxJV3VhTUswb0FFLTJ6eGJqVVpLcWJCeGFWLWxub2hzLUllNmdYM3NxOGtyZkNmMjdlWXNoeVJONXNjemx4S3Ztam1yWG9ZMW1Wei15bm50eC1OWEVKbUotM1YzS2IwTEZuYk9qWFE?oc=5",
+        "published": "Thu, 15 Oct 2026 14:13:46 GMT"
+      },
+      {
+        "title": "الأحد المقبل.. سلطنة عُمان تستضيف الدورة الـ6 لمجلس أعضاء المجلس الدولي للتمور - صدى البلد",
+        "title_ar": "الأحد المقبل.. سلطنة عُمان تستضيف الدورة الـ6 لمجلس أعضاء المجلس الدولي للتمور - صدى البلد",
+        "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5hUGw5emNSMGRBS3BORGxYYWpWLUUtYVZVTGhMSDAzeHByNXR1bVZUVGJvVFVYcFFIb2REdnIwSmtBamJ4amsw?oc=5",
+        "published": "Thu, 15 Oct 2026 10:54:00 GMT"
+      },
+      {
+        "title": "عُمان تحبط محاولة تهريب أفاعٍ مهددة بالانقراض عبر مطار مسقط الدولي - إرم نيوز",
+        "title_ar": "عُمان تحبط محاولة تهريب أفاعٍ مهددة بالانقراض عبر مطار مسقط الدولي - إرم نيوز",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE04N1ZxcUItYWhUeE5LQ2ZXWE9rNHZLS2tfTVh3YkhrYnpZQi1QaldKU0I1d3ZzRE9qbzBqWnI4RlZEMU8zMnVUWEdLdHowRTFKa2VNR0RpS2Vhdw?oc=5",
+        "published": "Wed, 14 Oct 2026 13:27:57 GMT"
       }
     ],
     "أخبار الكويت 🇰🇼": [
       {
-        "title": "العراق يعلن إعادة فتح المسارات الجوية مع الكويت - العربية",
-        "title_ar": "العراق يعلن إعادة فتح المسارات الجوية مع الكويت - العربية",
-        "link": "https://news.google.com/rss/articles/CBMisANBVV95cUxQallLbnVuNy1Fc2hMcTFRSkcwc0tVbEtWNG44R1FGX092d3lLS2dlYTBheVV3OFlXX1JRUE1CQU40YTQ4UGE3Z0M1NWlVaXNGSE81eDZPalZrbGtvLV9uRzhSNnVMWnZ6RGJSUm5ncndqclA0dmdzRGMyeDlVTUFrZ0pYdzdfWk5ZQWVIZFc3Q1lhY0Vxc2JlTHpSUXl4WVdIajNlbkVlOU9vcEVyXzlWQ04zamU2clpvbEVSUG92Q0x2cklJWXNGSmdnd09BWi1kaWVqWllCVWEybTZqck82eDduNnYtOGVnWW9rRVZqZ2lHYjFOYXlfemxCTV9RX1VqTU1OZnB3RGpwUV9hYWVDTTd0NXhZbXJyTFo4WFlMZEx4ZXJIQ1d5bThnZ1B3WS1vUm12eEI5YWdRXy1XLTBxYmprZUpoQzFtckFQbzhPZTRPQWF1MlBtVDVSbjU5ald2TGNWQ01EZkctLVkwSHk4UWxvaDNSbU9YTV9kQ09wQXN2aGd0a3ZORkhoOU1oUEUycExtZGlyUkdYZHYxYVZneDN1WnhYS2ZGSDRwYkwyNHnSAbYDQVVfeXFMT2xLa24yLWludktFSW1TaGstSnlrc2dIOG1uR1F2M3pXeHdhTk5Jc2kwUTBsQlJpVjFoUzZRbzQ5V0MxNEtLSjZSemtZNkc0NXlnMTQtWnlidmtYZTMxdEtuaVR6WldnVnI1S3J1cDlrVE03WE5mZXZHdXhhSEFJalNfSmZMb19vaFdLb3JGUzVuLWQwRDVXS256enkwekRnbThGYWFSNEdqU1FRX2ZjUkFUX3FWeG9KYlUxUXZCRUp3Ui1jUnBHeUFYMUxCWk5QUGpnSmMwanJrQ1FGZmdXOHBqTE9fbE5saXFCWDhLdUdmSFpOV1h1ZWx1R2ZmWjNJcVVQMUI2SG92LUo2SHhuaGVxTW1XZEVlTGlmT01kNzkxQ052djhURF91MGhOQlhNMUpzTmpGVlFmT3h0RDhGdEZRNlJqZkxueXo2TFhoTEJZZEFid3hKV2k3TU1XcDZXSnNNUkJmLXVXcElleTA3VXFHNk40Q3ozUmJMNFJHUFoyVlFpdHNMRk8tRWM4d1Q5b2hfaE5OQWxINVhxVzZVQU11Z18wbUV4WFh2UFdVblJPZ0lESVh3?oc=5",
-        "published": "Thu, 15 Oct 2026 15:48:00 GMT"
+        "title": "تراجع محدود فى أسعار الذهب بالكويت اليوم.. عيار 24 عند 41.525 دينار - اليوم السابع",
+        "title_ar": "تراجع محدود فى أسعار الذهب بالكويت اليوم.. عيار 24 عند 41.525 دينار - اليوم السابع",
+        "link": "https://news.google.com/rss/articles/CBMisgNBVV95cUxPX1Q0ellFa0dzREF2RFZrWG1zOVQwdi1LS1plTXVtYzVReFFTODZMZ0ZZVk9OU2NWZzNBbDdhOExiRGpscHQ3RTNsa1lWd195N2MwckxaMzBYWUQ2dDhDcHBQenBfNS1LRWo0Vmxwb0lCdW1xT3YxQXBDNVpHakFpVTRrXzQyalBuZzctY2Y3aThXc2ZIdzhOYzJCZWRKd0FadjRra1lLOEItTjJiNUdqdzFyS292QXJPbkxrRGNLcW9ETFgycm9TM21YY2pTalRZWjFpejZYVGh1ek1ObWpUc0cxN0o1T2hVbFl1VjJBNkJvbUpUQmY0VkpFVUZNaFJ5OEF5MUVVVzVhSDZEQmxlaUlHQ2Z6UzBTQXlLMXlpdXM4N1QyMzl1OUhqdmN1VGotbVh0TFdSenJYU3l1VU5DRktTVTJ2UXdNT2RfaDA5V1p2dVhzMzFGQ1lWTHRZSHZDcXVKejlPVEpYVkItWHpVaG5RWmx1bzdyWTg5V2J5OHlvYnR0LXp3Rk9yMFRZR1I1S2xwUE01VHBOMlZYd3QzVmpCdTFzM0doTlJtWXZEYW9tUdIBrANBVV95cUxOU1Z3cmVEOU9LZ01Dai0yeDhOT2xsajE5VnJ2NzVUOTdlcUhPZGNrU1FNUFY4YVkwUmRZT0NObEk2NUJMX2VCUVJCblRlRWQwOWRwcWpkUkc3SlE1WEVKdTdWcFd5eHhlWnJaMXY5SDVQd1dGVDVfNjR5ZWdRZTJpZEdjYkNHSUluSm1nb0p2TVdxX3h0TDA0ZGhYMWhXQmlWMllfcGxqNXFrbEl4enhwMVZtQVNJUGlwYzlGQTRGYUZVRlpkbW1MU3pLRGE5LWJyeVBOVEsxVUdyLTAtUl93bV93TERVWDBFWmE2QUMxcFJsSmstNUdoS0FoaHp2OC1yN1hRakZ4ZjBEbm9CQUQtMFRFQlpVYk9ucDVORmF0ZTNqMURBcllrUHpQQlZXREZLVS04cG5LS0lacXJ3c3FGelZmRjFROFJmMXFUUDVhMF9qeFNlaWxzVTh5SWRoTmszdWhhUGl2Nm1NODVucHFJUnNlN3ZwVFRhNWh5dmY4a3B5VzJ5RUVhaVVHeFRIalphYlBxOVMzOE94em1Uc3hPckY3a2I1MVFOYmx0SQ?oc=5",
+        "published": "Thu, 15 Oct 2026 09:00:00 GMT"
       },
       {
-        "title": "الأربعاء.. الكويت تستضيف قرعة السوبر السعودي - العربية",
-        "title_ar": "الأربعاء.. الكويت تستضيف قرعة السوبر السعودي - العربية",
-        "link": "https://news.google.com/rss/articles/CBMihANBVV95cUxQVGdld0h2ZG1HM0VYSHk2SFdLU3FCbThTdEx0b2J2S2d3dUlCRGcwMXJzem9nTTJINDVNX0xUcVJOUEJFNWR5RC1ReTZlazliMmJPdjlNUlMyTHRKaUFleUtOLS1VZFA5dldlcHpxWHd5TWMxUFNnbWVCdzJNTG9INUpJeFhpTG1GUGxkNFBMU05uN1l3TWkzWVRxbWhhdlRXQmVUSGJTMVdZQkVrUFdwcHFCYmhKc0s2dThkdDJzdTB4RkNWZThURWJiaEpjUHNQYm1RY25YanRhWjVSZVdaMGxXTjhSOGJxUHJIaURZdHprOTUzLUVCVEcyUFVqeXBsZFV1bTNha0owOXFqeFdjLXBRUlEybGhQNVZxLUh6WDZtdlN5TmpWS0dJLXYzX1RUVVhJOUF3S2ZlTHVoUGxxSEtMSmhIRGZuT2s3dDBGX0poRHFQYTNLWGZ3d21CcEMwWjUtenk0ZmFLZFdQZDhMb0V4LWRET2VYV3Y2Z0FHczVGbUx20gGKA0FVX3lxTE5FUzdWdkNhallEQzhld0t6RERCNTNWeVBDQU44Sm9UMjRxaDBSUEU5N1IzcEx3bUtoNEVORVIzWWhLTDUwMkRLZ0hzTVdxaGFlRVIxMkRDMldPSDNUZjRpbHF6MUktY2hxOU9tZnlSVFZwTWFIS2VFWFk3VXJSdjAwZmVRZWUzOTBHTWZLU1QyN1NQSGZ1dktoaDJjYVozMG1MSkNka0p5TkVINE9mUzNRXzFCbU1zSF9iWnF3SlA5TEI3VFMxZFZ4Si1xZUN3MHJDTFVrT2dQUGtxd3VBSmcwRDJmdWlkR1c0NXU4T0lMVnZkZFRuM0FrTVBWc2tSMW9Vc2JHOHc2SldBRC1hWW9aRktvN1Z5RV95QlRYcXpidlh2d3lTVUxJeFVMQTJLUU5OMUJmMnMyaUpYSXd2eGhUNUFvbDkybjNfTk1jcV9xa3dNb184RkV4ZHNpbWlCcU9LODVINGFtZHNvTkNIdU8tak1CRnFwM1RlNURwczlGN09DX3E2MmRsUGc?oc=5",
-        "published": "Tue, 13 Oct 2026 19:12:00 GMT"
+        "title": "الكويت تلغي نتائج امتحانات المرحلة الرابعة للوظائف الإشرافية لـ 4 أسباب - العربية",
+        "title_ar": "الكويت تلغي نتائج امتحانات المرحلة الرابعة للوظائف الإشرافية لـ 4 أسباب - العربية",
+        "link": "https://news.google.com/rss/articles/CBMi2ARBVV95cUxNOGdUT0tNRVNpVzhCWUNCX0ltQTZjbndHS2VaVkl6YlEwU196Si1NQjN5Um95NThnbVJ6UkxfX2JaQ3BKaW92RThvejNpWlBrU0tNRlhpdlQtaS1MRHltQkdIWUdaUUdMRjgxdm4wSFJSSWYzTHZ3Tzl2WnhVWngxbXAyYWxldjNxTjgtckMyN2hiX0JtY0Q4dUVpWkg1OWdBa0pnV3dRODFwbFY4UGR2cVI1VlhpSlBFcm0taUZkMXd4NUV5bFhKT2MxUlBJOUx1bi1yMnNsUE55WnpmV0UxRTZwM0duRTlrQWcwWkstUVJ5Z1RXdHlZOWplQ053RjJuSmk0enhfQzU3REVsZ0VFWEJnMUNCUUFnNVRXb0g0VkFVMGxBeF9jNzA3V1NOVlNoQWhheUJGanYzX3hPNF8zb280NkJubHBnWnJZMWZ5NHFjazIzd3E0TW1ROUthZXZsb2RmWHZ6TWx2VHFfRWU5QWNxY0dYRGpNc0xia0lvT3I2aV9CR3pzaVhxbDJod3dTcV9YVGdUeW1vNWwyRVV1all2M3FSb3VVNVRfZm42UXFzRXdkTDl4S0dfZTFta2xoeTNJNWlCdDBndkJvdUtod0pPVG81QjVpa3FFc3BjeFRJV2RFYm9vdlpQd055LUc5Ylh1dzdjbGxvSk5hSW1neExjYk5oNklzaHZBcE83ZHhNQTFvaTBxREFwUG9kbTQ4bTVrSnd1cnhLWkRvajJpYVhRWjFwQm9KLVdzczNVVC1WTHVUclhpMUEteXlMVWYwb1h6Tk9sX3bSAd4EQVVfeXFMT052UjBsbUVtNklmY3pkSXllS3pReVJCYlFRNkFpUEJ1SWtLWVVuaUhENXY2RUZtaFExVHgwV2xTcGlROHhsUjkwR1BzbGJnTHBhUXBOcXdQOHJoamlRa2JBckpWeS1pSWJldFVoVFJwbjZKMTZsaldBYWU0YlJ0bjBIcVpWSVlJX1A5aDNjUWdtTGdNTTVjSzd4RzhoNzZETWVRdFEzZWdOZmtZNmJWUTJlS3dZallSWWN4eGZXdUpzaEM2N2toM3cxajdYcm1YRGZKOU1TNElQbW05VGFWTGF3cWFUZWM5RjhjdmlOMUt3ZUtSQ0trZDBWMDZ5Y0o5MlRxNWpfUWpiQkUxU3hIU3pWWUZ5S25VLTJNcWt0cDRINDhSQ0JZOVlfbVR4bURlZG93aHJqSWNaR2lGQTZiTmRIT3F5WlZGWUJJQVZiWDBHczNMMFptbmJNcGZSQ2Q4RE5pakQzZlc5N3FUc2VCZk5La0JYXzNHRVpaOG4ybDFBcmlwZERRbmFzNmZLR29sM2E4cW1ybTYtcUs2RFdSVnlVSGhKYUptcGJMVldSWlFkTVBUS011d2Q1VkVydnVKbGVBX1hCUEt2dkIyS3ozTTdhR2RvLW1JZlZiOE1Vei1FUk9JSi1va2pfTmx0Z0l6djNrYnJ2M0U1dU1QcV9GSEN5RXRmTUhxWnJvZm41ZlVMeWx2MjcwbnlqbjVGY1A4TWxTaTRGRmxmbks5b1hEbTFFOUt5dnEybDdlbVBNZHJsZG5hS21rSG9UdHdMeG55bHdvVVFfa3I5eTNNSjB3?oc=5",
+        "published": "Thu, 15 Oct 2026 11:10:00 GMT"
       },
       {
         "title": "مؤشرات بورصة الكويت تتراجع جماعياً عند الإغلاق بضغط 10 قطاعات - معلومات مباشر",
@@ -135,10 +135,10 @@
         "published": "Thu, 15 Oct 2026 10:48:37 GMT"
       },
       {
-        "title": "ماكرون يزور الكويت والإمارات والبحرين وقطر خلال الفترة من 19 إلى 21 أكتوبر - اليوم السابع",
-        "title_ar": "ماكرون يزور الكويت والإمارات والبحرين وقطر خلال الفترة من 19 إلى 21 أكتوبر - اليوم السابع",
-        "link": "https://news.google.com/rss/articles/CBMi8gNBVV95cUxQYUdaYmwwQmJrNG9TTlpQRkNObVNPLVA4YmNQXzRkVHJmNndyak1LeDZTWjJfSnZKUzFCYl82RFo1T05Fd1VqNUM5YU9MZnZEZy1RRmVva0k4aGFEMWw2Z1Q3ZE1IRjhfUjRNN1k1NWh0aFRoSE1abk13cTh3Q0NSWXlWX3NpaG1NcWdfSmQ1cXRQWnY4NkhLUjdVSTVWaGRWM2FyUVctaEZHdHAwckoybTFUNVl3MVNVeEJhdUR4QnN2enRmZXFFLXExeFg0SFJ1ZVFNOUlHckN0VkE2Rm40MTdVS29QV010bGxDdXVvN2xtdWlyX2xxMFRvSUd5aDh1T2pqVm8xbjd4VGdPQkdjOVRjbjdzV2RvYXo4ZGo3ZnNjbmtJSG43ZXhuWUJiVzJvQWw4ODVlZ2haSGI1dFAwSzZUVm4wd21keFlmMm90S2IxcmxSVnNjSHk1ckxLcmRTUkMzdnZrMGpSV3lOQ0V2Qy1VNGwybEozTTJjTk95WWNrT3lBaVp4WmRaUEJYZjlTalpzZ2tYRkFwZHFGRGZhVFVXYjV4VDRuN1ZCYmN3WG5lX2xtWmNnRW9qdzRXUFpBelowc0NUQjhHVXZ4X2dIVVhaSmp4aUNXVlU2NU5ZdUpIVUxFc1FieWlkRFQxY0JkaHfSAewDQVVfeXFMUGlfZmN1LWg5YnJ5elhTRjR4OW1iNWNpdGR0bENPLXR4TmlYZVB0RkhyQUREcVlnZzJYdkVvWjRJWWt4ODFDTkdtV2JsRTdXRDdRSXNCR0pyS0RVMThybTc1UWEzTndkQ0Rxazg4V0NLT0pIenl2eVpXUmkzWDhIZ3pLWkxzc3dqYkt4ZWs2VVFmRjhrLUhzRGZNX3hmR2czUDBuZ21Dd3JiZHY4blhXcXdINlplZnZRRXpoUGdDN095c1RIRXJ4YUZPb0tWWnJSc1o5MGZyTXVDcEU1TktCNGNBcU9PN0RRWWxBckhTcEZHYnp1NDBnY1RUQ1h3OEY2YUFBd3VGdEFWdFQ0dk56NFlUbE5ndWdKd2s0Z29HSlF4ZzVoREE4RFdITm5ydWMweTRjaWxTUDFNb0ZDOXpySHUwVVJtNXNyWF8yNkhDckdsQTZ6VEx4MFEwQ1lndkpqRERlMHJqUDFORFhUeEhGZXBVX3pWd256aUJrQ0dWUFllYlNWcjRTeFMxam8xUmRnRWJLSGdsZkE5Wi0xaHNQZ3Brdy1RdFBEdXBjbWZyRFZnT0JxWFBGSG1GcEJock5kVjJfV0hReTRLc2RMb1dCWkxpWTFodkVnOUpUYW45YURGZGwxRFZvWmhKXzJo?oc=5",
-        "published": "Wed, 14 Oct 2026 20:26:00 GMT"
+        "title": "العراق يعلن إعادة فتح المسارات الجوية مع الكويت - بوابة الشروق",
+        "title_ar": "العراق يعلن إعادة فتح المسارات الجوية مع الكويت - بوابة الشروق",
+        "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQb3ZDUVZLVmRRa3p4LV9HSGNjdmZPaGh1dU9JMnBlYU5kZktVWVl4MUxndm9zamlYd19OT3pwMV9wLXVJc0tmcm5uOG5uelgyaG5sWXNQTE5BTnlZOEVwamh6TTFkZWtqVno3X0MxcGpkekhueE44aFRSaDdIaDZLQnNrSGMweV9xcFAwOGRoSGxXOVdFbnZTYTI1Qk56R1J6Wl9BdmJwNA?oc=5",
+        "published": "Thu, 15 Oct 2026 12:18:22 GMT"
       },
       {
         "title": "خلال زيارته الرسمية إلى الكويت.. نبيل فهمي يتناول التحديات التي تواجه المنطقة العربية وأهمية تعزيز التضامن العربي - بوابة الأهرام",
@@ -147,81 +147,81 @@
         "published": "Wed, 14 Oct 2026 14:52:00 GMT"
       },
       {
-        "title": "الكويت والإمارات تبحثان سبل تعزيز التعاون العسكري والدفاعي - بوابة الشروق",
-        "title_ar": "الكويت والإمارات تبحثان سبل تعزيز التعاون العسكري والدفاعي - بوابة الشروق",
-        "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNaWctXzU1a0tFWnhZVW9MUjVEbXlmZnFXaE5FTUU0RmtMeU9lNDB2dW1ZNnhVQnJsT3FoT0I5TDVHNjdzNTNJWnZmTTZEV0g1d0hSSzNqNUtMRXlRUUZuZFJTVXhmR2wxZXdybjBlNURocm1wVE5oRmVTRktTT25XdkEyZk9rUi0xdHJ4M3JjTURrVk0zSHoxQ0tyc0FKcHhsUE4wQUtKSQ?oc=5",
-        "published": "Wed, 14 Oct 2026 13:39:51 GMT"
+        "title": "الأربعاء.. الكويت تستضيف قرعة السوبر السعودي - العربية",
+        "title_ar": "الأربعاء.. الكويت تستضيف قرعة السوبر السعودي - العربية",
+        "link": "https://news.google.com/rss/articles/CBMihANBVV95cUxQVGdld0h2ZG1HM0VYSHk2SFdLU3FCbThTdEx0b2J2S2d3dUlCRGcwMXJzem9nTTJINDVNX0xUcVJOUEJFNWR5RC1ReTZlazliMmJPdjlNUlMyTHRKaUFleUtOLS1VZFA5dldlcHpxWHd5TWMxUFNnbWVCdzJNTG9INUpJeFhpTG1GUGxkNFBMU05uN1l3TWkzWVRxbWhhdlRXQmVUSGJTMVdZQkVrUFdwcHFCYmhKc0s2dThkdDJzdTB4RkNWZThURWJiaEpjUHNQYm1RY25YanRhWjVSZVdaMGxXTjhSOGJxUHJIaURZdHprOTUzLUVCVEcyUFVqeXBsZFV1bTNha0owOXFqeFdjLXBRUlEybGhQNVZxLUh6WDZtdlN5TmpWS0dJLXYzX1RUVVhJOUF3S2ZlTHVoUGxxSEtMSmhIRGZuT2s3dDBGX0poRHFQYTNLWGZ3d21CcEMwWjUtenk0ZmFLZFdQZDhMb0V4LWRET2VYV3Y2Z0FHczVGbUx20gGKA0FVX3lxTE5FUzdWdkNhallEQzhld0t6RERCNTNWeVBDQU44Sm9UMjRxaDBSUEU5N1IzcEx3bUtoNEVORVIzWWhLTDUwMkRLZ0hzTVdxaGFlRVIxMkRDMldPSDNUZjRpbHF6MUktY2hxOU9tZnlSVFZwTWFIS2VFWFk3VXJSdjAwZmVRZWUzOTBHTWZLU1QyN1NQSGZ1dktoaDJjYVozMG1MSkNka0p5TkVINE9mUzNRXzFCbU1zSF9iWnF3SlA5TEI3VFMxZFZ4Si1xZUN3MHJDTFVrT2dQUGtxd3VBSmcwRDJmdWlkR1c0NXU4T0lMVnZkZFRuM0FrTVBWc2tSMW9Vc2JHOHc2SldBRC1hWW9aRktvN1Z5RV95QlRYcXpidlh2d3lTVUxJeFVMQTJLUU5OMUJmMnMyaUpYSXd2eGhUNUFvbDkybjNfTk1jcV9xa3dNb184RkV4ZHNpbWlCcU9LODVINGFtZHNvTkNIdU8tak1CRnFwM1RlNURwczlGN09DX3E2MmRsUGc?oc=5",
+        "published": "Tue, 13 Oct 2026 19:12:00 GMT"
       }
     ]
   },
   "weather": {
     "Riyadh": {
-      "time": "2026-10-15T21:45",
+      "time": "2026-10-16T01:30",
       "interval": 900,
-      "temperature_2m": 31.7,
-      "relative_humidity_2m": 17,
-      "wind_speed_10m": 6.2,
-      "weather_code": 1
+      "temperature_2m": 28.8,
+      "relative_humidity_2m": 21,
+      "wind_speed_10m": 6.8,
+      "weather_code": 0
     },
     "Jeddah": {
-      "time": "2026-10-15T21:45",
+      "time": "2026-10-16T01:30",
       "interval": 900,
-      "temperature_2m": 30.8,
-      "relative_humidity_2m": 71,
-      "wind_speed_10m": 4.6,
+      "temperature_2m": 29.4,
+      "relative_humidity_2m": 72,
+      "wind_speed_10m": 2.9,
       "weather_code": 0
     },
     "Dubai": {
-      "time": "2026-10-15T22:45",
+      "time": "2026-10-16T02:45",
       "interval": 900,
-      "temperature_2m": 31.6,
+      "temperature_2m": 30.8,
       "relative_humidity_2m": 78,
-      "wind_speed_10m": 4.0,
+      "wind_speed_10m": 1.1,
       "weather_code": 0
     },
     "Abu Dhabi": {
-      "time": "2026-10-15T22:45",
+      "time": "2026-10-16T02:45",
       "interval": 900,
-      "temperature_2m": 31.2,
-      "relative_humidity_2m": 80,
-      "wind_speed_10m": 12.2,
+      "temperature_2m": 30.5,
+      "relative_humidity_2m": 78,
+      "wind_speed_10m": 4.8,
       "weather_code": 0
     },
     "Muscat": {
-      "time": "2026-10-15T22:45",
+      "time": "2026-10-16T02:45",
       "interval": 900,
-      "temperature_2m": 29.8,
+      "temperature_2m": 28.3,
       "relative_humidity_2m": 59,
-      "wind_speed_10m": 4.7,
+      "wind_speed_10m": 2.8,
       "weather_code": 0
     },
     "Kuwait City": {
-      "time": "2026-10-15T21:45",
+      "time": "2026-10-16T01:45",
       "interval": 900,
-      "temperature_2m": 28.1,
-      "relative_humidity_2m": 60,
+      "temperature_2m": 26.2,
+      "relative_humidity_2m": 65,
       "wind_speed_10m": 4.7,
-      "weather_code": 1
+      "weather_code": 3
     }
   },
   "markets": {
     "USD/SAR": 3.7516,
-    "USD/AED": 3.6726,
+    "USD/AED": 3.6725,
     "USD/OMR": 0.3849,
-    "USD/KWD": 0.3081,
-    "Brent Crude": 105.88,
-    "Gold": 4178.7002,
+    "USD/KWD": 0.3104,
+    "Brent Crude": 105.58,
+    "Gold": 4189.0,
     "crypto": {
       "bitcoin": {
-        "usd": 82200
+        "usd": 82434
       },
       "ethereum": {
-        "usd": 2445.23
+        "usd": 2456.94
       }
     }
   },
   "flights": {
-    "DXB (Dubai)": 9,
+    "DXB (Dubai)": 4,
     "RUH (Riyadh)": 0,
     "MCT (Muscat)": 0
   },
