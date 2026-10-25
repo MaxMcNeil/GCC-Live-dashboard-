@@ -1,11 +1,7 @@
 name: Update GCC Live Data
 
 on:
-  schedule:
-    - cron: "0 */5 * * *"   # toutes les 5 heures
   workflow_dispatch: {}       # bouton "Run workflow" manuel
-  push:
-    branches: [main]
 
 permissions:
   contents: write
